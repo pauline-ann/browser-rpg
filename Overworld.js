@@ -13,5 +13,23 @@ class Overworld {
             this.ctx.drawImage(image, 0, 0) // this call back is fired and image pixels are copied onto canvas
         }
         image.src = "/images/maps/DemoLower.png" // path to image that we want to load
+
+        const x = 5;
+        const y = 6;
+        const hero = new Image();
+        hero.onload = () => {
+            this.ctx.drawImage(
+                hero,
+                0, // left cut
+                0, // top cut
+                32, // width of cut
+                32, // height of cut
+                x * 16 - 8, // x position of hero
+                y * 16 - 18, // y position of hero
+                32, // scale/size of character on map
+                32, 
+            )
+        }
+        hero.src = "/images/characters/people/hero.png"
     }
 }
