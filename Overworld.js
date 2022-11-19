@@ -8,6 +8,10 @@ class Overworld {
     }
 
     init() {
-        console.log('Hello from Overworld constructor', this)
+        const image = new Image();
+        image.onload = () => {
+            this.ctx.drawImage(image, 0, 0) // this call back is fired and image pixels are copied onto canvas
+        }
+        image.src = "/images/maps/DemoLower.png" // path to image that we want to load
     }
 }
