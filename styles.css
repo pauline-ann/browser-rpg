@@ -3,18 +3,20 @@
 }
 
 body {
-    background: rgb(156, 123, 174);
+    background: #c4bebb;
     padding: 0;
     margin: 0;
     overflow: hidden;
 }
 
 .game-container {
+    background: #8bac0f;
     position: relative;
     width: 352px;
-    height: 198px;
+    height: 218px; /* 198 */
     margin: 0 auto;
-    outline: 1px solid #fff;
+    border: 10px solid #484a4a;
+    border-radius: 10px;
 
     transform: scale(4) translateY(50%);
 }
