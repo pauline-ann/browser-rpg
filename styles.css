@@ -1,26 +1,26 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    background: #c4bebb;
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
+  background: #c4bebb;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
 }
 
 .game-container {
-    background: #8bac0f;
-    position: relative;
-    width: 352px;
-    height: 218px; /* 198 */
-    margin: 0 auto;
-    border: 10px solid #484a4a;
-    border-radius: 10px;
+  background: #8bac0f;
+  position: relative;
+  width: 352px;
+  height: 218px; /* 198 */
+  margin: 0 auto;
+  border: 10px solid #484a4a;
+  border-radius: 10px;
 
-    transform: scale(4) translateY(50%);
+  transform: scale(4) translateY(50%);
 }
 
 .game-container canvas {
-    image-rendering: pixelated;
+  image-rendering: pixelated;
 }
