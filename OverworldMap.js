@@ -31,6 +31,31 @@ class OverworldMap {
     const { x, y } = utils.nextPosition(currentX, currentY, direction)
     return this.walls[`${x},${y}`] || false // if there is a wall, will evaluate to true
   }
+
+  mountObjects() {
+    Object.values(this.gameObjects).forEach(obj => {
+
+      // TODO: determine if this object should actually mount or not
+
+      // mount object onto map
+      obj.mount(this)
+    })
+  }
+
+  // functions below help with moving characters on screen
+  addWall(x, y) {
+    this.walls[`${x},${y}`] = true
+  }
+
+  removeWall(x, y) {
+    delete this.walls[`${x},${y}`]
+  }
+
+  moveWall(wasX, wasY, direction) {
+    this.removeWall(wasX, wasY)
+    const { x, y } = utils.nextPosition(wasX, wasY, direction)
+    this.addWall(x, y)
+  }
 }
 
 // object containing all the different maps within game
