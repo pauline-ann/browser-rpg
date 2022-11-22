@@ -23,17 +23,20 @@ class Sprite {
       // default
       // each animation has a name and a series of frames inside of an array
       // define all walking and standing animations
-      "idle-down": [
-        [0, 0]
-      ],
-      "walk-down": [
-        [1,0], [0,0], [3,0], [0,0]
-      ]
+      "idle-down": [ [0, 0] ],
+      "idle-right": [ [0, 1] ],
+      "idle-up": [ [0, 2] ],
+      "idle-left": [ [0, 3] ],
+      "walk-down": [ [1,0], [0,0], [3,0], [0,0] ],
+      "walk-right": [ [1,1], [0,1], [3,1], [0,1],],
+      "walk-up": [ [1,2], [0,2], [3,2], [0,2] ],
+      "walk-left": [ [1,3], [0,3], [3,3], [0,3] ]
     }
-    this.currentAnimation = "walk-down" //config.currentAnimation || "idle-down"
+
+    this.currentAnimation = config.currentAnimation || "idle-down"
     this.currentAnimationFrame = 0 // which array within array of animation frames are we displaying
 
-    this.animationFrameLimit = config.animationFrameLimit || 16 // how many game loop frames do we want to show ie) cadence\
+    this.animationFrameLimit = config.animationFrameLimit || 8 // number of frames before next sprite sheet cut
     this.animationFrameProgress = this.animationFrameLimit
 
     // Reference the game object (what created sprite)
@@ -43,6 +46,15 @@ class Sprite {
   // in charge of keeping track of current animation and animation frame
   get frame() {
     return this.animations[this.currentAnimation][this.currentAnimationFrame]
+  }
+
+  // take in a key corresponding to animations object
+  setAnimation(key) {
+    if (this.currentAnimation !== key) {
+      this.currentAnimation = key
+      this.currentAnimationFrame = 0
+      this.animationFrameProgress = this.animationFrameLimit
+    }
   }
 
   updateAnimationProgress () {
