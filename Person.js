@@ -15,33 +15,49 @@ class Person extends GameObject {
     }
 
     update(state) {
-        this.updatePosition()
-        this.updateAnimation(state)
+        if (this.movingProgressRemaining > 0) {
+            this.updatePosition()
+        } else {
+            if (this.isPlayerControlled && state.arrow) { // detect when arrow is being pressed
+                this.startBehavior(state, {
+                    type: "walk", // case: awaiting player to provide input
+                    direction: state.arrow
+                })
+            }
 
-        if (this.isPlayerControlled && this.movingProgressRemaining === 0 && state.arrow) { // detect when arrow is being pressed
-            this.direction = state.arrow // update direction
+            // todo: add more cases for starting to walk
+
+            this.updateAnimation(state)
+        }
+    }
+
+    startBehavior(state, behavior) {
+        this.direction = behavior.direction // update character direction to behavior direction
+        if (behavior.type === "walk") {
+            // stop here if space isn't free
+            if (state.map.isSpaceTaken(this.x, this.y, this.direction)) {
+                return
+            }
+
+            // proceed to walk
             this.movingProgressRemaining = 16 // reset counter
         }
     }
 
     // update person sprite's position
     updatePosition() {
-        if(this.movingProgressRemaining > 0) {
-            const [property, change] = this.directionUpdate[this.direction]
-            this[property] += change
-            this.movingProgressRemaining -= 1
-        }
+        const [property, change] = this.directionUpdate[this.direction]
+        this[property] += change
+        this.movingProgressRemaining -= 1
+
     }
 
     // update person sprite's animation
-    updateAnimation(state) {
-        if (this.isPlayerControlled && this.movingProgressRemaining === 0 && !state.arrow){ // made it to next space and no arrow pressed
-            this.sprite.setAnimation("idle-"+this.direction)
+    updateAnimation() {
+        if (this.movingProgressRemaining > 0) {
+            this.sprite.setAnimation("walk-" + this.direction)
             return
         }
-
-        if (this.movingProgressRemaining > 0) {
-            this.sprite.setAnimation("walk-"+this.direction)
-        }
+        this.sprite.setAnimation("idle-" + this.direction)
     }
 }
