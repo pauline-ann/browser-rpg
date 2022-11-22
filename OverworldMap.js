@@ -8,6 +8,8 @@ class OverworldMap {
 
     this.upperImage = new Image()
     this.upperImage.src = config.upperSrc // contain things we draw above the characters
+
+    this.isCutscenePlaying = false
   }
 
   drawLowerImage(ctx, cameraPerson) {
@@ -33,12 +35,15 @@ class OverworldMap {
   }
 
   mountObjects() {
-    Object.values(this.gameObjects).forEach(obj => {
+    Object.keys(this.gameObjects).forEach(key => {
+
+      let object = this.gameObjects[key]
+      object.id = key // "hero", "npcA"
 
       // TODO: determine if this object should actually mount or not
 
       // mount object onto map
-      obj.mount(this)
+      object.mount(this)
     })
   }
 
@@ -73,6 +78,24 @@ window.OverworldMaps = {
         x: utils.withGrid(7),
         y: utils.withGrid(9),
         src: "/images/characters/people/npc1.png",
+        behaviorLoop: [
+          { type: "stand", direction: "left", time: 800 },
+          { type: "stand", direction: "up", time: 800 },
+          { type: "stand", direction: "right", time: 1200 },
+          { type: "stand", direction: "up", time: 800 },
+        ]
+      }),
+      npc2: new Person({
+        x: utils.withGrid(3),
+        y: utils.withGrid(7),
+        src: "/images/characters/people/npc2.png",
+        behaviorLoop: [
+          { type: "walk", direction: "left" },
+          { type: "stand", direction: "up", time: 800 },
+          { type: "walk", direction: "up" },
+          { type: "walk", direction: "right" },
+          { type: "walk", direction: "down" }
+        ]
       }),
     },
     walls: {
@@ -80,6 +103,37 @@ window.OverworldMaps = {
       [utils.asGridCoord(8, 6)]: true,
       [utils.asGridCoord(7, 7)]: true,
       [utils.asGridCoord(8, 7)]: true,
+      [utils.asGridCoord(1, 3)]: true,
+      [utils.asGridCoord(2, 3)]: true,
+      [utils.asGridCoord(3, 3)]: true,
+      [utils.asGridCoord(4, 3)]: true,
+      [utils.asGridCoord(5, 3)]: true,
+      [utils.asGridCoord(6, 4)]: true,
+      [utils.asGridCoord(8, 4)]: true,
+      [utils.asGridCoord(9, 3)]: true,
+      [utils.asGridCoord(10, 3)]: true,
+      [utils.asGridCoord(0, 4)]: true,
+      [utils.asGridCoord(0, 5)]: true,
+      [utils.asGridCoord(0, 6)]: true,
+      [utils.asGridCoord(0, 7)]: true,
+      [utils.asGridCoord(0, 8)]: true,
+      [utils.asGridCoord(0, 9)]: true,
+      [utils.asGridCoord(11, 4)]: true,
+      [utils.asGridCoord(11, 5)]: true,
+      [utils.asGridCoord(11, 6)]: true,
+      [utils.asGridCoord(11, 7)]: true,
+      [utils.asGridCoord(11, 8)]: true,
+      [utils.asGridCoord(11, 9)]: true,
+      [utils.asGridCoord(11, 10)]: true,
+      [utils.asGridCoord(1, 10)]: true,
+      [utils.asGridCoord(2, 10)]: true,
+      [utils.asGridCoord(3, 10)]: true,
+      [utils.asGridCoord(4, 10)]: true,
+      [utils.asGridCoord(6, 10)]: true,
+      [utils.asGridCoord(7, 10)]: true,
+      [utils.asGridCoord(8, 10)]: true,
+      [utils.asGridCoord(9, 10)]: true,
+      [utils.asGridCoord(10, 10)]: true,
     }
   },
   Kitchen: {
@@ -90,12 +144,12 @@ window.OverworldMaps = {
         x: utils.withGrid(3),
         y: utils.withGrid(5),
       }),
-      npcA: new GameObject({
+      npc2: new GameObject({
         x: utils.withGrid(9),
         y: utils.withGrid(6),
         src: "/images/characters/people/npc2.png",
       }),
-      npcB: new GameObject({
+      npc3: new GameObject({
         x: utils.withGrid(10),
         y: utils.withGrid(8),
         src: "/images/characters/people/npc3.png",
