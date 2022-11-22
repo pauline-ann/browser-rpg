@@ -2,9 +2,9 @@
 class Person extends GameObject {
     constructor(config) {
         super(config) // run constructor for GameObject as well
+        this.movingProgressRemaining = 0 // lock people to grid
 
-        // Values specific just for people movement
-        this.movingProgressRemaining = 32 // lock people to grid
+        this.isPlayerControlled = config.isPlayerControlled || false
 
         this.directionUpdate = {
             "up": ["y", -1],
@@ -17,6 +17,11 @@ class Person extends GameObject {
     // update person sprite's position
     update(state) {
         this.updatePosition()
+
+        if (this.isPlayerControlled && this.movingProgressRemaining === 0 && state.arrow) { // detect when arrow is being pressed
+            this.direction = state.arrow // update direction
+            this.movingProgressRemaining = 16 // reset counter
+        }
     }
 
     updatePosition() {
