@@ -2,41 +2,41 @@
 class Sprite {
   constructor(config) {
     // Set up the image
-    this.image = new Image();
-    this.image.src = config.src; // path to image that we want to load
+    this.image = new Image()
+    this.image.src = config.src // path to image that we want to load
     this.image.onload = () => {
-      this.isLoaded = true;
-    };
+      this.isLoaded = true
+    }
 
     //Shadow
-    this.shadow = new Image();
-    this.useShadow = true; // hard code for now, later config.useShadow || false
+    this.shadow = new Image()
+    this.useShadow = true // hard code for now, later config.useShadow || false
     if (this.useShadow) {
-      this.shadow.src = "/images/characters/shadow.png";
+      this.shadow.src = "/images/characters/shadow.png"
     }
     this.shadow.onload = () => {
-      this.isShadowLoaded = true;
-    };
+      this.isShadowLoaded = true
+    }
 
     // Configuring Animations & Initial State
     this.animations = config.animations || {
       // default
       // each animation has a name and a series of frames inside of an array
       idleDown: [[0, 0]],
-    };
-    this.currentAnimation = config.currentAnimation || "idleDown";
-    this.currentAnimationFrame = 0; // which array within array of animation frames are we displaying
+    }
+    this.currentAnimation = config.currentAnimation || "idleDown"
+    this.currentAnimationFrame = 0 // which array within array of animation frames are we displaying
 
     // Reference the game object (what created sprite)
-    this.gameObject = config.gameObject;
+    this.gameObject = config.gameObject
   }
 
   // this call back is fired and image pixels are copied onto canvas
   draw(ctx) {
-    const x = this.gameObject.x * 16 - 8;
-    const y = this.gameObject.y * 16 - 18;
+    const x = this.gameObject.x * 16 - 8
+    const y = this.gameObject.y * 16 - 18
 
-    this.isShadowLoaded && ctx.drawImage(this.shadow, x, y);
+    this.isShadowLoaded && ctx.drawImage(this.shadow, x, y)
 
     // draw sprite only once sprite is loaded
     this.isLoaded &&
@@ -50,6 +50,6 @@ class Sprite {
         y, // y position of hero
         32, // scale/size of character on map
         32
-      );
+      )
   }
 }
