@@ -31,7 +31,8 @@ class OverworldEvent {
             map: this.map
         }, {
             type: "walk",
-            direction: this.event.direction
+            direction: this.event.direction,
+            retry: true // not always appropriate to do, ex) playable character
         })
 
         // set up a handler to complete when correct person is done walking, then resolve event

@@ -38,6 +38,13 @@ class Person extends GameObject {
         if (behavior.type === "walk") {
             // stop here if space isn't free
             if (state.map.isSpaceTaken(this.x, this.y, this.direction)) {
+
+                if (behavior.retry) {
+                    setTimeout(() => {
+                        this.startBehavior(state, behavior)
+                    }, 10)
+                }
+
                 return
             }
 
