@@ -30,7 +30,13 @@ class Overworld {
       this.map.drawLowerImage(this.ctx, cameraPerson)
 
       // draw Game Objects
-      Object.values(this.map.gameObjects).forEach(object => {
+      const coordArrayY = Object.values(this.map.gameObjects)
+      const sortedArrayY = coordArrayY.sort((a, b) => {
+        return a.y - b.y
+      })
+
+      // draw objects in lower Y coordinates first
+      sortedArrayY.forEach(object => {
         object.sprite.draw(this.ctx, cameraPerson)
       })
 
