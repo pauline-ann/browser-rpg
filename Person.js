@@ -18,14 +18,15 @@ class Person extends GameObject {
         if (this.movingProgressRemaining > 0) {
             this.updatePosition()
         } else {
-            if (this.isPlayerControlled && state.arrow) { // detect when arrow is being pressed
+            // TODO: add more cases for moving position
+
+            // case: awaiting player to provide input
+            if (!state.map.isCutscenePlaying && this.isPlayerControlled && state.arrow) { // detect when arrow is being pressed
                 this.startBehavior(state, {
-                    type: "walk", // case: awaiting player to provide input
+                    type: "walk",
                     direction: state.arrow
                 })
             }
-
-            // TODO: add more cases for moving position
 
             this.updateAnimation(state)
         }
