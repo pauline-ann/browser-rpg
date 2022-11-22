@@ -9,6 +9,7 @@ class Overworld {
   }
 
   startGameLoop() {
+    // todo: Delta Time - keep track of time passed since last frame and do some math
     const step = () => {
       //Clear off the canvas
       this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
@@ -18,7 +19,10 @@ class Overworld {
 
       //Draw Game Objects
       Object.values(this.map.gameObjects).forEach(object => {
-        // object.x += 0.02
+        object.update({
+          // keep track of things that will change to help objects decide what to do next
+          arrow: this.directionInput.direction
+        })
         object.sprite.draw(this.ctx)
       })
 
@@ -34,7 +38,11 @@ class Overworld {
 
   init() {
     // create new instance of OverworldMap, passing over config from specific map, in this case DemoRoom
-    this.map = new OverworldMap(window.OverworldMaps.Kitchen)
+    this.map = new OverworldMap(window.OverworldMaps.DemoRoom)
+
+    this.directionInput = new DirectionInput()
+    this.directionInput.init()
+
     this.startGameLoop()
   }
 }
