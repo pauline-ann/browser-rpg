@@ -1,6 +1,7 @@
 class OverworldMap {
   constructor(config) {
     this.gameObjects = config.gameObjects
+    this.walls = config.walls || {}
 
     this.lowerImage = new Image()
     this.lowerImage.src = config.lowerSrc // contain tiles
@@ -25,6 +26,11 @@ class OverworldMap {
       utils.withGrid(6) - cameraPerson.y
     )
   }
+
+  isSpaceTaken(currentX, currentY, direction) {
+    const { x, y } = utils.nextPosition(currentX, currentY, direction)
+    return this.walls[`${x},${y}`] || false // if there is a wall, will evaluate to true
+  }
 }
 
 // object containing all the different maps within game
@@ -44,6 +50,12 @@ window.OverworldMaps = {
         src: "/images/characters/people/npc1.png",
       }),
     },
+    walls: {
+      [utils.asGridCoord(7, 6)]: true, // "7,6": true
+      [utils.asGridCoord(8, 6)]: true,
+      [utils.asGridCoord(7, 7)]: true,
+      [utils.asGridCoord(8, 7)]: true,
+    }
   },
   Kitchen: {
     lowerSrc: "/images/maps/KitchenLower.png",
