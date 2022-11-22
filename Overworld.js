@@ -11,23 +11,30 @@ class Overworld {
   startGameLoop() {
     // todo: Delta Time - keep track of time passed since last frame and do some math
     const step = () => {
-      //Clear off the canvas
+      // clear canvas
       this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
 
-      // Draw lower layer
-      this.map.drawLowerImage(this.ctx)
+      // establish camera person
+      const cameraPerson = this.map.gameObjects.hero // this can be useful for cut scenes to change camera focus
 
-      //Draw Game Objects
+      // udpate all objects
       Object.values(this.map.gameObjects).forEach(object => {
         object.update({
           // keep track of things that will change to help objects decide what to do next
           arrow: this.directionInput.direction
         })
-        object.sprite.draw(this.ctx)
       })
 
-      // Draw upper layer
-      this.map.drawUpperImage(this.ctx)
+      // draw lower layer
+      this.map.drawLowerImage(this.ctx, cameraPerson)
+
+      // draw Game Objects
+      Object.values(this.map.gameObjects).forEach(object => {
+        object.sprite.draw(this.ctx, cameraPerson)
+      })
+
+      //draw upper layer
+      this.map.drawUpperImage(this.ctx, cameraPerson)
 
       requestAnimationFrame(() => {
         step() // step function calls step() again when a new frame starts. not an app breaking infinite loop - other processes may still run
