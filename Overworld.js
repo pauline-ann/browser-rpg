@@ -57,6 +57,15 @@ class Overworld {
     })
   }
 
+  bindHeroPositionCheck() {
+    document.addEventListener("PersonWalkingComplete", e => {
+      if (e.detail.whoId === "hero") {
+        // Hero's position has changed
+        this.map.checkForFootstepCutscene()
+      }
+    })
+  }
+
   init() {
     // create new instance of OverworldMap, passing over config from specific map, in this case DemoRoom
     this.map = new OverworldMap(window.OverworldMaps.DemoRoom)
@@ -65,6 +74,7 @@ class Overworld {
     this.map.mountObjects()
 
     this.bindActionInput()
+    this.bindHeroPositionCheck()
 
     this.directionInput = new DirectionInput()
     this.directionInput.init()

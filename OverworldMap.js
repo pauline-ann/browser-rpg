@@ -1,6 +1,7 @@
 class OverworldMap {
   constructor(config) {
     this.gameObjects = config.gameObjects
+    this.cutsceneSpaces = config.cutsceneSpaces || {}
     this.walls = config.walls || {}
 
     this.lowerImage = new Image()
@@ -74,7 +75,16 @@ class OverworldMap {
     })
 
     if (!this.isCutscenePlaying && match && match.talking.length) {
-      this.startCutscene(match.talking[0].events)
+      this.startCutscene(match.talking[0].events) // TODO: make index dynamic relative to story progress
+    }
+  }
+
+  checkForFootstepCutscene() {
+    const hero = this.gameObjects["hero"]
+    const match = this.cutsceneSpaces[`${hero.x},${hero.y}`] // look up if hero is on cutscene space
+    if (!this.isCutscenePlaying && match) {
+      this.startCutscene(match[0].events) // TODO: make index dynamic relative to story progress
+      console.log(match[0].events)
     }
   }
 
@@ -120,21 +130,29 @@ window.OverworldMaps = {
             events: [
               { type: "textMessage", text: "um...hi?", faceHero: "npc1" },
               { type: "textMessage", text: "you're so random" },
-              { who: "hero", type: "walk", direction: "up" }
+              { who: "hero", type: "walk", direction: "left" }
             ]
           }
         ]
       }),
       npc2: new Person({
-        x: utils.withGrid(3),
-        y: utils.withGrid(7),
+        x: utils.withGrid(8),
+        y: utils.withGrid(5),
         src: "/images/characters/people/npc2.png",
-        behaviorLoop: [
-          { type: "walk", direction: "left" },
-          { type: "stand", direction: "up", time: 800 },
-          { type: "walk", direction: "up" },
-          { type: "walk", direction: "right" },
-          { type: "walk", direction: "down" }
+        // behaviorLoop: [
+        //   { type: "walk", direction: "left" },
+        //   { type: "stand", direction: "up", time: 800 },
+        //   { type: "walk", direction: "up" },
+        //   { type: "walk", direction: "right" },
+        //   { type: "walk", direction: "down" }
+        // ],
+        talking: [
+          {
+            events: [
+              { type: "textMessage", text: "Can I help you?", faceHero: "npc2" },
+              { who: "npc2", type: "stand", direction: "down" }
+            ]
+          }
         ]
       }),
     },
@@ -174,6 +192,22 @@ window.OverworldMaps = {
       [utils.asGridCoord(8, 10)]: true,
       [utils.asGridCoord(9, 10)]: true,
       [utils.asGridCoord(10, 10)]: true,
+    },
+    cutsceneSpaces: {
+      [utils.asGridCoord(7, 4)]: [
+        {
+          events: [
+            { who: "npc2", type: "walk", direction: "left" },
+            { who: "npc2", type: "stand", direction: "up", time: 500 },
+            { type: "textMessage", text: "Hey, get outta there!" },
+            { who: "npc2", type: "walk", direction: "right" },
+            { who: "npc2", type: "stand", direction: "left", time: 500 },
+            { who: "hero", type: "walk", direction: "down" },
+            { who: "npc2", type: "stand", direction: "down" },
+            { who: "hero", type: "walk", direction: "left" },
+          ]
+        }
+      ]
     }
   },
   Kitchen: {
