@@ -12,6 +12,8 @@ class GameObject {
 
         this.behaviorLoop = config.behaviorLoop || []
         this.behaviorLoopIndex = 0
+
+        this.talking = config.talking || []
     }
 
     // add wall where there are game objects

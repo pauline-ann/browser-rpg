@@ -72,6 +72,10 @@ class OverworldMap {
     const match = Object.values(this.gameObjects).find(object => {
       return `${object.x},${object.y}` === `${nextCoords.x},${nextCoords.y}`
     })
+
+    if (!this.isCutscenePlaying && match && match.talking.length) {
+      this.startCutscene(match.talking[0].events)
+    }
   }
 
   // functions below help with moving characters on screen
@@ -110,6 +114,15 @@ window.OverworldMaps = {
           { type: "stand", direction: "up", time: 800 },
           { type: "stand", direction: "right", time: 1200 },
           { type: "stand", direction: "up", time: 800 },
+        ],
+        talking: [
+          {
+            events: [
+              { type: "textMessage", text: "um...hi?", faceHero: "npc1" },
+              { type: "textMessage", text: "you're so random" },
+              { who: "hero", type: "walk", direction: "up" }
+            ]
+          }
         ]
       }),
       npc2: new Person({
