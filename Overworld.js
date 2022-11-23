@@ -66,12 +66,19 @@ class Overworld {
     })
   }
 
-  init() {
+  // function to be used for switching maps
+  startMap(mapConfig) {
     // create new instance of OverworldMap, passing over config from specific map, in this case DemoRoom
-    this.map = new OverworldMap(window.OverworldMaps.DemoRoom)
+    this.map = new OverworldMap(mapConfig)
+
+    this.map.overworld = this
 
     // mount game objects onto map
     this.map.mountObjects()
+  }
+
+  init() {
+    this.startMap(window.OverworldMaps.DemoRoom)
 
     this.bindActionInput()
     this.bindHeroPositionCheck()
