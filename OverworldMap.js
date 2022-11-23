@@ -65,6 +65,15 @@ class OverworldMap {
     Object.values(this.gameObjects).forEach(object => object.doBehaviorEvent(this))
   }
 
+  checkForActionCutscene() {
+    const hero = this.gameObjects["hero"] // TODO: make dynamic
+    const nextCoords = utils.nextPosition(hero.x, hero.y, hero.direction)
+
+    const match = Object.values(this.gameObjects).find(object => {
+      return `${object.x},${object.y}` === `${nextCoords.x},${nextCoords.y}`
+    })
+  }
+
   // functions below help with moving characters on screen
   addWall(x, y) {
     this.walls[`${x},${y}`] = true

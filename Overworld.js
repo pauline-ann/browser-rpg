@@ -50,6 +50,13 @@ class Overworld {
     step()
   }
 
+  bindActionInput() {
+    new keyPressListener("Enter", () => {
+      // Is there someone here to talk to?
+      this.map.checkForActionCutscene()
+    })
+  }
+
   init() {
     // create new instance of OverworldMap, passing over config from specific map, in this case DemoRoom
     this.map = new OverworldMap(window.OverworldMaps.DemoRoom)
@@ -57,18 +64,20 @@ class Overworld {
     // mount game objects onto map
     this.map.mountObjects()
 
+    this.bindActionInput()
+
     this.directionInput = new DirectionInput()
     this.directionInput.init()
 
     this.startGameLoop()
 
-    this.map.startCutscene([
-      { who: "hero", type: "walk", direction: "down" },
-      { who: "hero", type: "walk", direction: "down" },
-      { who: "hero", type: "walk", direction: "down" },
-      { who: "npc1", type: "walk", direction: "left" },
-      { who: "hero", type: "stand", direction: "right", time: 200 },
-      { type: "textMessage", text: "um...hi?" },
-    ])
+    // this.map.startCutscene([
+    //   { who: "hero", type: "walk", direction: "down" },
+    //   { who: "hero", type: "walk", direction: "down" },
+    //   { who: "hero", type: "walk", direction: "down" },
+    //   { who: "npc1", type: "walk", direction: "left" },
+    //   { who: "hero", type: "stand", direction: "right", time: 200 },
+    //   { type: "textMessage", text: "um...hi?" },
+    // ])
   }
 }
