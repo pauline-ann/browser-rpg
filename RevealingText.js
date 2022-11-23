@@ -13,15 +13,14 @@ class RevealingText {
         const next = list.splice(0, 1)[0]
         next.span.classList.add("revealed")
 
-        if (list.length > 0) {
-            this.timeout = setTimeout(() => {
-                this.revealOneCharacter(list)
-            }, next.delayAfter)
-        } else {
+        if (list.length === 0) {
             this.isDone = true
+            return
         }
 
-
+        this.timeout = setTimeout(() => {
+            this.revealOneCharacter(list)
+        }, next.delayAfter)
     }
 
     init() {
