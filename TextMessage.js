@@ -26,13 +26,18 @@ class TextMessage {
         })
 
         this.actionListener = new KeyPressListener("Enter", () => {
-            this.actionListener.unbind() // stop listening since text message will close upon pressing
             this.done()
         })
     }
 
     done() {
+        if (!this.revealingText.isDone) {
+            this.revealingText.warpToDone()
+            return
+        }
+
         this.element.remove()
+        this.actionListener.unbind() // stop listening since text message will close upon pressing
         this.onComplete()
     }
 
