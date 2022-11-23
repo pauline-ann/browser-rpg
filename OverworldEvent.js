@@ -46,6 +46,14 @@ class OverworldEvent {
         document.addEventListener("PersonWalkingComplete", completeHandler)
     }
 
+    textMessage(resolve) {
+        const message = new TextMessage({
+            text: this.event.text,
+            onComplete: () => resolve() // doing it this way decouples it from the overworld
+        })
+        message.init(document.querySelector(".game-container"))
+    }
+
     init() {
         return new Promise(resolve => {
             this[this.event.type](resolve)
