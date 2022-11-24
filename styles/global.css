@@ -5,7 +5,7 @@ https://managore.itch.io/m5x7
 @font-face {
   font-family: "CustomFont";
   src: url("../fonts/m5x7.ttf") format("truetype");
-}  
+}
 
 :root {
   --border-color: #291d4d;
@@ -32,12 +32,13 @@ body {
   background: #8bac0f;
   position: relative;
   width: 352px;
-  height: 218px; /* 198 */
+  height: 218px;
+  /* 198 */
   margin: 0 auto;
   border: 10px solid #484a4a;
   border-radius: 10px;
 
-  transform: scale(4) translateY(50%);
+  transform: scale(3) translateY(50%);
 }
 
 .game-container canvas {
