@@ -2,9 +2,40 @@
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 0;
     top: 0;
+    bottom: 0;
     background-image: url(/images/maps/StreetBattle.png);
     background-size: cover;
     image-rendering: pixelated;
+}
+
+.Battle_hero,
+.Battle_enemy {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+    background: url(/images/characters/shadow.png) no-repeat no-repeat;
+}
+
+.Battle_hero img,
+.Battle_enemy img {
+    pointer-events: none;
+}
+
+.Battle_hero {
+    bottom: 48px;
+    left: 32px;
+    transform: scale(4);
+}
+
+.Battle_hero img {
+    transform: translateY(-64px);
+    /* Nudge hero spritesheet */
+}
+
+.Battle_enemy {
+    top: 27px;
+    right: 30px;
+    transform: scale(3);
 }
