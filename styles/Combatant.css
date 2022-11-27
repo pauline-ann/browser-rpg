@@ -132,8 +132,8 @@
 }
 
 .Pizza[data-team="player"] {
-    bottom: 73px;
-    left: 51px;
+    bottom: 67px;
+    left: 104px;
 }
 
 .Pizza[data-team="enemy"] {
