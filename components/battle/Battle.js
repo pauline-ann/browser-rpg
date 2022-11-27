@@ -8,6 +8,7 @@ class Battle {
                 hp: 50,
                 maxHp: 50,
                 xp: 0,
+                maxXp: 100,
                 level: 1,
                 status: null
                 // {
@@ -21,22 +22,24 @@ class Battle {
                 hp: 50,
                 maxHp: 50,
                 xp: 20,
+                maxXp: 100,
                 level: 1,
                 status: null
             }, this),
-            // "enemy2": new Combatant({
-            //     ...Pizzas.f001, // copy info about pizza,
-            //     team: "enemy", // player || enemy
-            //     hp: 50,
-            //     maxHp: 50,
-            //     xp: 30,
-            //     level: 1,
-            //     status: null
-            // }, this)
+            "enemy2": new Combatant({
+                ...Pizzas.f001, // copy info about pizza,
+                team: "enemy", // player || enemy
+                hp: 50,
+                maxHp: 50,
+                xp: 30,
+                maxXp: 100,
+                level: 1,
+                status: null
+            }, this)
         }
         this.activeCombatants = {
             player: "player1",
-            enemy: "enemy1",
+            enemy: "enemy2",
         }
     }
 

@@ -20,6 +20,14 @@ class Combatant {
     return hpPercent
   }
 
+  get xpPercent() {
+    return (this.xp / this.maxXp) * 100
+  }
+
+  get isActive() {
+    return this.battle.activeCombatants[this.team] === this.id
+  }
+
   createElement() {
     this.hudElement = document.createElement("div")
     this.hudElement.classList.add("Combatant")
@@ -43,8 +51,9 @@ class Combatant {
           <p class="Combatant_status"></p>
         `)
 
-    // save reference to hp bar since it will be updating often
+    // save reference to hp and xp bars since it will be updating often
     this.hpFills = this.hudElement.querySelectorAll(".Combatant_life-container > rect")
+    this.xpFills = this.hudElement.querySelectorAll(".Combatant_xp-container > rect")
   }
 
   // fill in all stateful values in dom
@@ -55,7 +64,9 @@ class Combatant {
       this[key] = changes[key]
     })
 
+    this.hudElement.setAttribute("data-active", this.isActive)
     this.hpFills.forEach(rect => rect.style.width = `${this.hpPercent}%`)
+    this.xpFills.forEach(rect => rect.style.width = `${this.xpPercent}%`)
     this.hudElement.querySelector(".Combatant_level").innerText = this.level
   }
 
