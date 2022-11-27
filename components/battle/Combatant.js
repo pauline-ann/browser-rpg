@@ -70,9 +70,15 @@ class Combatant {
       this[key] = changes[key]
     })
 
+    // update active flag to show correct enemy + hud
     this.hudElement.setAttribute("data-active", this.isActive)
+    this.pizzaElement.setAttribute("data-active", this.isActive)
+
+    // update HP and XP bars
     this.hpFills.forEach(rect => rect.style.width = `${this.hpPercent}%`)
     this.xpFills.forEach(rect => rect.style.width = `${this.xpPercent}%`)
+
+    // update level on screen
     this.hudElement.querySelector(".Combatant_level").innerText = this.level
   }
 
