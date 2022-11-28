@@ -26,7 +26,7 @@
 .Battle_hero {
     bottom: 48px;
     left: 32px;
-    transform: scale(4);
+    transform: scale(3.5);
 }
 
 .Battle_hero img {
@@ -37,5 +37,5 @@
 .Battle_enemy {
     top: 27px;
     right: 30px;
-    transform: scale(3);
+    transform: scale(2.5);
 }
