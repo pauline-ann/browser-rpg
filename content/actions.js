@@ -4,7 +4,7 @@ window.Actions = {
         type: "normal",
         success: [
             { type: "textMessage", text: "{CASTER} user Whomp!" },
-            // { type: "animation", animation: "define here" }, // TODO
+            { type: "animation", animation: "spin" },
             { type: "stateChange", damage: 10 }
         ]
     }

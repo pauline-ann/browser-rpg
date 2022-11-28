@@ -53,6 +53,11 @@ class BattleEvent {
         menu.init(this.battle.element)
     }
 
+    animation(resolve) {
+        const ftn = BattleAnimations[this.event.animation]
+        ftn(this.event, resolve) // call function passing in event and how to resolve it
+    }
+
     init(resolve) {
         this[this.event.type](resolve)
     }
