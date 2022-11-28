@@ -32,6 +32,14 @@ const utils = {
                 return "up"
         }
     },
+    // resolve promise after a bit of time has passed (ms)
+    wait(ms) {
+        return new Promise(resolve => {
+            setTimeout(() => {
+                resolve()
+            }, ms)
+        })
+    },
     emitEvent(name, detail) {
         const event = new CustomEvent(name, {
             detail
