@@ -38,6 +38,20 @@ class TurnCycle {
             await this.onNewEvent(event) // stop and wait for each turn to complete
         }
 
+        // check for post events
+        // do things after original turn submission
+        const postEvents = caster.getPostEvents()
+        for (let i = 0; i < postEvents.length; i++) {
+            const event = {
+                ...postEvents[i],
+                submission,
+                action: submission.actions,
+                caster,
+                target: submission.target
+            }
+            await this.onNewEvent(event)
+        }
+
         // change turn back to opposing team
         this.currentTeam = opponentTeam
         this.turn()

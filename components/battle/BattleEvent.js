@@ -23,7 +23,7 @@ class BattleEvent {
     }
 
     async stateChange(resolve) {
-        const { caster, target, damage } = this.event
+        const { caster, target, damage, recover } = this.event
         if (damage) {
             // modify the target to have less HP
             target.update({
@@ -32,6 +32,17 @@ class BattleEvent {
 
             // start blinking
             target.pizzaElement.classList.add("battle-damage-blink")
+        }
+
+        if (recover) {
+            const who = this.event.onCaster ? caster : target
+            let newHp = who.hp + recover
+            if (newHp > who.maxHp) {
+                newHp = who.maxHp
+            }
+            who.update({
+                hp: newHp
+            })
         }
 
         // wait a little bit

@@ -92,6 +92,19 @@ class Combatant {
     }
   }
 
+  getPostEvents() {
+    if (this.status?.type === "saucy") {
+      return [
+        { type: "textMessage", text: "Feelin' saucy!" },
+        { type: "stateChange", recover: 5, onCaster: true },
+        { type: "textMessage", text: "{CASTER} healed 5 HP!" },
+      ]
+    }
+
+    return []
+  }
+
+
   init(container) {
     this.createElement()
     container.appendChild(this.hudElement) // inject into container the element that was created
