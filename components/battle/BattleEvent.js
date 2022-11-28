@@ -6,8 +6,26 @@ class BattleEvent {
         this.battle = battle
     }
 
-    textMessage() {
-        console.log("a message")
+    textMessage(resolve) {
+        const message = new TextMessage({
+            text: this.event.text,
+            onComplete: () => {
+                resolve()
+            }
+        })
+
+        message.init(this.battle.element)
+    }
+
+    submissionMenu(resolve) {
+        const menu = new SubmissionMenu({
+            caster: this.event.caster,
+            opponent: this.event.opponent,
+            onComplete: submission => {
+                resolve(submission)
+            }
+        })
+        menu.init(this.battle.element)
     }
 
     init(resolve) {
