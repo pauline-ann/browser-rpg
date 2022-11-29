@@ -92,6 +92,15 @@ class Combatant {
     }
   }
 
+  getReplacedEvents(originalEvents) {
+    // clumsy status has 30% chance of being successful
+    if (this.status?.type === "clumsy" && utils.probability(.3)) {
+      return [{ type: "textMessage", text: `${this.name} flops over!` }]
+    }
+
+    return originalEvents
+  }
+
   getPostEvents() {
     if (this.status?.type === "saucy") {
       return [

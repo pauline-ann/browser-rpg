@@ -48,5 +48,9 @@ const utils = {
     },
     capitalizeFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1)
+    },
+    // probability n; 0 < n < 1
+    probability(n) {
+        return !!n && Math.random() <= n
     }
 }
