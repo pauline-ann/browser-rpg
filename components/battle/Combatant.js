@@ -100,10 +100,25 @@ class Combatant {
         { type: "textMessage", text: "{CASTER} healed 5 HP!" },
       ]
     }
-
     return []
   }
 
+  decrementStatus() {
+    if (this.status?.expiresIn > 0) {
+      this.status.expiresIn -= 1
+      if (this.status.expiresIn === 0) {
+        const currentStatus = utils.capitalizeFirstLetter(this.status.type)
+        this.update({
+          status: null
+        })
+        return {
+          type: "textMessage",
+          text: `${currentStatus} status expired!` // TODO challenge: dynamically show what status 
+        }
+      }
+    }
+    return null
+  }
 
   init(container) {
     this.createElement()

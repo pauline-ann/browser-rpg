@@ -52,6 +52,12 @@ class TurnCycle {
             await this.onNewEvent(event)
         }
 
+        // check for status expire
+        const expiredEvent = caster.decrementStatus()
+        if (expiredEvent) {
+            await this.onNewEvent(expiredEvent)
+        }
+
         // change turn back to opposing team
         this.currentTeam = opponentTeam
         this.turn()
