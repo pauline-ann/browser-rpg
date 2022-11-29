@@ -10,10 +10,7 @@ class Battle {
                 xp: 0,
                 maxXp: 100,
                 level: 1,
-                status: {
-                    type: "saucy",
-                    expiresIn: 3
-                }
+                status: null
             }, this),
             "enemy1": new Combatant({
                 ...Pizzas.v001, // copy info about pizza,
@@ -23,10 +20,7 @@ class Battle {
                 xp: 20,
                 maxXp: 100,
                 level: 1,
-                status: {
-                    type: "saucy",
-                    expiresIn: 3
-                }
+                status: null
             }, this),
             "enemy2": new Combatant({
                 ...Pizzas.f001, // copy info about pizza,
@@ -36,10 +30,7 @@ class Battle {
                 xp: 30,
                 maxXp: 100,
                 level: 1,
-                status: {
-                    type: "saucy",
-                    expiresIn: 3
-                }
+                status: null
             }, this)
         }
         this.activeCombatants = {
