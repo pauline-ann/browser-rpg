@@ -13,7 +13,7 @@ window.Pizzas = {
         type: PizzaTypes.spicy,
         src: "/images/characters/pizzas/s001.png",
         icon: "/images/icons/spicy.png",
-        actions: ["saucyStatus", "damage1"] // id of battle actions
+        actions: ["clumsyStatus", "damage1"] // id of battle actions
     },
     "v001": {
         name: "Call Me Kale",
