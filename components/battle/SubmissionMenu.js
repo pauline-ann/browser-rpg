@@ -8,21 +8,29 @@ class SubmissionMenu {
     }
 
     getPages() {
+
+        const backOption = {
+            label: "Back",
+            description: "Go to previous page",
+            handler: () => {
+                this.keyboardMenu.setOptions(this.getPages().root)
+            }
+        }
+
         return {
             root: [
                 {
                     label: "Attack",
                     description: "Choose an attack",
                     handler: () => {
-                        // do something when chosen
-                        console.log("attack")
+                        this.keyboardMenu.setOptions(this.getPages().attacks)
                     }
                 },
                 {
                     label: "Items",
                     description: "Choose an item",
                     handler: () => {
-                        // do something when chosen
+                        this.keyboardMenu.setOptions(this.getPages().items)
                     }
                 },
                 {
@@ -32,15 +40,41 @@ class SubmissionMenu {
                         // do something when chosen
                     }
                 }
+            ],
+            attacks: [
+                ...this.caster.actions.map(key => {
+                    const action = Action[key]
+                    return {
+                        label: action.name,
+                        description: action.description,
+                        handler: () => {
+                            this.menuSubmit(action)
+                        }
+                    }
+                }),
+                backOption
+            ],
+            items: [
+                // items will go here
+                backOption
             ]
         }
     }
 
-    decide() {
+    // TODO item submit
+    menuSubmit(action, instanceId = null) {
+
+        this.keyboardMenu?.end()
+
         this.onComplete({
-            action: Actions[this.caster.actions[0]],
+            action,
             target: this.opponent // TODO target could come from action, ex) when healing
         })
+    }
+
+    decide() {
+        // TODO enemies should randomly decide what to do
+        this.menuSubmit(Actions[this.caster.actions[0]])
     }
 
     showMenu(container) {
