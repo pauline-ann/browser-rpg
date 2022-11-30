@@ -9,7 +9,7 @@ window.BattleAnimations = {
             element.classList.remove(animationClassName)
         }, { once: true })
 
-        // complete battle cycle when opponents collide
+        // complete battle cycle when combatants collide
         await utils.wait(100)
         onComplete()
     },

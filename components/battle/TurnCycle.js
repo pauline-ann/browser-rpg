@@ -15,16 +15,21 @@ class TurnCycle {
         const casterId = this.battle.activeCombatants[this.currentTeam]
         const caster = this.battle.combatants[casterId]
 
-        // get opponent
-        const opponentTeam = caster.team === "player" ? "enemy" : "player"
-        const opponentId = this.battle.activeCombatants[opponentTeam]
-        const opponent = this.battle.combatants[opponentId]
+        // get enemy
+        const enemyTeam = caster.team === "player" ? "enemy" : "player"
+        const enemyId = this.battle.activeCombatants[enemyTeam]
+        const enemy = this.battle.combatants[enemyId]
 
         const submission = await this.onNewEvent({
             type: "submissionMenu",
             caster,
-            opponent
+            enemy
         })
+
+        // reset items to filter out item that was used
+        if (submission.instanceId) {
+            this.battle.items = this.battle.items.filter(item => item.instanceId !== submission.instanceId)
+        }
 
         const resultingEvents = caster.getReplacedEvents(submission.action.success)
 
@@ -60,7 +65,7 @@ class TurnCycle {
         }
 
         // change turn back to opposing team
-        this.currentTeam = opponentTeam
+        this.currentTeam = enemyTeam
         this.turn()
     }
 
