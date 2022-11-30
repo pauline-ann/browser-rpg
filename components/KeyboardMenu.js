@@ -36,7 +36,7 @@ class KeyboardMenu {
 
             button.addEventListener("focus", () => {
                 this.prevFocus = button
-                this.decriptionElementText.innerText = button.dataset.description
+                this.descriptionElementText.innerText = button.dataset.description
             })
         })
     }
@@ -46,10 +46,10 @@ class KeyboardMenu {
         this.element.classList.add("KeyboardMenu")
 
         // description box element
-        this.decriptionElement = document.createElement("div")
-        this.decriptionElement.classList.add("DescriptionBox")
-        this.decriptionElement.innerHTML = (`<p>This is a description uwu</p>`)
-        this.decriptionElementText = this.decriptionElement.querySelector("p") // save a reference to paragraph since we will be changing it a lot
+        this.descriptionElement = document.createElement("div")
+        this.descriptionElement.classList.add("DescriptionBox")
+        this.descriptionElement.innerHTML = (`<p>This is a description uwu</p>`)
+        this.descriptionElementText = this.descriptionElement.querySelector("p") // save a reference to paragraph since we will be changing it a lot
     }
 
     end() {
@@ -65,7 +65,7 @@ class KeyboardMenu {
 
     init(container) {
         this.createElement()
-        container.appendChild(this.decriptionElement)
+        container.appendChild(this.descriptionElement)
         container.appendChild(this.element)
 
         // TODO clean up spaghetti code

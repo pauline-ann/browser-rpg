@@ -43,7 +43,7 @@ class SubmissionMenu {
             ],
             attacks: [
                 ...this.caster.actions.map(key => {
-                    const action = Action[key]
+                    const action = Actions[key]
                     return {
                         label: action.name,
                         description: action.description,
@@ -63,12 +63,12 @@ class SubmissionMenu {
 
     // TODO item submit
     menuSubmit(action, instanceId = null) {
+        const target = action.targetType === "friendly" ? this.caster : this.opponent
 
         this.keyboardMenu?.end()
-
         this.onComplete({
             action,
-            target: this.opponent // TODO target could come from action, ex) when healing
+            target
         })
     }
 
