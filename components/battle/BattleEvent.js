@@ -23,10 +23,11 @@ class BattleEvent {
     }
 
     async stateChange(resolve) {
-        const { caster, target, damage, recover, status, action } = this.event
+        const { caster, target, damage, recover, status } = this.event
         let who = target
 
-        if (action?.targetType === "friendly" || this.event.onCaster) {
+        // TODO simplify onCaster/action.target logic... redundant
+        if (this.event.onCaster) {
             who = caster
         }
 
