@@ -36,6 +36,7 @@ class TurnCycle {
                 type: "textMessage",
                 text: `Go get 'em, ${submission.replacement.name}`
             })
+            this.nextTurn(enemyTeam)
             return
         }
 
@@ -77,6 +78,10 @@ class TurnCycle {
             await this.onNewEvent(expiredEvent)
         }
 
+        this.nextTurn(enemyTeam)
+    }
+
+    nextTurn(enemyTeam) {
         // change turn back to opposing team
         this.currentTeam = enemyTeam
         this.turn()
