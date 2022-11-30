@@ -11,11 +11,10 @@ class KeyboardMenu {
         this.element.innerHTML = this.options.map((option, index) => {
             const disabledAttr = option.isDisabled ? "disabled" : ""
             const spanContent = option.details ? option.details() : ""
-            const autoFocusAttr = index === 0 ? "autoFocus" : "" // TODO: edge case - first index is disabled
 
             return (`
                 <div class="option">
-                    <button ${disabledAttr} ${autoFocusAttr} data-button="${index}" data-description="${option.description}">
+                    <button ${disabledAttr} data-button="${index}" data-description="${option.description}">
                         ${option.label}
                     </button>
                     <span class="details">${spanContent}</span>
@@ -39,6 +38,11 @@ class KeyboardMenu {
                 this.descriptionElementText.innerText = button.dataset.description
             })
         })
+
+        // auto focus first button that isn't disabled
+        setTimeout(() => {
+            this.element.querySelector("button[data-button]:not([disabled])").focus()
+        }, 10)
     }
 
     createElement() {
