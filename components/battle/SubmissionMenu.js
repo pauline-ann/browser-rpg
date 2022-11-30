@@ -46,7 +46,7 @@ class SubmissionMenu {
                     const action = Actions[key]
                     return {
                         label: action.name,
-                        description: action.description,
+                        description: action.description || "This is a cool move.",
                         handler: () => {
                             this.menuSubmit(action)
                         }
