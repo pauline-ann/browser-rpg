@@ -1,9 +1,10 @@
 // will be invisible when AI enemies are using this class
 // what move to use, who to use it on
 class SubmissionMenu {
-    constructor({ caster, enemy, onComplete, items }) {
+    constructor({ caster, enemy, onComplete, items, replacements }) {
         this.caster = caster
         this.enemy = enemy
+        this.replacements = replacements
         this.onComplete = onComplete
 
         let quantityMap = {}
@@ -59,7 +60,7 @@ class SubmissionMenu {
                     label: "Swap",
                     description: "Change to another pizza",
                     handler: () => {
-                        // do something when chosen
+                        this.keyboardMenu.setOptions(this.getPages().replacements)
                     }
                 }
             ],
@@ -91,8 +92,29 @@ class SubmissionMenu {
                     }
                 }),
                 backOption
+            ],
+            replacements: [
+                ...this.replacements.map(replacement => {
+                    return {
+                        label: replacement.name,
+                        description: replacement.description,
+                        handler: () => {
+                            // swap me in, coach!
+                            this.menuSubmitReplacement(replacement)
+                        }
+                    }
+                }),
+                backOption
             ]
         }
+    }
+
+    // if swapping, end submission and notify system that a replacement is underway
+    menuSubmitReplacement(replacement) {
+        this.keyboardMenu?.end()
+        this.onComplete({
+            replacement
+        })
     }
 
     // TODO item submit

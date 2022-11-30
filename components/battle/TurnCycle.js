@@ -26,6 +26,19 @@ class TurnCycle {
             enemy
         })
 
+        // stop here if we are swapping out this combatant
+        if (submission.replacement) {
+            await this.onNewEvent({
+                type: "replace",
+                replacement: submission.replacement
+            })
+            await this.onNewEvent({
+                type: "textMessage",
+                text: `Go get 'em, ${submission.replacement.name}`
+            })
+            return
+        }
+
         // reset items to filter out item that was used
         if (submission.instanceId) {
             this.battle.items = this.battle.items.filter(item => item.instanceId !== submission.instanceId)

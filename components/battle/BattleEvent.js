@@ -67,15 +67,42 @@ class BattleEvent {
     }
 
     submissionMenu(resolve) {
+        const { enemy, caster } = this.event
+        const { items, combatants, element } = this.battle
+
+        // filter out combatants that are on the enemy team or not alive
+        const filteredCombatants = Object.values(combatants).filter(combatant => {
+            return combatant.id !== caster.id && combatant.team === caster.team && combatant.hp > 0
+        })
+
         const menu = new SubmissionMenu({
-            caster: this.event.caster,
-            enemy: this.event.enemy,
-            items: this.battle.items,
+            caster,
+            enemy,
+            items,
+            replacements: filteredCombatants,
             onComplete: submission => {
                 resolve(submission)
             }
         })
-        menu.init(this.battle.element)
+        menu.init(element)
+    }
+
+    async replace(resolve) {
+        const { replacement } = this.event
+
+        // find previously active combanant and switch to inactive
+        const prevCombatant = this.battle.combatants[this.battle.activeCombatants[replacement.team]]
+        this.battle.activeCombatants[replacement.team] = null
+        prevCombatant.update()
+        await utils.wait(400)
+
+        // switch new combatant to active
+        this.battle.activeCombatants[replacement.team] = replacement.id
+        replacement.update()
+        await utils.wait(400)
+
+        // resolve once done
+        resolve()
     }
 
     animation(resolve) {
