@@ -25,10 +25,17 @@ class KeyboardMenu {
     createElement() {
         this.element = document.createElement("div")
         this.element.classList.add("KeyboardMenu")
+
+        // description box element
+        this.decriptionElement = document.createElement("div")
+        this.decriptionElement.classList.add("DescriptionBox")
+        this.decriptionElement.innerHTML = (`<p>This is a description uwu</p>`)
+        this.decriptionElementText = this.decriptionElement.querySelector("p") // save a reference to paragraph since we will be changing it a lot
     }
 
     init(container) {
         this.createElement()
+        container.appendChild(this.decriptionElement)
         container.appendChild(this.element)
     }
 }
