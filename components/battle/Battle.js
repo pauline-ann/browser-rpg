@@ -7,7 +7,18 @@ class Battle {
                 team: "player", // player || enemy
                 hp: 50,
                 maxHp: 50,
-                xp: 0,
+                xp: 75,
+                maxXp: 100,
+                level: 1,
+                status: null,
+                isPlayerControlled: true
+            }, this),
+            "player2": new Combatant({
+                ...Pizzas.s002, // copy info about pizza,
+                team: "player", // player || enemy
+                hp: 50,
+                maxHp: 50,
+                xp: 75,
                 maxXp: 100,
                 level: 1,
                 status: null,
