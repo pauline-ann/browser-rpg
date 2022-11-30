@@ -7,6 +7,7 @@ window.Actions = {
             { type: "stateChange", damage: 10 }
         ]
     },
+    // TODO fix bug - caster shouldn't heal same turn
     saucyStatus: {
         name: "Tomato Squeeze",
         targetType: "friendly",
