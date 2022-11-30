@@ -46,7 +46,7 @@ class TurnCycle {
             const event = {
                 ...postEvents[i],
                 submission,
-                action: submission.actions,
+                action: submission.action,
                 caster,
                 target: submission.target
             }

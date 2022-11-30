@@ -24,12 +24,7 @@ class BattleEvent {
 
     async stateChange(resolve) {
         const { caster, target, damage, recover, status } = this.event
-        let who = target
-
-        // TODO simplify onCaster/action.target logic... redundant
-        if (this.event.onCaster) {
-            who = caster
-        }
+        let who = this.event.onCaster ? caster : target
 
         if (damage) {
             // modify the target to have less HP

@@ -16,8 +16,7 @@ class Combatant {
   get hpPercent() {
     const percent = (this.hp / this.maxHp) * 100
     const greaterThanZero = percent > 0
-    const hpPercent = greaterThanZero ? percent : 0
-    return hpPercent
+    return greaterThanZero ? percent : 0
   }
 
   get xpPercent() {
@@ -101,6 +100,7 @@ class Combatant {
     return originalEvents
   }
 
+  // TODO simplify onCaster/action.target logic... redundant
   getPostEvents() {
     if (this.status?.type === "saucy") {
       return [
@@ -122,7 +122,7 @@ class Combatant {
         })
         return {
           type: "textMessage",
-          text: `${currentStatus} status expired!` // TODO challenge: dynamically show what status 
+          text: `${currentStatus} status expired!`
         }
       }
     }
