@@ -7,14 +7,12 @@
     padding: 4px;
     background: var(--menu-background);
     border-top: 1px solid var(--menu-border-color);
-    font-family: "PixelFont";
     color: var(--menu-font-color);
 }
 
 .TextMessage_p {
     margin: 0;
     font-size: 12px;
-    font-family: "PixelFont";
 }
 
 .TextMessage span {
