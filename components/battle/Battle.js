@@ -10,7 +10,8 @@ class Battle {
                 xp: 0,
                 maxXp: 100,
                 level: 1,
-                status: null
+                status: null,
+                isPlayerControlled: true
             }, this),
             "enemy1": new Combatant({
                 ...Pizzas.v001, // copy info about pizza,
