@@ -32,6 +32,10 @@ class RevealingText {
     }
 
     init() {
+        if (!this.text) {
+            return
+        }
+
         let characters = []
         this.text.split("").forEach((char) => {
 
