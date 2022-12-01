@@ -15,6 +15,10 @@ window.Enemies = {
                 maxHp: 50,
                 level: 1
             }
+        },
+        textMessages: {
+            battleWin: "What??! How?",
+            battleLoss: "Sowwee."
         }
     },
     "beth": {
@@ -27,6 +31,10 @@ window.Enemies = {
                 maxHp: 50,
                 level: 1
             }
+        },
+        textMessages: {
+            battleWin: "Aw man..",
+            battleLoss: "Better luck next time."
         }
     }
 }

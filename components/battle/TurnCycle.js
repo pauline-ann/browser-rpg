@@ -12,6 +12,9 @@ class TurnCycle {
 
     // pump out promises and wait for promises to resolve
     async turn() {
+        // get challenger
+        const challenger = this.battle.enemy
+
         // get caster
         const casterId = this.battle.activeCombatants[this.currentTeam]
         const caster = this.battle.combatants[casterId]
@@ -19,7 +22,7 @@ class TurnCycle {
         // get enemy
         const enemyTeam = caster.team === "player" ? "enemy" : "player"
         const enemyId = this.battle.activeCombatants[enemyTeam]
-        const enemy = this.battle.combatants[enemyId]
+        const enemy = this.battle.combatants[enemyId] // TODO confusing - there is enemy "pizza" and enemy "person"
 
         const submission = await this.onNewEvent({
             type: "submissionMenu",
@@ -77,6 +80,7 @@ class TurnCycle {
                 // reward with xp
                 // we don't care about enemy getting xp
                 // TODO give XP AFTER the battle
+                // TODO notify player about level up
                 await this.onNewEvent({
                     type: "textMessage",
                     text: `Gained ${xp} XP!`
@@ -92,12 +96,15 @@ class TurnCycle {
 
         // check if there is a winning team
         const winner = this.getWinningTeam()
+
+        // end battle
         if (winner) {
-            // end battle
+            const enemyText = winner === "player" ? `${challenger.textMessages.battleWin}` : `${challenger.textMessages.battleLoss}`
             await this.onNewEvent({
                 type: "textMessage",
-                text: `${utils.capitalizeFirstLetter(winner)} team wins!`
+                text: `${challenger.name.toUpperCase()}: ${enemyText}`
             })
+
             return this.onBattleEnd(winner)
         }
 
@@ -164,7 +171,7 @@ class TurnCycle {
     async init() {
         await this.onNewEvent({
             type: "textMessage",
-            text: "The battle is starting!"
+            text: `${this.battle.enemy.name} wants to battle!`
         })
 
         // start the first turn
