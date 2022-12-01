@@ -85,7 +85,6 @@ class OverworldMap {
     const match = this.cutsceneSpaces[`${hero.x},${hero.y}`] // look up if hero is on cutscene space
     if (!this.isCutscenePlaying && match) {
       this.startCutscene(match[0].events) // TODO: make index dynamic relative to story progress
-      console.log(match[0].events)
     }
   }
 
