@@ -1,9 +1,10 @@
 class KeyboardMenu {
-    constructor() {
+    constructor(config = {}) {
         this.options = [] // set by updater method
         this.up = null
         this.down = null
         this.prevFocus = null
+        this.descriptionBox = config.descriptionBox || null
     }
 
     setOptions(options) {
@@ -69,7 +70,8 @@ class KeyboardMenu {
 
     init(container) {
         this.createElement()
-        container.appendChild(this.descriptionElement)
+        const descriptionContainer = this.descriptionBox ?? container
+        descriptionContainer.appendChild(this.descriptionElement)
         container.appendChild(this.element)
 
         // TODO clean up spaghetti code

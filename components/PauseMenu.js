@@ -47,7 +47,7 @@ class PauseMenu {
     async init(container) {
         this.createElement()
         this.keyboardMenu = new KeyboardMenu({
-            //
+            descriptionBox: container
         })
         this.keyboardMenu.init(this.element)
         this.keyboardMenu.setOptions(this.getOptions("root"))
