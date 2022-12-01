@@ -56,6 +56,7 @@ class SubmissionMenu {
                         this.keyboardMenu.setOptions(this.getPages().items)
                     }
                 },
+                // TODO disable swap button if no more other combatants
                 {
                     label: "Swap",
                     description: "Change to another pizza",
