@@ -24,7 +24,8 @@ window.OverworldMaps = {
                         events: [
                             { type: "textMessage", text: "um...hi?", faceHero: "npc1" },
                             { type: "textMessage", text: "you're so random" },
-                            { who: "hero", type: "walk", direction: "left" }
+                            { type: "battle", enemyId: "beth" },
+                            { type: "textMessage", text: "ugh..." }
                         ]
                     }
                 ]
@@ -32,7 +33,7 @@ window.OverworldMaps = {
             npc2: new Person({
                 x: utils.withGrid(8),
                 y: utils.withGrid(5),
-                src: "/images/characters/people/npc2.png",
+                src: "/images/characters/people/erio.png",
                 // behaviorLoop: [
                 //   { type: "walk", direction: "left" },
                 //   { type: "stand", direction: "up", time: 800 },
@@ -44,7 +45,8 @@ window.OverworldMaps = {
                     {
                         events: [
                             { type: "textMessage", text: "Can I help you?", faceHero: "npc2" },
-                            { who: "npc2", type: "stand", direction: "down" }
+                            { type: "textMessage", text: "Ahaaha" },
+                            { type: "battle", enemyId: "erio" }
                         ]
                     }
                 ]
