@@ -7,7 +7,7 @@ class GameObject {
         this.direction = config.direction || "down"
         this.sprite = new Sprite({
             gameObject: this, // have access to properties within Sprite
-            src: config.src || "/images/characters/people/hero.png" // asset or sprite to be used for object
+            src: config.src || "/db/images/characters/people/hero.png" // asset or sprite to be used for object
         })
 
         this.behaviorLoop = config.behaviorLoop || []

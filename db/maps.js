@@ -1,8 +1,8 @@
 // object containing all the different maps within game
 window.OverworldMaps = {
     DemoRoom: {
-        lowerSrc: "/images/maps/DemoLower.png", // path to image that we want to load
-        upperSrc: "/images/maps/DemoUpper.png",
+        lowerSrc: "/db/images/maps/DemoLower.png", // path to image that we want to load
+        upperSrc: "/db/images/maps/DemoUpper.png",
         gameObjects: {
             hero: new Person({
                 x: utils.withGrid(5),
@@ -12,7 +12,7 @@ window.OverworldMaps = {
             npc1: new Person({
                 x: utils.withGrid(7),
                 y: utils.withGrid(9),
-                src: "/images/characters/people/npc1.png",
+                src: "/db/images/characters/people/npc1.png",
                 behaviorLoop: [
                     { type: "stand", direction: "left", time: 800 },
                     { type: "stand", direction: "up", time: 800 },
@@ -33,7 +33,7 @@ window.OverworldMaps = {
             npc2: new Person({
                 x: utils.withGrid(8),
                 y: utils.withGrid(5),
-                src: "/images/characters/people/erio.png",
+                src: "/db/images/characters/people/erio.png",
                 // behaviorLoop: [
                 //   { type: "walk", direction: "left" },
                 //   { type: "stand", direction: "up", time: 800 },
@@ -114,8 +114,8 @@ window.OverworldMaps = {
         }
     },
     Kitchen: {
-        lowerSrc: "/images/maps/KitchenLower.png",
-        upperSrc: "/images/maps/KitchenUpper.png",
+        lowerSrc: "/db/images/maps/KitchenLower.png",
+        upperSrc: "/db/images/maps/KitchenUpper.png",
         gameObjects: {
             hero: new Person({
                 isPlayerControlled: true,
@@ -125,7 +125,7 @@ window.OverworldMaps = {
             npc3: new Person({
                 x: utils.withGrid(9),
                 y: utils.withGrid(6),
-                src: "/images/characters/people/npc3.png",
+                src: "/db/images/characters/people/npc3.png",
                 talking: [
                     {
                         events: [
@@ -137,7 +137,7 @@ window.OverworldMaps = {
             npc4: new Person({
                 x: utils.withGrid(10),
                 y: utils.withGrid(8),
-                src: "/images/characters/people/npc4.png",
+                src: "/db/images/characters/people/npc4.png",
             }),
         },
     },
