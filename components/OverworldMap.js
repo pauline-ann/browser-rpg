@@ -12,6 +12,7 @@ class OverworldMap {
     this.upperImage.src = config.upperSrc // contain things we draw above the characters
 
     this.isCutscenePlaying = false
+    this.isPaused = false
   }
 
   drawLowerImage(ctx, cameraPerson) {

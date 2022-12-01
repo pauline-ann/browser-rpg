@@ -43,9 +43,12 @@ class Overworld {
       //draw upper layer
       this.map.drawUpperImage(this.ctx, cameraPerson)
 
-      requestAnimationFrame(() => {
-        step() // step function calls step() again when a new frame starts. not an app breaking infinite loop - other processes may still run
-      })
+      // add check to see if game isn't paused before refiring step
+      if (!this.map.isPaused) {
+        requestAnimationFrame(() => {
+          step() // step function calls step() again when a new frame starts. not an app breaking infinite loop - other processes may still run
+        })
+      }
     }
     step()
   }
@@ -54,6 +57,14 @@ class Overworld {
     new KeyPressListener("Enter", () => {
       // Is there someone here to talk to?
       this.map.checkForActionCutscene()
+    })
+    new KeyPressListener("Escape", () => {
+      // If no cutscene playing, open settings
+      if (!this.map.isCutscenePlaying) {
+        this.map.startCutscene([
+          { type: "pause" }
+        ])
+      }
     })
   }
 
