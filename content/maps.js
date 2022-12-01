@@ -22,10 +22,10 @@ window.OverworldMaps = {
                 talking: [
                     {
                         events: [
-                            { type: "textMessage", text: "um...hi?", faceHero: "npc1" },
-                            { type: "textMessage", text: "you're so random" },
+                            { type: "textMessage", text: "BETH: Um...hi?", faceHero: "npc1" },
+                            { type: "textMessage", text: "BETH: You're so random" },
                             { type: "battle", enemyId: "beth" },
-                            { type: "textMessage", text: "ugh..." }
+                            { type: "textMessage", text: "BETH: Ugh..." }
                         ]
                     }
                 ]
@@ -44,8 +44,8 @@ window.OverworldMaps = {
                 talking: [
                     {
                         events: [
-                            { type: "textMessage", text: "Can I help you?", faceHero: "npc2" },
-                            { type: "textMessage", text: "Ahaaha" },
+                            { type: "textMessage", text: "ERIO: Haaaahaaa..", faceHero: "npc2" },
+                            { type: "textMessage", text: "ERIO: Ahaaha" },
                             { type: "battle", enemyId: "erio" }
                         ]
                     }
@@ -95,7 +95,7 @@ window.OverworldMaps = {
                     events: [
                         { who: "npc2", type: "walk", direction: "left" },
                         { who: "npc2", type: "stand", direction: "up", time: 500 },
-                        { type: "textMessage", text: "Hey, get outta there!" },
+                        { type: "textMessage", text: "ERIO: Hey, get outta there!" },
                         { who: "npc2", type: "walk", direction: "right" },
                         { who: "npc2", type: "stand", direction: "left", time: 500 },
                         { who: "hero", type: "walk", direction: "down" },
@@ -129,7 +129,7 @@ window.OverworldMaps = {
                 talking: [
                     {
                         events: [
-                            { type: "textMessage", text: "You made it!", faceHero: "npc3" }
+                            { type: "textMessage", text: "NPC3: You made it!", faceHero: "npc3" }
                         ]
                     }
                 ]
