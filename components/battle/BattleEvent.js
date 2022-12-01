@@ -121,6 +121,27 @@ class BattleEvent {
         resolve()
     }
 
+    giveXp(resolve) {
+        let amount = this.event.xp
+        const { combatant } = this.event
+        const step = () => {
+            if (amount > 0) {
+                amount -= 1
+                combatant.xp += 1
+
+                // check if we've hit level up point
+                //
+                //
+
+                combatant.update()
+                requestAnimationFrame(step)
+                return
+            }
+            resolve()
+        }
+        requestAnimationFrame(step)
+    }
+
     animation(resolve) {
         const ftn = BattleAnimations[this.event.animation]
         ftn(this.event, resolve) // call function passing in event and how to resolve it

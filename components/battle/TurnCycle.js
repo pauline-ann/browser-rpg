@@ -64,6 +64,26 @@ class TurnCycle {
             await this.onNewEvent({
                 type: "textMessage", text: `${submission.target.name} fainted!`
             })
+
+            if (submission.target.team === "enemy") {
+
+                const playerActivePizzaId = this.battle.activeCombatants.player
+                const xp = submission.target.xpGiven
+
+                // reward with xp
+                // we don't care about enemy getting xp
+                // TODO give XP AFTER the battle
+                await this.onNewEvent({
+                    type: "textMessage",
+                    text: `Gained ${xp} XP!`
+                })
+
+                await this.onNewEvent({
+                    type: "giveXp",
+                    xp,
+                    combatant: this.battle.combatants[playerActivePizzaId]// active player pizza
+                })
+            }
         }
 
         // check if there is a winning team
