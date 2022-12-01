@@ -4,8 +4,10 @@ class Hud {
     }
 
     update() {
+        // iterate through scoreboards and update
         this.scoreboards.forEach(scoreboard => {
-            // iterate through scoreboards and update
+            // look up current state and update
+            scoreboard.update(window.playerState.pizzas[scoreboard.id])
         })
     }
 
@@ -17,8 +19,8 @@ class Hud {
         playerState.lineup.forEach(key => {
             const pizza = playerState.pizzas[key]
             const scoreboard = new Combatant({
-                id: key,
-                ...Pizzas[pizza.id],
+                id: key, // "p1", "p2"
+                ...Pizzas[pizza.pizzaId], // "s001", "v001"
                 ...pizza,
             }, null)
             // get elements on the DOM
@@ -32,5 +34,9 @@ class Hud {
     init(container) {
         this.createElement()
         container.appendChild(this.element)
+
+        document.addEventListener("PlayerStateUpdated", () => {
+            this.update()
+        })
     }
 }
