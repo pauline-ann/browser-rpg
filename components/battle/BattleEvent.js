@@ -61,6 +61,8 @@ class BattleEvent {
         // wait a little bit
         await utils.wait(800)
 
+        this.updateTeamIcons()
+
         // stop blinking
         target.pizzaElement.classList.remove("battle-damage-blink")
         resolve()
@@ -113,6 +115,8 @@ class BattleEvent {
         replacement.update()
         await utils.wait(400)
 
+        this.updateTeamIcons()
+
         // resolve once done
         resolve()
     }
@@ -120,6 +124,11 @@ class BattleEvent {
     animation(resolve) {
         const ftn = BattleAnimations[this.event.animation]
         ftn(this.event, resolve) // call function passing in event and how to resolve it
+    }
+
+    updateTeamIcons() {
+        this.battle.playerTeam.update()
+        this.battle.enemyTeam.update()
     }
 
     init(resolve) {

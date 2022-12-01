@@ -29,12 +29,17 @@ class Team {
                     <path class="dead-pizza" stroke="#c4bdae" d="M3 2h1M1 3h2M4 3h2M1 4h1M3 4h1M5 4h1M2 5h3" />
                 </svg> 
             `)
+            // add to parent element
             this.element.appendChild(icon)
         })
     }
 
     update() {
-
+        this.combatants.forEach(combatant => {
+            const icon = this.element.querySelector(`[data-combatant="${combatant.id}"]`) // select icon with specific id
+            icon.setAttribute("data-dead", combatant.hp <= 0) // check if combatant has hp or not
+            icon.setAttribute("data-active", combatant.isActive) // check if combatant is active
+        })
     }
 
     init(container) {
