@@ -3,13 +3,7 @@ class Combatant {
     Object.keys(config).forEach(key => {
       this[key] = config[key]
     })
-    // {
-    //     hp: 100,
-    //         maxHp: 200,
-    //             xp: 34,
-    //                 name: "Bingo B!",
-    //                     actions: []
-    // },
+    this.hp = this.hp ?? this.maxHp // default to max HP if HP is undefined
     this.battle = battle
   }
 

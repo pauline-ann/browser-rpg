@@ -1,54 +1,25 @@
 class Battle {
-    constructor() {
-        this.combatants = {
-            // TODO make dynamic
-            "player1": new Combatant({
-                ...Pizzas.s001, // copy info about pizza,
-                team: "player", // player || enemy
-                hp: 50,
-                maxHp: 50,
-                xp: 75,
-                maxXp: 100,
-                level: 1,
-                status: null,
-                isPlayerControlled: true
-            }, this),
-            "player2": new Combatant({
-                ...Pizzas.s002, // copy info about pizza,
-                team: "player", // player || enemy
-                hp: 50,
-                maxHp: 50,
-                xp: 75,
-                maxXp: 100,
-                level: 1,
-                status: null,
-                isPlayerControlled: true
-            }, this),
-            "enemy1": new Combatant({
-                ...Pizzas.v001, // copy info about pizza,
-                team: "enemy", // player || enemy
-                hp: 50,
-                maxHp: 50,
-                xp: 20,
-                maxXp: 100,
-                level: 1,
-                status: null
-            }, this),
-            "enemy2": new Combatant({
-                ...Pizzas.f001, // copy info about pizza,
-                team: "enemy", // player || enemy
-                hp: 50,
-                maxHp: 50,
-                xp: 30,
-                maxXp: 100,
-                level: 1,
-                status: null
-            }, this)
-        }
+    constructor({ enemy, onComplete }) {
+        this.enemy = enemy
+        this.onComplete = onComplete
+        this.combatants = {}
         this.activeCombatants = {
-            player: "player1",
-            enemy: "enemy1",
+            // player: "player1",
+            // enemy: "enemy1",
+            player: null,
+            enemy: null
         }
+
+        // dynamically add Player team
+        window.playerState.lineup.forEach(id => {
+            this.addCombatant(id, "player", window.playerState.pizzas[id])
+        })
+
+        // dynamically add Enemy team
+        Object.keys(this.enemy.pizzas).forEach(id => {
+            this.addCombatant("e_" + id, "enemy", this.enemy.pizzas[id])
+        })
+
         // populated by what combatants have in their inventory
         this.items = [
             { actionId: "item_recoverStatus", instanceId: "p1", team: "player" },
@@ -56,6 +27,19 @@ class Battle {
             { actionId: "item_recoverStatus", instanceId: "p3", team: "enemy" },
             { actionId: "item_recoverHp", instanceId: "p4", team: "player" },
         ]
+    }
+
+    // add combatants to respective teams
+    addCombatant(id, team, pizzaConfig) {
+        this.combatants[id] = new Combatant({
+            ...Pizzas[pizzaConfig.id],
+            ...pizzaConfig,
+            team,
+            isPlayerControlled: team === "player"
+        }, this)
+
+        // populate first active pizza
+        this.activeCombatants[team] = this.activeCombatants[team] || id
     }
 
     createElement() {
@@ -66,7 +50,7 @@ class Battle {
             <img src="${'/images/characters/people/hero.png'}" alt="Hero" />
         </div>
         <div class="Battle_enemy">
-            <img src="${'/images/characters/people/npc4.png'}" alt="Enemy" />
+            <img src="${this.enemy.src}" alt="${this.enemy.name}" />
         </div>
         `)
     }
