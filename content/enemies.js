@@ -4,14 +4,14 @@ window.Enemies = {
         src: "/images/characters/people/erio.png",
         pizzas: {
             "a": {
-                id: "s001",
+                pizzaId: "s001",
                 maxHp: 50,
                 level: 1
                 // attackBonus: 20000 etc.
                 // can configure behavior here
             },
             "b": {
-                id: "s002",
+                pizzaId: "s002",
                 maxHp: 50,
                 level: 1
             }
@@ -26,7 +26,7 @@ window.Enemies = {
         src: "/images/characters/people/npc1.png",
         pizzas: {
             "a": {
-                id: "f001",
+                pizzaId: "f001",
                 hp: 1, // TODO for testing purposes
                 maxHp: 50,
                 level: 1

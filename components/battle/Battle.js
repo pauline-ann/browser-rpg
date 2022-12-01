@@ -31,10 +31,10 @@ class Battle {
     }
 
     // add combatants to respective teams
-    addCombatant(id, team, pizzaConfig) {
+    addCombatant(id, team, config) {
         this.combatants[id] = new Combatant({
-            ...Pizzas[pizzaConfig.id],
-            ...pizzaConfig,
+            ...Pizzas[config.pizzaId],
+            ...config,
             team,
             isPlayerControlled: team === "player"
         }, this)
@@ -93,9 +93,9 @@ class Battle {
                 if (winner === "player") {
                     const playerState = window.playerState
 
-                    Object.keys(playerState.pizzas).forEach(id => {
-                        const playerStatePizza = playerState.pizzas[id]
-                        const combatant = this.combatants[id]
+                    Object.keys(playerState.pizzas).forEach(pizzaId => {
+                        const playerStatePizza = playerState.pizzas[pizzaId]
+                        const combatant = this.combatants[pizzaId]
                         if (combatant) {
                             playerStatePizza.hp = combatant.hp
                             playerStatePizza.xp = combatant.xp
@@ -108,6 +108,9 @@ class Battle {
                     playerState.items = playerState.items.filter(item => {
                         return !this.usedInstanceIds[item.instanceId]
                     })
+
+                    // send signal to update
+                    utils.emitEvent("PlayerStateUpdated")
                 }
 
                 this.element.remove() // remove battle elements
