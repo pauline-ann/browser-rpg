@@ -47,7 +47,7 @@ class Battle {
         }
         this.activeCombatants = {
             player: "player1",
-            enemy: "enemy2",
+            enemy: "enemy1",
         }
         // populated by what combatants have in their inventory
         this.items = [
