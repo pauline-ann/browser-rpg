@@ -3,9 +3,10 @@
 // each battle event is handled differently
 
 class TurnCycle {
-    constructor({ battle, onNewEvent }) {
+    constructor({ battle, onNewEvent, onBattleEnd }) {
         this.battle = battle
         this.onNewEvent = onNewEvent
+        this.onBattleEnd = onBattleEnd
         this.currentTeam = "player" // or "enemy"
     }
 
@@ -40,8 +41,11 @@ class TurnCycle {
             return
         }
 
-        // reset items to filter out item that was used
         if (submission.instanceId) {
+            // add to list to persist to player state after battle
+            this.battle.usedInstanceIds[submission.instanceId] = true
+
+            // reset items in battle state to filter out item that was used
             this.battle.items = this.battle.items.filter(item => item.instanceId !== submission.instanceId)
         }
 
@@ -94,7 +98,7 @@ class TurnCycle {
                 type: "textMessage",
                 text: `${utils.capitalizeFirstLetter(winner)} team wins!`
             })
-            return // TODO end of battle sequence
+            return this.onBattleEnd(winner)
         }
 
         // bring in replacement if there is still one

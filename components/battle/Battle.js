@@ -1,14 +1,13 @@
 class Battle {
     constructor({ enemy, onComplete }) {
-        this.enemy = enemy
-        this.onComplete = onComplete
         this.combatants = {}
         this.activeCombatants = {
-            // player: "player1",
-            // enemy: "enemy1",
-            player: null,
-            enemy: null
+            player: null, // "player1"
+            enemy: null // "enemy1"
         }
+        this.enemy = enemy
+        this.onComplete = onComplete
+        this.items = []
 
         // dynamically add Player team
         window.playerState.lineup.forEach(id => {
@@ -20,13 +19,15 @@ class Battle {
             this.addCombatant("e_" + id, "enemy", this.enemy.pizzas[id])
         })
 
-        // populated by what combatants have in their inventory
-        this.items = [
-            { actionId: "item_recoverStatus", instanceId: "p1", team: "player" },
-            { actionId: "item_recoverStatus", instanceId: "p2", team: "player" },
-            { actionId: "item_recoverStatus", instanceId: "p3", team: "enemy" },
-            { actionId: "item_recoverHp", instanceId: "p4", team: "player" },
-        ]
+        // populate initial items list from Player State
+        window.playerState.items.forEach(item => {
+            this.items.push({
+                ...item,
+                team: "player"
+            })
+        })
+
+        this.usedInstanceIds = {}
     }
 
     // add combatants to respective teams
@@ -85,6 +86,32 @@ class Battle {
                     const battleEvent = new BattleEvent(event, this)
                     battleEvent.init(resolve)
                 })
+            },
+            onBattleEnd: winner => {
+                // update Player State with new values
+                // there are pros to reading data directly from battle instead of going off Player State
+                if (winner === "player") {
+                    const playerState = window.playerState
+
+                    Object.keys(playerState.pizzas).forEach(id => {
+                        const playerStatePizza = playerState.pizzas[id]
+                        const combatant = this.combatants[id]
+                        if (combatant) {
+                            playerStatePizza.hp = combatant.hp
+                            playerStatePizza.xp = combatant.xp
+                            playerStatePizza.maxXp = combatant.maxXp
+                            playerStatePizza.level = combatant.level
+                        }
+                    })
+
+                    // get rid of items used during battle
+                    playerState.items = playerState.items.filter(item => {
+                        return !this.usedInstanceIds[item.instanceId]
+                    })
+                }
+
+                this.element.remove() // remove battle elements
+                this.onComplete() // go back to Overworld
             }
         })
 
