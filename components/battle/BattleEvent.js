@@ -129,9 +129,12 @@ class BattleEvent {
                 amount -= 1
                 combatant.xp += 1
 
-                // check if we've hit level up point
-                //
-                //
+                // check if combatant levels up
+                if (combatant.xp === combatant.maxXp) {
+                    combatant.xp = 0
+                    combatant.maxXp = 100 // TODO can make this dynamic and store maxXP in map or table
+                    combatant.level += 1
+                }
 
                 combatant.update()
                 requestAnimationFrame(step)
