@@ -58,6 +58,10 @@ window.OverworldMaps = {
                     }
                 ]
             }),
+            pizzaStone: new PizzaStone({
+                x: utils.withGrid(2),
+                y: utils.withGrid(7)
+            })
         },
         walls: {
             [utils.asGridCoord(7, 6)]: true, // "7,6": true
