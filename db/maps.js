@@ -61,7 +61,8 @@ window.OverworldMaps = {
             pizzaStone: new PizzaStone({
                 x: utils.withGrid(2),
                 y: utils.withGrid(7),
-                storyFlag: "USED_PIZZA_STONE"
+                storyFlag: "USED_PIZZA_STONE",
+                pizzas: ["v001", "f001"] // can make it so that they have different options for crafting
             })
         },
         walls: {

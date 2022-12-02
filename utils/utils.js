@@ -52,5 +52,8 @@ const utils = {
     // probability n; 0 < n < 1
     probability(n) {
         return !!n && Math.random() <= n
+    },
+    generateUniqueId() {
+        return Date.now() + Math.floor(Math.random() * 99999)
     }
 }

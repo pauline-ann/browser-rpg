@@ -40,6 +40,23 @@ class PlayerState {
         this.storyFlags = {}
     }
 
+    // pizzaId is id from pizzadex
+    addPizza(pizzaId) {
+        const newId = `p${utils.generateUniqueId()}`
+        this.pizzas[newId] = {
+            pizzaId,
+            maxHp: 50,
+            xp: 0,
+            maxXp: 100,
+            level: 1,
+            status: null
+        }
+        if (this.lineup.length < 3) {
+            this.lineup.push(newId)
+        }
+        utils.emitEvent("LineupChanged")
+    }
+
     swapLineup(oldId, newId) {
         const oldIndex = this.lineup.indexOf(oldId)
         this.lineup[oldIndex] = newId
