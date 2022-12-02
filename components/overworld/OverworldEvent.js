@@ -86,10 +86,11 @@ class OverworldEvent {
         battle.init(document.querySelector(".game-container"))
     }
 
-    // pause menu is opened
+    // pause menu is opened by pressing "esc"
     pause(resolve) {
         this.map.isPaused = true
         const menu = new PauseMenu({
+            progress: this.map.overworld.progress,
             onComplete: () => {
                 resolve()
                 this.map.isPaused = false

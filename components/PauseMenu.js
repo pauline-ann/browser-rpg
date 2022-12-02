@@ -1,7 +1,8 @@
 // Similar to battle submission menu
 // Call setOptions multiple times as we change pages
 class PauseMenu {
-    constructor({ onComplete }) {
+    constructor({ progress, onComplete }) {
+        this.progress = progress
         this.onComplete = onComplete
     }
 
@@ -26,7 +27,7 @@ class PauseMenu {
                     label: "Save",
                     description: "Save your progress",
                     handler: () => {
-                        // TODO add save ftnality
+                        this.progress.save()
                     }
                 },
                 {
