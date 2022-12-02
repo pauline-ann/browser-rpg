@@ -10,5 +10,24 @@ class PizzaStone extends GameObject {
             },
             currentAnimation: "used-down"
         })
+        this.storyFlag = config.storyFlag
+        this.talking = [
+            {
+                required: [this.storyFlag],
+                events: [
+                    { type: "textMessage", text: "You've already used this." }
+                ]
+            },
+            {
+                events: [
+                    { type: "textMessage", text: "Approaching the legendary pizza stone..." },
+                    { type: "addStoryFlag", flag: this.storyFlag }
+                ]
+            }
+        ]
+    }
+
+    update() {
+        this.sprite.currentAnimation = playerState.storyFlags[this.storyFlag] ? "used-down" : "unused-down"
     }
 }
