@@ -20,12 +20,19 @@ window.OverworldMaps = {
                     { type: "stand", direction: "up", time: 800 },
                 ],
                 talking: [
+                    // each object is a scenario
+                    {
+                        required: ["TALKED_TO_ERIO"], // this scenario only runs if required story flags are true. can have multiple.
+                        events: [
+                            { type: "textMessage", text: "Isn't Erio the coolest?", faceHero: "npc1" }
+                        ]
+                    },
                     {
                         events: [
-                            { type: "textMessage", text: "BETH: Um...hi?", faceHero: "npc1" },
-                            { type: "textMessage", text: "BETH: You're so random" },
+                            { type: "textMessage", text: "BETH: I'm going to crush you!", faceHero: "npc1" },
                             { type: "battle", enemyId: "beth" },
-                            { type: "textMessage", text: "BETH: Ugh..." }
+                            { type: "addStoryFlag", flag: "DEFEATED_BETH" }, // receive this story flag if battle is won
+                            { type: "textMessage", text: "BETH: Hey that wasn't nice..." },
                         ]
                     }
                 ]
@@ -34,19 +41,19 @@ window.OverworldMaps = {
                 x: utils.withGrid(8),
                 y: utils.withGrid(5),
                 src: "/db/images/characters/people/erio.png",
-                // behaviorLoop: [
-                //   { type: "walk", direction: "left" },
-                //   { type: "stand", direction: "up", time: 800 },
-                //   { type: "walk", direction: "up" },
-                //   { type: "walk", direction: "right" },
-                //   { type: "walk", direction: "down" }
-                // ],
+                behaviorLoop: [
+                    { type: "walk", direction: "left" },
+                    { type: "walk", direction: "up" },
+                    { type: "stand", direction: "up", time: 3000 },
+                    { type: "walk", direction: "down" },
+                    { type: "walk", direction: "right" },
+                    { type: "stand", direction: "down", time: 3000 }
+                ],
                 talking: [
                     {
                         events: [
-                            { type: "textMessage", text: "ERIO: Haaaahaaa..", faceHero: "npc2" },
-                            { type: "textMessage", text: "ERIO: Ahaaha" },
-                            { type: "battle", enemyId: "erio" }
+                            { type: "textMessage", text: "ERIO: Ahahaaaaaaa", faceHero: "npc2" },
+                            { type: "addStoryFlag", flag: "TALKED_TO_ERIO" }
                         ]
                     }
                 ]

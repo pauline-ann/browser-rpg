@@ -29,12 +29,15 @@ class PlayerState {
                 status: null
             }
         }
-        this.lineup = ["p1", "p2"], // TODO adjust order in menu later
-            this.items = [
-                { actionId: "item_recoverHp", instanceId: "item1" },
-                { actionId: "item_recoverHp", instanceId: "item2" },
-                { actionId: "item_recoverHp", instanceId: "item3" },
-            ]
+        this.lineup = ["p1", "p2"]
+        this.items = [
+            { actionId: "item_recoverHp", instanceId: "item1" },
+            { actionId: "item_recoverHp", instanceId: "item2" },
+            { actionId: "item_recoverHp", instanceId: "item3" }
+        ]
+        // use these flags to test game throughout different points of story
+        // test different scenarios
+        this.storyFlags = {}
     }
 
     swapLineup(oldId, newId) {

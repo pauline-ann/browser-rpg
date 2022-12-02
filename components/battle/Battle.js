@@ -114,7 +114,7 @@ class Battle {
                 }
 
                 this.element.remove() // remove battle elements
-                this.onComplete() // go back to Overworld
+                this.onComplete(winner === "player") // go back to Overworld
             }
         })
 

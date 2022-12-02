@@ -53,13 +53,16 @@ class OverworldMap {
   async startCutscene(events) {
     this.isCutscenePlaying = true
 
-    // start loop of async events
+    // start loop of async overworld events
     for (let i = 0; i < events.length; i++) {
       const eventHandler = new OverworldEvent({
         event: events[i],
         map: this
       })
-      await eventHandler.init()
+      const result = await eventHandler.init()
+      if (result === "LOST_BATTLE") {
+        break
+      }
     }
 
     this.isCutscenePlaying = false
@@ -76,8 +79,19 @@ class OverworldMap {
       return `${object.x},${object.y}` === `${nextCoords.x},${nextCoords.y}`
     })
 
+    // if there is no current cutscene and there is an object we can talk to...
     if (!this.isCutscenePlaying && match && match.talking.length) {
-      this.startCutscene(match.talking[0].events) // TODO: make index dynamic relative to story progress
+
+      const relevantScenario = match.talking.find(scenario => {
+        // returns true if every condition within every() is met,
+        // ie) if required flags have been marked true inside of player state
+        return (scenario.required || []).every(storyFlags => {
+          return playerState.storyFlags[storyFlags]
+        })
+      })
+
+      // start relevant scenario if the required story flags are met
+      relevantScenario && this.startCutscene(relevantScenario.events)
     }
   }
 
