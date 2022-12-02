@@ -25,7 +25,7 @@ class Progress {
     }
 
     getSaveFile() {
-        const file = window.localStorage.getItem(this.getSaveFile)
+        const file = window.localStorage.getItem(this.saveFileKey)
         return file ? JSON.parse(file) : null
     }
 
