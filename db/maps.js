@@ -135,7 +135,7 @@ window.OverworldMaps = {
             hero: new Person({
                 isPlayerControlled: true,
                 x: utils.withGrid(5),
-                y: utils.withGrid(5),
+                y: utils.withGrid(5)
             }),
             npc3: new Person({
                 x: utils.withGrid(9),
@@ -155,6 +155,20 @@ window.OverworldMaps = {
                 src: "/db/images/characters/people/npc4.png",
             }),
         },
+        cutsceneSpaces: {
+            [utils.asGridCoord(5, 10)]: [
+                {
+                    events: [
+                        {
+                            type: "changeMap",
+                            map: "Street",
+                            x: utils.withGrid(29),
+                            y: utils.withGrid(9),
+                            direction: "down"
+                        }
+                    ]
+                }]
+        }
     },
     Street: {
         id: "Street",
@@ -172,7 +186,19 @@ window.OverworldMaps = {
 
         },
         cutsceneSpaces: {
-
+            [utils.asGridCoord(29, 9)]: [
+                {
+                    events: [
+                        {
+                            type: "changeMap",
+                            map: "Kitchen",
+                            x: utils.withGrid(5),
+                            y: utils.withGrid(10),
+                            direction: "up"
+                        }
+                    ]
+                }
+            ]
         }
     }
 }

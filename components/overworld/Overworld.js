@@ -78,11 +78,18 @@ class Overworld {
   }
 
   // function to be used for switching maps
-  startMap(mapConfig) {
+  startMap(mapConfig, heroInitialState = null) {
     // create new instance of OverworldMap, passing over config from specific map, in this case DemoRoom
     this.map = new OverworldMap(mapConfig)
 
     this.map.overworld = this
+
+    // optional parameter that sets hero's initial state after map transition
+    if (heroInitialState) {
+      this.map.gameObjects.hero.x = heroInitialState.x
+      this.map.gameObjects.hero.y = heroInitialState.y
+      this.map.gameObjects.hero.direction = heroInitialState.direction
+    }
 
     // mount game objects onto map
     this.map.mountObjects()
