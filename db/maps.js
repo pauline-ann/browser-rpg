@@ -1,6 +1,7 @@
 // object containing all the different maps within game
 window.OverworldMaps = {
     DemoRoom: {
+        id: "DemoRoom",
         lowerSrc: "/db/images/maps/DemoLower.png", // path to image that we want to load
         upperSrc: "/db/images/maps/DemoUpper.png",
         gameObjects: {
@@ -127,6 +128,7 @@ window.OverworldMaps = {
         }
     },
     Kitchen: {
+        id: "Kitchen",
         lowerSrc: "/db/images/maps/KitchenLower.png",
         upperSrc: "/db/images/maps/KitchenUpper.png",
         gameObjects: {
@@ -154,4 +156,23 @@ window.OverworldMaps = {
             }),
         },
     },
+    Street: {
+        id: "Street",
+        lowerSrc: "/db/images/maps/StreetLower.png",
+        upperSrc: "/db/images/maps/StreetUpper.png",
+        gameObjects: {
+            hero: new Person({
+                x: utils.withGrid(30),
+                y: utils.withGrid(10),
+                isPlayerControlled: true
+            }),
+
+        },
+        walls: {
+
+        },
+        cutsceneSpaces: {
+
+        }
+    }
 }
