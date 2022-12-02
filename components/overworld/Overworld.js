@@ -101,19 +101,36 @@ class Overworld {
   }
 
   init() {
+    // create a new progress tracker
     this.progress = new Progress()
 
+    // check for saved data and load
+    let initialHeroState = null
+    const saveFile = this.progress.getSaveFile()
+    if (saveFile) {
+      this.progress.load()
+      initialHeroState = {
+        x: this.progress.startingHeroX,
+        y: this.progress.startingHeroY,
+        direction: this.progress.startingHeroDirection
+      }
+    }
+
+    // load the hud
     this.hud = new Hud()
     this.hud.init(document.querySelector(".game-container"))
 
-    this.startMap(window.OverworldMaps.Street)
+    // start the first map
+    this.startMap(window.OverworldMaps[this.progress.mapId], initialHeroState)
 
+    // create controls
     this.bindActionInput()
     this.bindHeroPositionCheck()
 
     this.directionInput = new DirectionInput()
     this.directionInput.init()
 
+    // kick off the game!
     this.startGameLoop()
 
     // this.map.startCutscene([
