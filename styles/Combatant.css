@@ -53,7 +53,7 @@
     left: -2px;
     top: -8px;
     white-space: nowrap;
-    color: #fff;
+    color: rgb(28, 28, 28);
     font-size: 8px;
     /* small because viewport is scaled larger */
     padding: 0 2px;
