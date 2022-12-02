@@ -18,6 +18,15 @@ class PlayerState {
                 maxXp: 100,
                 level: 1,
                 status: null
+            },
+            "p3": {
+                pizzaId: "f001",
+                hp: 30,
+                maxHp: 50,
+                xp: 75,
+                maxXp: 100,
+                level: 1,
+                status: null
             }
         }
         this.lineup = ["p1", "p2"], // TODO adjust order in menu later

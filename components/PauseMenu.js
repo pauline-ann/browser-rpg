@@ -6,9 +6,22 @@ class PauseMenu {
     }
 
     getOptions(page) {
+        // case 1: show the first page of options
         if (page === "root") {
+            const lineupPizzas = playerState.lineup.map(id => {
+                const { pizzaId } = playerState.pizzas[id]
+                const base = Pizzas[pizzaId]
+                return {
+                    label: base.name,
+                    description: base.description,
+                    handler: () => {
+                        this.keyboardMenu.setOptions(this.getOptions(id))
+                    }
+                }
+            })
+
             return [
-                // TODO dynamically add pizzas
+                ...lineupPizzas,
                 {
                     label: "Save",
                     description: "Save your progress",
@@ -25,7 +38,40 @@ class PauseMenu {
                 }
             ]
         }
-        return []
+
+        // case 2: show the options for just one pizza (by id)
+        const unequippedPizzas = Object.keys(playerState.pizzas).filter(id => {
+            return playerState.lineup.indexOf(id) === -1
+        }).map(id => {
+            const { pizzaId } = playerState.pizzas[id]
+            const base = Pizzas[pizzaId]
+            return {
+                label: `Swap for ${base.name}`,
+                description: base.description,
+                handler: () => {
+                    //
+                }
+            }
+        })
+
+        return [
+            // swap for any unequipped pizza
+            ...unequippedPizzas,
+            {
+                label: "Move to the front",
+                description: "Move this pizza to the front of the list",
+                handler: () => {
+                    ///
+                }
+            },
+            {
+                label: "Back",
+                description: "Go back to main menu",
+                handler: () => {
+                    this.keyboardMenu.setOptions(this.getOptions("root"))
+                }
+            }
+        ]
     }
 
     createElement() {
