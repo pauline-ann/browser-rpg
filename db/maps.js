@@ -15,10 +15,10 @@ window.OverworldMaps = {
                 y: utils.withGrid(9),
                 src: "/db/images/characters/people/npc1.png",
                 behaviorLoop: [
-                    { type: "stand", direction: "left", time: 800 },
-                    { type: "stand", direction: "up", time: 800 },
-                    { type: "stand", direction: "right", time: 1200 },
-                    { type: "stand", direction: "up", time: 800 },
+                    { type: "stand", direction: "left", time: 100 },
+                    { type: "stand", direction: "up", time: 100 },
+                    { type: "stand", direction: "right", time: 100 },
+                    { type: "stand", direction: "down", time: 100 }
                 ],
                 talking: [
                     // each object is a scenario
@@ -44,11 +44,9 @@ window.OverworldMaps = {
                 src: "/db/images/characters/people/erio.png",
                 behaviorLoop: [
                     { type: "stand", direction: "down", time: 3000 },
-                    { type: "walk", direction: "left" },
-                    { type: "walk", direction: "up" },
-                    { type: "stand", direction: "up", time: 3000 },
-                    { type: "walk", direction: "down" },
-                    { type: "walk", direction: "right" }
+                    { type: "stand", direction: "left", time: 2000 },
+                    { type: "stand", direction: "down", time: 3000 },
+                    { type: "stand", direction: "right", time: 2000 },
                 ],
                 talking: [
                     {
@@ -76,6 +74,7 @@ window.OverworldMaps = {
             [utils.asGridCoord(3, 3)]: true,
             [utils.asGridCoord(4, 3)]: true,
             [utils.asGridCoord(5, 3)]: true,
+            [utils.asGridCoord(7, 3)]: true,
             [utils.asGridCoord(6, 4)]: true,
             [utils.asGridCoord(8, 4)]: true,
             [utils.asGridCoord(9, 3)]: true,
@@ -121,7 +120,13 @@ window.OverworldMaps = {
             [utils.asGridCoord(5, 10)]: [
                 {
                     events: [
-                        { type: "changeMap", map: "Kitchen" }
+                        {
+                            type: "changeMap",
+                            map: "DemoRoom",
+                            x: utils.withGrid(7),
+                            y: utils.withGrid(4),
+                            direction: "down"
+                        }
                     ]
                 }
             ]
