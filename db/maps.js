@@ -42,12 +42,12 @@ window.OverworldMaps = {
                 y: utils.withGrid(5),
                 src: "/db/images/characters/people/erio.png",
                 behaviorLoop: [
+                    { type: "stand", direction: "down", time: 3000 },
                     { type: "walk", direction: "left" },
                     { type: "walk", direction: "up" },
                     { type: "stand", direction: "up", time: 3000 },
                     { type: "walk", direction: "down" },
-                    { type: "walk", direction: "right" },
-                    { type: "stand", direction: "down", time: 3000 }
+                    { type: "walk", direction: "right" }
                 ],
                 talking: [
                     {
