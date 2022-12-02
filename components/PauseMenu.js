@@ -61,7 +61,7 @@ class PauseMenu {
             {
                 label: "Move to the front",
                 description: "Move this pizza to the front of the list",
-                isDisabled: playerState.lineup.indexOf(pageKey) === 0, // show move to front option only if the pizza is not the first in lineup
+                isDisabled: playerState.lineup.indexOf(pageKey) === 0, // disable move to front option if the pizza is the first in lineup
                 handler: () => {
                     playerState.moveToFront(pageKey)
                     this.keyboardMenu.setOptions(this.getOptions("root"))
@@ -80,6 +80,7 @@ class PauseMenu {
     createElement() {
         this.element = document.createElement("div")
         this.element.classList.add("PauseMenu")
+        this.element.classList.add("OverlayMenu")
         this.element.innerHTML = (`
         <h2>Pause Menu</h2>
         `)
