@@ -5,14 +5,14 @@ window.Enemies = {
         pizzas: {
             "a": {
                 pizzaId: "s001",
-                maxHp: 50,
+                maxHp: 30,
                 level: 1
                 // attackBonus: 20000 etc.
                 // can configure behavior here
             },
             "b": {
                 pizzaId: "s002",
-                maxHp: 50,
+                maxHp: 30,
                 level: 1
             }
         },
@@ -27,8 +27,7 @@ window.Enemies = {
         pizzas: {
             "a": {
                 pizzaId: "f001",
-                hp: 1, // TODO for testing purposes
-                maxHp: 50,
+                maxHp: 30,
                 level: 1
             }
         },

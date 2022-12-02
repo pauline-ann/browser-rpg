@@ -6,7 +6,6 @@ window.PizzaTypes = {
     chill: "chill"
 }
 
-// TODO make more complex
 window.Pizzas = {
     "s001": {
         name: "Slice Samurai",
