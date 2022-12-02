@@ -36,6 +36,16 @@ class PlayerState {
                 { actionId: "item_recoverHp", instanceId: "item3" },
             ]
     }
+
+    swapLineup(oldId, newId) {
+        const oldIndex = this.lineup.indexOf(oldId)
+        this.lineup[oldIndex] = newId
+        utils.emitEvent("LineupChanged")
+    }
+
+    moveToFront() {
+        utils.emitEvent("LineupChanged")
+    }
 }
 
 window.playerState = new PlayerState()
