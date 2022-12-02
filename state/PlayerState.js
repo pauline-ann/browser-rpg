@@ -43,7 +43,10 @@ class PlayerState {
         utils.emitEvent("LineupChanged")
     }
 
-    moveToFront() {
+    // move object with specific id to the front of the lineup
+    moveToFront(newId) {
+        this.lineup = this.lineup.filter(id => id !== newId)
+        this.lineup.unshift(newId)
         utils.emitEvent("LineupChanged")
     }
 }

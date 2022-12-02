@@ -5,9 +5,9 @@ class PauseMenu {
         this.onComplete = onComplete
     }
 
-    getOptions(page) {
+    getOptions(pageKey) {
         // case 1: show the first page of options
-        if (page === "root") {
+        if (pageKey === "root") {
             const lineupPizzas = playerState.lineup.map(id => {
                 const { pizzaId } = playerState.pizzas[id]
                 const base = Pizzas[pizzaId]
@@ -49,7 +49,7 @@ class PauseMenu {
                 label: `Swap for ${base.name}`,
                 description: base.description,
                 handler: () => {
-                    playerState.swapLineup(page, id)
+                    playerState.swapLineup(pageKey, id)
                     this.keyboardMenu.setOptions(this.getOptions("root"))
                 }
             }
@@ -61,8 +61,10 @@ class PauseMenu {
             {
                 label: "Move to the front",
                 description: "Move this pizza to the front of the list",
+                isDisabled: playerState.lineup.indexOf(pageKey) === 0, // show move to front option only if the pizza is not the first in lineup
                 handler: () => {
-                    ///
+                    playerState.moveToFront(pageKey)
+                    this.keyboardMenu.setOptions(this.getOptions("root"))
                 }
             },
             {
