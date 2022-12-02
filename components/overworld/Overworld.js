@@ -104,6 +104,7 @@ class Overworld {
     // create a new progress tracker
     this.progress = new Progress()
 
+    // TODO create title screen so player can choose to load or start a new game
     // check for saved data and load
     let initialHeroState = null
     const saveFile = this.progress.getSaveFile()
