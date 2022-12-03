@@ -103,9 +103,18 @@ class Overworld {
     this.progress.startingHeroDirection = hero.direction
   }
 
-  init() {
+  async init() {
+    const container = document.querySelector(".game-container")
+
     // create a new progress tracker
     this.progress = new Progress()
+
+    // show the title screen
+    this.titleScreen = new TitleScreen({
+      progress: this.progress
+    })
+
+    await this.titleScreen.init(container)
 
     // TODO create title screen so player can choose to load or start a new game
     // check for saved data and load
@@ -122,7 +131,7 @@ class Overworld {
 
     // load the hud
     this.hud = new Hud()
-    this.hud.init(document.querySelector(".game-container"))
+    this.hud.init(container)
 
     // start the first map
     this.startMap(window.OverworldMaps[this.progress.mapId], initialHeroState)
