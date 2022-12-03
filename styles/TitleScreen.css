@@ -35,6 +35,7 @@
 
 .TitleScreen .DescriptionBox {
     color: var(--menu-selected-background);
+    opacity: .9;
     border: 0;
     text-align: center;
 }
