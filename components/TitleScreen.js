@@ -41,11 +41,17 @@ class TitleScreen {
 
     init(container) {
         return new Promise(resolve => {
-            this.createElement()
-            container.appendChild(this.element)
-            this.keyboardMenu = new KeyboardMenu()
-            this.keyboardMenu.init(this.element)
-            this.keyboardMenu.setOptions(this.getOptions(resolve))
+            const sceneTransition = new SceneTransition()
+            sceneTransition.init(container, () => {
+
+                this.createElement()
+                container.appendChild(this.element)
+                this.keyboardMenu = new KeyboardMenu()
+                this.keyboardMenu.init(this.element)
+                this.keyboardMenu.setOptions(this.getOptions(resolve))
+
+                sceneTransition.fadeOut()
+            })
         })
     }
 }
