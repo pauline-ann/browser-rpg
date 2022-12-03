@@ -4,6 +4,8 @@ class TitleScreen {
     }
 
     getOptions(resolve) {
+        const saveFile = this.progress.getSaveFile()
+
         return [
             {
                 label: "New Game",
@@ -13,14 +15,15 @@ class TitleScreen {
                     resolve()
                 }
             },
-            {
+            saveFile ? {
                 label: "Continue",
                 description: "Load a previous save file.",
                 handler: () => {
-                    console.log('continue') // TODO
+                    this.close()
+                    resolve(saveFile)
                 }
-            }
-        ]
+            } : null
+        ].filter(v => v)
     }
 
     createElement() {

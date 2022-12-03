@@ -114,13 +114,11 @@ class Overworld {
       progress: this.progress
     })
 
-    await this.titleScreen.init(container)
-
-    // TODO create title screen so player can choose to load or start a new game
     // check for saved data and load
+    const useSaveFile = await this.titleScreen.init(container)
     let initialHeroState = null
-    const saveFile = this.progress.getSaveFile()
-    if (saveFile) {
+
+    if (useSaveFile) {
       this.progress.load()
       initialHeroState = {
         x: this.progress.startingHeroX,
