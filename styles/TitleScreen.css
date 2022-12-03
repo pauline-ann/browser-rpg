@@ -4,7 +4,10 @@
     right: 0;
     top: 0;
     bottom: 0;
-    background: #000;
+    background-image: url(/db/images/pizzabox.png);
+    background-size: 20%;
+    image-rendering: pixelated;
+    background-repeat: space;
 }
 
 .TitleScreen_logo {
@@ -24,13 +27,14 @@
 
 .TitleScreen button {
     color: #fff;
+    background-color: var(--menu-selected-background);
     justify-content: center;
     padding: 0;
+    margin-bottom: 5px;
 }
 
 .TitleScreen .DescriptionBox {
-    background: transparent;
-    color: #fff;
+    color: var(--menu-selected-background);
     border: 0;
     text-align: center;
 }

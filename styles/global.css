@@ -11,10 +11,10 @@ https://managore.itch.io/m5x7
   --border-color: #291d4d;
   --dialogue-background: #FADBD8;
 
-  --menu-background: #FADBD8;
+  --menu-background: #faecd8;
   --menu-border-color: #a48465;
   --menu-font-color: #641E16;
-  --menu-selected-background: #F1948A;
+  --menu-selected-background: #604434;
 }
 
 * {
@@ -22,7 +22,7 @@ https://managore.itch.io/m5x7
 }
 
 body {
-  background: #c4bebb;
+  background: #a2988c;
   padding: 0;
   margin: 0;
   overflow: hidden;
@@ -30,13 +30,13 @@ body {
 }
 
 .game-container {
-  background: #EBDEF0;
+  background: #ebd6b2;
   position: relative;
   width: 352px;
   height: 218px;
   /* 198 */
   margin: 0 auto;
-  border: 10px solid #D7BDE2;
+  border: 10px solid #595351;
   border-radius: 10px;
 
   transform: scale(3) translateY(50%);
