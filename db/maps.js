@@ -132,6 +132,107 @@ window.OverworldMaps = {
             ]
         }
     },
+    Street: {
+        id: "Street",
+        lowerSrc: "/db/images/maps/StreetLower.png",
+        upperSrc: "/db/images/maps/StreetUpper.png",
+        gameObjects: {
+            hero: new Person({
+                x: utils.withGrid(18),
+                y: utils.withGrid(12),
+                isPlayerControlled: true
+            }),
+            // TODO add more npc
+        },
+        walls: {
+            // TODO add walls
+        },
+        cutsceneSpaces: {
+            [utils.asGridCoord(5, 9)]: [
+                {
+                    events: [
+                        {
+                            type: "changeMap",
+                            map: "Tony",
+                            x: utils.withGrid(6),
+                            y: utils.withGrid(12),
+                            direction: "up"
+                        }
+                    ]
+                }
+            ],
+            [utils.asGridCoord(29, 9)]: [
+                {
+                    events: [
+                        {
+                            type: "changeMap",
+                            map: "Shop",
+                            x: utils.withGrid(5),
+                            y: utils.withGrid(12),
+                            direction: "up"
+                        }
+                    ]
+                }
+            ],
+            [utils.asGridCoord(25, 5)]: [
+                {
+                    events: [
+                        {
+                            type: "changeMap",
+                            map: "North",
+                            x: utils.withGrid(7),
+                            y: utils.withGrid(16),
+                            direction: "up"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    Tony: {
+        id: "Tony",
+        lowerSrc: "/db/images/maps/DiningRoomLower.png",
+        upperSrc: "/db/images/maps/DiningRoomUpper.png",
+        gameObjects: {
+            hero: new Person({
+                isPlayerControlled: true,
+                x: utils.withGrid(5),
+                y: utils.withGrid(5)
+            }),
+            // TODO add npc
+        },
+        walls: {
+            // TODO add walls
+        },
+        cutsceneSpaces: {
+            [utils.asGridCoord(7, 3)]: [
+                {
+                    events: [
+                        {
+                            type: "changeMap",
+                            map: "Kitchen",
+                            x: utils.withGrid(5),
+                            y: utils.withGrid(10),
+                            direction: "up"
+                        }
+                    ]
+                }
+            ],
+            [utils.asGridCoord(6, 12)]: [
+                {
+                    events: [
+                        {
+                            type: "changeMap",
+                            map: "Street",
+                            x: utils.withGrid(5),
+                            y: utils.withGrid(9),
+                            direction: "down"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
     Kitchen: {
         id: "Kitchen",
         lowerSrc: "/db/images/maps/KitchenLower.png",
@@ -160,8 +261,41 @@ window.OverworldMaps = {
                 src: "/db/images/characters/people/npc4.png",
             }),
         },
+        walls: {
+            // TODO add walls
+        },
         cutsceneSpaces: {
             [utils.asGridCoord(5, 10)]: [
+                {
+                    events: [
+                        {
+                            type: "changeMap",
+                            map: "Tony",
+                            x: utils.withGrid(7),
+                            y: utils.withGrid(3),
+                            direction: "down"
+                        }
+                    ]
+                }]
+        }
+    },
+    Shop: {
+        id: "Shop",
+        lowerSrc: "/db/images/maps/PizzaShopLower.png",
+        upperSrc: "/db/images/maps/PizzaShopUpper.png",
+        gameObjects: {
+            hero: new Person({
+                isPlayerControlled: true,
+                x: utils.withGrid(5),
+                y: utils.withGrid(5)
+            }),
+            // TODO add npc
+        },
+        walls: {
+            // TODO add walls
+        },
+        cutsceneSpaces: {
+            [utils.asGridCoord(5, 12)]: [
                 {
                     events: [
                         {
@@ -175,35 +309,78 @@ window.OverworldMaps = {
                 }]
         }
     },
-    Street: {
-        id: "Street",
-        lowerSrc: "/db/images/maps/StreetLower.png",
-        upperSrc: "/db/images/maps/StreetUpper.png",
+    North: {
+        id: "North",
+        lowerSrc: "/db/images/maps/StreetNorthLower.png",
+        upperSrc: "/db/images/maps/StreetNorthUpper.png",
         gameObjects: {
             hero: new Person({
-                x: utils.withGrid(30),
-                y: utils.withGrid(10),
-                isPlayerControlled: true
+                isPlayerControlled: true,
+                x: utils.withGrid(5),
+                y: utils.withGrid(5)
             }),
-
+            // TODO add npc
         },
         walls: {
-
+            // TODO add walls
         },
         cutsceneSpaces: {
-            [utils.asGridCoord(29, 9)]: [
+            [utils.asGridCoord(7, 16)]: [
                 {
                     events: [
                         {
                             type: "changeMap",
-                            map: "Kitchen",
+                            map: "Street",
+                            x: utils.withGrid(25),
+                            y: utils.withGrid(5),
+                            direction: "down"
+                        }
+                    ]
+                }
+            ],
+            [utils.asGridCoord(7, 5)]: [
+                {
+                    events: [
+                        {
+                            type: "changeMap",
+                            map: "Green",
                             x: utils.withGrid(5),
-                            y: utils.withGrid(10),
+                            y: utils.withGrid(12),
                             direction: "up"
                         }
                     ]
                 }
             ]
+        }
+    },
+    Green: {
+        id: "Green",
+        lowerSrc: "/db/images/maps/GreenKitchenLower.png",
+        upperSrc: "/db/images/maps/GreenKitchenUpper.png",
+        gameObjects: {
+            hero: new Person({
+                isPlayerControlled: true,
+                x: utils.withGrid(5),
+                y: utils.withGrid(5)
+            }),
+            // TODO add npc
+        },
+        walls: {
+            // TODO add walls
+        },
+        cutsceneSpaces: {
+            [utils.asGridCoord(5, 12)]: [
+                {
+                    events: [
+                        {
+                            type: "changeMap",
+                            map: "North",
+                            x: utils.withGrid(7),
+                            y: utils.withGrid(5),
+                            direction: "down"
+                        }
+                    ]
+                }]
         }
     }
 }
