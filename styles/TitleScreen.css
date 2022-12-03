@@ -22,7 +22,7 @@
     border: 0;
 }
 
-.TitleScreen .button {
+.TitleScreen button {
     color: #fff;
     justify-content: center;
     padding: 0;
