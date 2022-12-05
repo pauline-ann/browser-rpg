@@ -4,13 +4,15 @@ window.OverworldMaps = {
         id: "DemoRoom",
         lowerSrc: "/db/images/maps/DemoLower.png", // path to image that we want to load
         upperSrc: "/db/images/maps/DemoUpper.png",
-        gameObjects: {
-            hero: new Person({
+        configObjects: {
+            hero: {
+                type: "Person",
                 x: utils.withGrid(5),
                 y: utils.withGrid(6),
                 isPlayerControlled: true
-            }),
-            npc1: new Person({
+            },
+            npc1: {
+                type: "Person",
                 x: utils.withGrid(7),
                 y: utils.withGrid(9),
                 src: "/db/images/characters/people/npc1.png",
@@ -37,8 +39,9 @@ window.OverworldMaps = {
                         ]
                     }
                 ]
-            }),
-            npc2: new Person({
+            },
+            npc2: {
+                type: "Person",
                 x: utils.withGrid(8),
                 y: utils.withGrid(5),
                 src: "/db/images/characters/people/erio.png",
@@ -56,13 +59,14 @@ window.OverworldMaps = {
                         ]
                     }
                 ]
-            }),
-            pizzaStone: new PizzaStone({
+            },
+            pizzaStone: {
+                type: "PizzaStone",
                 x: utils.withGrid(2),
                 y: utils.withGrid(7),
                 storyFlag: "USED_PIZZA_STONE",
                 pizzas: ["v001", "f001"] // can make it so that they have different options for crafting
-            })
+            }
         },
         walls: {
             [utils.asGridCoord(7, 6)]: true, // "7,6": true
@@ -136,12 +140,13 @@ window.OverworldMaps = {
         id: "Street",
         lowerSrc: "/db/images/maps/StreetLower.png",
         upperSrc: "/db/images/maps/StreetUpper.png",
-        gameObjects: {
-            hero: new Person({
+        configObjects: {
+            hero: {
+                type: "Person",
                 x: utils.withGrid(18),
                 y: utils.withGrid(12),
                 isPlayerControlled: true
-            }),
+            },
             // TODO add more npc
         },
         walls: {
@@ -193,12 +198,13 @@ window.OverworldMaps = {
         id: "Tony",
         lowerSrc: "/db/images/maps/DiningRoomLower.png",
         upperSrc: "/db/images/maps/DiningRoomUpper.png",
-        gameObjects: {
-            hero: new Person({
+        configObjects: {
+            hero: {
+                type: "Person",
                 isPlayerControlled: true,
                 x: utils.withGrid(5),
                 y: utils.withGrid(5)
-            }),
+            },
             // TODO add npc
         },
         walls: {
@@ -237,13 +243,15 @@ window.OverworldMaps = {
         id: "Kitchen",
         lowerSrc: "/db/images/maps/KitchenLower.png",
         upperSrc: "/db/images/maps/KitchenUpper.png",
-        gameObjects: {
-            hero: new Person({
+        configObjects: {
+            hero: {
+                type: "Person",
                 isPlayerControlled: true,
                 x: utils.withGrid(5),
                 y: utils.withGrid(5)
-            }),
-            npc3: new Person({
+            },
+            npc3: {
+                type: "Person",
                 x: utils.withGrid(9),
                 y: utils.withGrid(6),
                 src: "/db/images/characters/people/npc3.png",
@@ -254,12 +262,13 @@ window.OverworldMaps = {
                         ]
                     }
                 ]
-            }),
-            npc4: new Person({
+            },
+            npc4: {
+                type: "Person",
                 x: utils.withGrid(10),
                 y: utils.withGrid(8),
                 src: "/db/images/characters/people/npc4.png",
-            }),
+            },
         },
         walls: {
             // TODO add walls
@@ -283,12 +292,13 @@ window.OverworldMaps = {
         id: "Shop",
         lowerSrc: "/db/images/maps/PizzaShopLower.png",
         upperSrc: "/db/images/maps/PizzaShopUpper.png",
-        gameObjects: {
-            hero: new Person({
+        configObjects: {
+            hero: {
+                type: "Person",
                 isPlayerControlled: true,
                 x: utils.withGrid(5),
                 y: utils.withGrid(5)
-            }),
+            },
             // TODO add npc
         },
         walls: {
@@ -313,12 +323,13 @@ window.OverworldMaps = {
         id: "North",
         lowerSrc: "/db/images/maps/StreetNorthLower.png",
         upperSrc: "/db/images/maps/StreetNorthUpper.png",
-        gameObjects: {
-            hero: new Person({
+        configObjects: {
+            hero: {
+                type: "Person",
                 isPlayerControlled: true,
                 x: utils.withGrid(5),
                 y: utils.withGrid(5)
-            }),
+            },
             // TODO add npc
         },
         walls: {
@@ -357,12 +368,13 @@ window.OverworldMaps = {
         id: "Green",
         lowerSrc: "/db/images/maps/GreenKitchenLower.png",
         upperSrc: "/db/images/maps/GreenKitchenUpper.png",
-        gameObjects: {
-            hero: new Person({
+        configObjects: {
+            hero: {
+                type: "Person",
                 isPlayerControlled: true,
                 x: utils.withGrid(5),
                 y: utils.withGrid(5)
-            }),
+            },
             // TODO add npc
         },
         walls: {
