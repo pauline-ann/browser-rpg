@@ -4,6 +4,7 @@ class Person extends GameObject {
         super(config) // run constructor for GameObject as well
         this.movingProgressRemaining = 0 // lock people to grid
         this.isStanding = false
+        this.intentPosition = null // [x,y]
 
         this.isPlayerControlled = config.isPlayerControlled || false
 
@@ -52,6 +53,14 @@ class Person extends GameObject {
 
             // proceed to walk
             this.movingProgressRemaining = 16 // reset counter
+
+            // add next position to intent
+            const intentPosition = utils.nextPosition(this.x, this.y, this.direction)
+            this.intentPosition = [
+                intentPosition.x,
+                intentPosition.y
+            ]
+
             this.updateAnimation(state)
         }
 
@@ -73,6 +82,9 @@ class Person extends GameObject {
         this.movingProgressRemaining -= 1
 
         if (this.movingProgressRemaining === 0) {
+            // remove position from intent
+            this.intentPosition = null
+
             // movement is finished
             utils.emitEvent("PersonWalkingComplete", {
                 whoId: this.id
