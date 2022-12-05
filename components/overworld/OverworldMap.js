@@ -1,7 +1,9 @@
 class OverworldMap {
   constructor(config) {
     this.overworld = null
-    this.gameObjects = config.gameObjects
+    this.gameObjects = {} // live objects
+    this.configObjects = config.configObjects // configuration for game object instances
+
     this.cutsceneSpaces = config.cutsceneSpaces || {}
     this.walls = config.walls || {}
 
@@ -38,15 +40,23 @@ class OverworldMap {
   }
 
   mountObjects() {
-    Object.keys(this.gameObjects).forEach(key => {
+    Object.keys(this.configObjects).forEach(key => {
 
-      let object = this.gameObjects[key]
+      let object = this.configObjects[key]
       object.id = key // "hero", "npcA"
 
-      // TODO: determine if this object should actually mount or not
+      let instance
+      if (object.type === "Person") {
+        instance = new Person(object)
+      }
+      if (object.type === "PizzaStone") {
+        instance = new PizzaStone(object)
+      }
+      this.gameObjects[key] = instance
+      this.gameObjects[key].id = key
 
       // mount object onto map
-      object.mount(this)
+      instance.mount(this)
     })
   }
 
