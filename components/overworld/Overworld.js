@@ -90,11 +90,9 @@ class Overworld {
 
     // optional parameter that sets hero's initial state after map transition
     if (heroInitialState) {
-      this.map.removeWall(hero.x, hero.y)
       hero.x = heroInitialState.x
       hero.y = heroInitialState.y
       hero.direction = heroInitialState.direction
-      this.map.addWall(hero.x, hero.y)
     }
 
     // save hero position and map

@@ -19,7 +19,6 @@ class GameObject {
     // add wall where there are game objects
     mount(map) {
         this.isMounted = true
-        map.addWall(this.x, this.y)
 
         // If we have a behavior, kick off after short delay
         setTimeout(() => {

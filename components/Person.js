@@ -51,7 +51,6 @@ class Person extends GameObject {
             }
 
             // proceed to walk
-            state.map.moveWall(this.x, this.y, this.direction) // set wall into playable character's future position
             this.movingProgressRemaining = 16 // reset counter
             this.updateAnimation(state)
         }
