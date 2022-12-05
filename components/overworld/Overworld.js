@@ -82,6 +82,10 @@ class Overworld {
     // create new instance of OverworldMap, passing over config from specific map, in this case DemoRoom
     this.map = new OverworldMap(mapConfig)
     this.map.overworld = this
+
+    // mount game objects onto map
+    this.map.mountObjects()
+
     const { hero } = this.map.gameObjects
 
     // optional parameter that sets hero's initial state after map transition
@@ -92,9 +96,6 @@ class Overworld {
       hero.direction = heroInitialState.direction
       this.map.addWall(hero.x, hero.y)
     }
-
-    // mount game objects onto map
-    this.map.mountObjects()
 
     // save hero position and map
     this.progress.mapId = mapConfig.id
