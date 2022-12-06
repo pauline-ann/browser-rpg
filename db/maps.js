@@ -17,10 +17,10 @@ window.OverworldMaps = {
                 y: utils.withGrid(9),
                 src: "/db/images/characters/people/npc1.png",
                 behaviorLoop: [
-                    { type: "stand", direction: "left", time: 100 },
-                    { type: "stand", direction: "up", time: 100 },
-                    { type: "stand", direction: "right", time: 100 },
-                    { type: "stand", direction: "down", time: 100 }
+                    { type: "walk", direction: "left" },
+                    { type: "walk", direction: "up" },
+                    { type: "walk", direction: "right" },
+                    { type: "walk", direction: "down" }
                 ],
                 talking: [
                     // each object is a scenario

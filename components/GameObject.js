@@ -14,6 +14,7 @@ class GameObject {
         this.behaviorLoopIndex = 0
 
         this.talking = config.talking || []
+        this.retryTimeout = null
     }
 
     // add wall where there are game objects
@@ -30,10 +31,25 @@ class GameObject {
 
     }
 
+    // TODO buggy behavior in behavior loop after talking to someone "cutscene"
     async doBehaviorEvent(map) {
 
-        // don't do anything if there is a cutscene or there is no behavior loop or if person is standing
-        if (map.isCutscenePlaying || this.behaviorLoop.length === 0 || this.isStanding) {
+        // don't do anything if there is no behavior loop
+        if (this.behaviorLoop.length === 0) {
+            return
+        }
+
+        // if there is a cutscene, wait a moment then retry behavior event
+        if (map.isCutscenePlaying) {
+
+            if (this.retryTimeout) {
+                clearTimeout(this.retryTimeout)
+            }
+
+            this.retryTimeout = setTimeout(() => {
+                this.doBehaviorEvent(map)
+            }, 1000)
+
             return
         }
 
