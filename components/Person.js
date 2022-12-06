@@ -35,6 +35,11 @@ class Person extends GameObject {
     }
 
     startBehavior(state, behavior) {
+
+        if (!this.isMounted) {
+            return
+        }
+
         // update character direction to behavior direction
         this.direction = behavior.direction
 
