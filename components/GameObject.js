@@ -31,7 +31,6 @@ class GameObject {
 
     }
 
-    // TODO buggy behavior in behavior loop after talking to someone "cutscene"
     async doBehaviorEvent(map) {
 
         // don't do anything if there is no behavior loop
