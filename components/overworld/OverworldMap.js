@@ -45,10 +45,11 @@ class OverworldMap {
 
     // keep in mind if scope becomes larger, may have to refactor
     return Object.values(this.gameObjects).find(obj => {
-      const hasGameObject = obj.x === x && obj.y === y // check for game objects at this position
-      const hasGameObjectIntent = obj.intentPosition && obj.intentPosition[0] === x && obj.intentPosition[1] === y // or with the intent to move to this position
+      const hasGameObject = obj.x === x && obj.y === y
+      const hasGameObjectIntent = obj.intentPosition && obj.intentPosition[0] === x && obj.intentPosition[1] === y
 
       // check for game objects at this position
+      // or with the intent to move to this position
       if (hasGameObject || hasGameObjectIntent) {
         return true
       }
