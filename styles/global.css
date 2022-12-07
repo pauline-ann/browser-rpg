@@ -9,11 +9,11 @@ https://managore.itch.io/m5x7
 
 :root {
   --border-color: #291d4d;
-  --dialogue-background: #FADBD8;
+  --dialogue-background: #fadbd8;
 
   --menu-background: #faecd8;
   --menu-border-color: #a48465;
-  --menu-font-color: #641E16;
+  --menu-font-color: #641e16;
   --menu-selected-background: #604434;
 }
 
@@ -36,8 +36,7 @@ body {
   height: 218px;
   /* 198 */
   margin: 0 auto;
-  border: 10px solid #595351;
-  border-radius: 10px;
+  outline: 10px solid #595351;
 
   transform: scale(3) translateY(50%);
 }
