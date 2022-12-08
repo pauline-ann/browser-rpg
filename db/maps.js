@@ -38,7 +38,7 @@ window.OverworldMaps = {
             events: [
               {
                 type: "textMessage",
-                text: "REGINA: I'm going to crush you!", // TODO make text message populate name dynamically
+                text: "REGINA: I'm going to crush you!",
                 faceHero: "regina",
               },
               { type: "battle", enemyId: "regina", locationId: "Demo" },
@@ -81,7 +81,7 @@ window.OverworldMaps = {
       },
     },
     walls: {
-      [utils.asGridCoord(7, 6)]: true, // "7,6": true
+      [utils.asGridCoord(7, 6)]: true,
       [utils.asGridCoord(8, 6)]: true,
       [utils.asGridCoord(7, 7)]: true,
       [utils.asGridCoord(8, 7)]: true,
@@ -162,36 +162,79 @@ window.OverworldMaps = {
       regina: {
         type: "Person",
         x: utils.withGrid(21),
-        y: utils.withGrid(11),
+        y: utils.withGrid(8),
         src: "/db/images/characters/people/regina.png",
         behaviorLoop: [
           { type: "walk", direction: "left" },
-          { type: "walk", direction: "up" },
-          { type: "walk", direction: "right" },
+          { type: "walk", direction: "left" },
+          { type: "walk", direction: "left" },
+          { type: "walk", direction: "left" },
+          { type: "walk", direction: "left" },
+          { type: "walk", direction: "left" },
           { type: "walk", direction: "down" },
+          { type: "walk", direction: "down" },
+          { type: "walk", direction: "down" },
+          { type: "walk", direction: "down" },
+          { type: "walk", direction: "right" },
+          { type: "walk", direction: "right" },
+          { type: "walk", direction: "right" },
+          { type: "walk", direction: "right" },
+          { type: "walk", direction: "right" },
+          { type: "walk", direction: "right" },
+          { type: "walk", direction: "right" },
+          { type: "walk", direction: "right" },
+          { type: "walk", direction: "right" },
+          { type: "walk", direction: "right" },
+          { type: "walk", direction: "right" },
+          { type: "walk", direction: "right" },
+          { type: "walk", direction: "up" },
+          { type: "walk", direction: "up" },
+          { type: "walk", direction: "up" },
+          { type: "walk", direction: "up" },
+          { type: "walk", direction: "left" },
+          { type: "walk", direction: "left" },
+          { type: "walk", direction: "left" },
+          { type: "walk", direction: "left" },
+          { type: "walk", direction: "left" },
+          { type: "walk", direction: "left" },
         ],
         talking: [
-          // each object is a scenario
           {
-            required: ["TALKED_TO_MOUSE"], // this scenario only runs if required story flags are true. can have multiple.
             events: [
               {
                 type: "textMessage",
-                text: "Isn't Mouse the coolest?",
+                text: "REGINA: Um.....hi?",
                 faceHero: "regina",
-              },
+              }
             ],
           },
+        ],
+      },
+      johnny: {
+        type: "Person",
+        x: utils.withGrid(7),
+        y: utils.withGrid(11),
+        src: "/db/images/characters/people/johnny.png",
+        behaviorLoop: [
+          { type: "stand", direction: "down", time: 2000 },
+          { type: "walk", direction: "right" },
+          { type: "walk", direction: "right" },
+          { type: "walk", direction: "right" },
+          { type: "walk", direction: "right" },
+          { type: "stand", direction: "down", time: 2000 },
+          { type: "walk", direction: "left" },
+          { type: "walk", direction: "left" },
+          { type: "walk", direction: "left" },
+          { type: "walk", direction: "left" }
+        ],
+        talking: [
           {
             events: [
               {
                 type: "textMessage",
-                text: "REGINA: I'm going to crush you!",
-                faceHero: "regina",
-              },
-              { type: "battle", enemyId: "regina", locationId: "Street" },
-              { type: "addStoryFlag", flag: "DEFEATED_REGINA" }, // receive this story flag if battle is won
-              { type: "textMessage", text: "REGINA: Hey that wasn't nice..." },
+                text: "JOHNNY: Is there a bathroom around here?",
+                faceHero: "johnny",
+              }
             ],
           },
         ],
@@ -350,13 +393,128 @@ window.OverworldMaps = {
       hero: {
         type: "Person",
         isPlayerControlled: true,
-        x: utils.withGrid(5),
+        x: utils.withGrid(7),
         y: utils.withGrid(5),
       },
-      // TODO add npc
+      chef: {
+        type: "Person",
+        src: "/db/images/characters/people/hero.png",
+        x: utils.withGrid(2),
+        y: utils.withGrid(4),
+        behaviorLoop: [
+          { type: "stand", direction: "up" }
+        ]
+      },
+      timmy: {
+        type: "Person",
+        x: utils.withGrid(5),
+        y: utils.withGrid(5),
+        src: "/db/images/characters/people/timmy.png",
+        behaviorLoop: [
+          { type: "stand", direction: "right", time: 1000 },
+          { type: "walk", direction: "down" },
+          { type: "walk", direction: "down" },
+          { type: "walk", direction: "down" },
+          { type: "walk", direction: "left" },
+          { type: "walk", direction: "left" },
+          { type: "stand", direction: "up", time: 1000 },
+          { type: "walk", direction: "right" },
+          { type: "walk", direction: "right" },
+          { type: "walk", direction: "right" },
+          { type: "walk", direction: "right" },
+          { type: "walk", direction: "right" },
+          { type: "walk", direction: "down" },
+          { type: "stand", direction: "down", time: 1000 },
+          { type: "walk", direction: "right" },
+          { type: "walk", direction: "right" },
+          { type: "walk", direction: "up" },
+          { type: "walk", direction: "up" },
+          { type: "walk", direction: "up" },
+          { type: "walk", direction: "right" },
+          { type: "stand", direction: "up", time: 1000 },
+          { type: "walk", direction: "left" },
+          { type: "walk", direction: "left" },
+          { type: "walk", direction: "left" },
+          { type: "walk", direction: "left" },
+          { type: "walk", direction: "left" },
+          { type: "walk", direction: "left" },
+          { type: "walk", direction: "up" },
+        ],
+        talking: [
+          {
+            events: [
+              {
+                type: "textMessage",
+                text: "TIMMY: Sorry, I'm busy!",
+                faceHero: "timmy",
+              },
+            ],
+          },
+        ],
+      },
+      mouse: {
+        type: "Person",
+        x: utils.withGrid(2),
+        y: utils.withGrid(7),
+        src: "/db/images/characters/people/mouse.png",
+        behaviorLoop: [
+          { type: "stand", direction: "right" }
+        ],
+        talking: [
+          {
+            events: [
+              {
+                type: "textMessage",
+                text: "MOUSE: Ahahaaaaaaa",
+                faceHero: "mouse",
+              },
+            ],
+          },
+        ],
+      },
+      cypher: {
+        type: "Person",
+        x: utils.withGrid(9),
+        y: utils.withGrid(10),
+        src: "/db/images/characters/people/cypher.png",
+        behaviorLoop: [
+          { type: "stand", direction: "left" }
+        ],
+        talking: [
+          {
+            events: [
+              {
+                type: "textMessage",
+                text: "Cypher: Ahahaaaaaaa",
+                faceHero: "cypher",
+              },
+            ],
+          },
+        ],
+      },
+      regina: {
+        type: "Person",
+        x: utils.withGrid(10),
+        y: utils.withGrid(5),
+        src: "/db/images/characters/people/regina.png",
+        behaviorLoop: [
+          { type: "stand", direction: "right" }
+        ],
+        talking: [
+          {
+            events: [
+              {
+                type: "textMessage",
+                text: "Regina: Ahahaaaaaaa",
+                faceHero: "regina",
+              },
+            ],
+          },
+        ],
+      },
     },
     walls: {
-      [utils.asGridCoord(1, 3)]: true, // "7,6": true
+      [utils.asGridCoord(1, 3)]: true,
       [utils.asGridCoord(2, 3)]: true,
       [utils.asGridCoord(3, 3)]: true,
       [utils.asGridCoord(4, 3)]: true,
@@ -447,30 +605,105 @@ window.OverworldMaps = {
         type: "Person",
         isPlayerControlled: true,
         x: utils.withGrid(5),
-        y: utils.withGrid(5),
+        y: utils.withGrid(9),
       },
-      johnny: {
+      lavender: {
         type: "Person",
         x: utils.withGrid(9),
         y: utils.withGrid(6),
-        src: "/db/images/characters/people/johnny.png",
+        src: "/db/images/characters/people/lavender.png",
+        behaviorLoop: [
+          { type: "stand", direction: "down", time: 1500 },
+          { type: "walk", direction: "right" },
+          { type: "stand", direction: "down", time: 2000 },
+          { type: "walk", direction: "right" },
+          { type: "walk", direction: "up" },
+          { type: "stand", direction: "up", time: 1000 },
+          { type: "walk", direction: "right" },
+          { type: "stand", direction: "up", time: 1000 },
+          { type: "walk", direction: "down" },
+          { type: "walk", direction: "down" },
+          { type: "walk", direction: "down" },
+          { type: "walk", direction: "left" },
+          { type: "walk", direction: "left" },
+          { type: "stand", direction: "down", time: 2000 },
+          { type: "walk", direction: "left" },
+          { type: "walk", direction: "left" },
+          { type: "walk", direction: "up" },
+          { type: "walk", direction: "up" },
+          { type: "walk", direction: "right" }
+        ],
         talking: [
           {
             events: [
               {
                 type: "textMessage",
-                text: "JOHNNY: You made it!",
-                faceHero: "johnny",
+                text: "lavender: You made it!",
+                faceHero: "lavender",
               },
             ],
           },
         ],
       },
-      lavender: {
+      eligor: {
         type: "Person",
-        x: utils.withGrid(10),
-        y: utils.withGrid(8),
-        src: "/db/images/characters/people/lavender.png",
+        x: utils.withGrid(2),
+        y: utils.withGrid(7),
+        src: "/db/images/characters/people/eligor.png",
+        behaviorLoop: [
+          { type: "stand", direction: "left", time: 2000 },
+          { type: "walk", direction: "right" },
+          { type: "walk", direction: "right" },
+          { type: "walk", direction: "up" },
+          { type: "walk", direction: "right" },
+          { type: "walk", direction: "right" },
+          { type: "stand", direction: "down", time: 1000 },
+          { type: "walk", direction: "left" },
+          { type: "walk", direction: "left" },
+          { type: "walk", direction: "left" },
+          { type: "walk", direction: "left" },
+          { type: "stand", direction: "left", time: 2000 },
+          { type: "walk", direction: "right" },
+          { type: "walk", direction: "right" },
+          { type: "walk", direction: "right" },
+          { type: "walk", direction: "right" },
+          { type: "walk", direction: "right" },
+          { type: "stand", direction: "down", time: 1000 },
+          { type: "walk", direction: "left" },
+          { type: "walk", direction: "left" },
+          { type: "walk", direction: "left" },
+          { type: "walk", direction: "up" },
+          { type: "walk", direction: "left" },
+          { type: "walk", direction: "left" },
+          { type: "stand", direction: "left", time: 2000 },
+          { type: "walk", direction: "down" },
+          { type: "walk", direction: "down" }
+        ],
+      },
+      kenji: {
+        type: "Person",
+        x: utils.withGrid(6),
+        y: utils.withGrid(4),
+        src: "/db/images/characters/people/kenji.png",
+        behaviorLoop: [
+          { type: "stand", direction: "up", time: 3000 },
+          { type: "walk", direction: "left" },
+          { type: "stand", direction: "up", time: 3000 },
+          { type: "walk", direction: "right" },
+          { type: "walk", direction: "right" },
+          { type: "stand", direction: "up", time: 3000 },
+          { type: "walk", direction: "right" },
+          { type: "stand", direction: "up", time: 3000 },
+          { type: "walk", direction: "left" },
+          { type: "walk", direction: "left" },
+          { type: "walk", direction: "left" },
+          { type: "walk", direction: "left" },
+          { type: "walk", direction: "left" },
+          { type: "stand", direction: "up", time: 3000 },
+          { type: "walk", direction: "right" },
+          { type: "walk", direction: "right" },
+          { type: "walk", direction: "right" }
+        ],
       },
     },
     walls: {
@@ -542,7 +775,6 @@ window.OverworldMaps = {
         x: utils.withGrid(5),
         y: utils.withGrid(5),
       },
-      // TODO add npc
     },
     walls: {
       [utils.asGridCoord(1, 3)]: true,
@@ -628,7 +860,6 @@ window.OverworldMaps = {
         x: utils.withGrid(5),
         y: utils.withGrid(8),
       },
-      // TODO add npc
     },
     walls: {
       [utils.asGridCoord(1, 8)]: true,
@@ -722,7 +953,6 @@ window.OverworldMaps = {
         x: utils.withGrid(5),
         y: utils.withGrid(5),
       },
-      // TODO add npc
     },
     walls: {
       [utils.asGridCoord(0, 4)]: true,
