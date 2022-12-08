@@ -5,9 +5,9 @@
     top: 0;
     bottom: 0;
     background-image: url(/db/images/pizzabox.png);
-    background-size: 20%;
+    background-repeat: no-repeat;
+    background-size: contain;
     image-rendering: pixelated;
-    background-repeat: space;
 }
 
 .TitleScreen_logo {
