@@ -25,7 +25,7 @@ window.OverworldMaps = {
         talking: [
           // each object is a scenario
           {
-            required: ["TALKED_TO_ERIO"], // this scenario only runs if required story flags are true. can have multiple.
+            required: ["TALKED_TO_MOUSE"], // this scenario only runs if required story flags are true. can have multiple.
             events: [
               {
                 type: "textMessage",
@@ -48,7 +48,7 @@ window.OverworldMaps = {
           },
         ],
       },
-      npc2: {
+      mouse: {
         type: "Person",
         x: utils.withGrid(8),
         y: utils.withGrid(5),
@@ -64,10 +64,10 @@ window.OverworldMaps = {
             events: [
               {
                 type: "textMessage",
-                text: "ERIO: Ahahaaaaaaa",
-                faceHero: "npc2",
+                text: "MOUSE: Ahahaaaaaaa",
+                faceHero: "mouse",
               },
-              { type: "addStoryFlag", flag: "TALKED_TO_ERIO" },
+              { type: "addStoryFlag", flag: "TALKED_TO_MOUSE" },
             ],
           },
         ],
@@ -122,13 +122,13 @@ window.OverworldMaps = {
       [utils.asGridCoord(7, 4)]: [
         {
           events: [
-            { who: "npc2", type: "walk", direction: "left" },
-            { who: "npc2", type: "stand", direction: "up", time: 500 },
-            { type: "textMessage", text: "ERIO: Hey, get outta there!" },
-            { who: "npc2", type: "walk", direction: "right" },
-            { who: "npc2", type: "stand", direction: "left", time: 500 },
+            { who: "mouse", type: "walk", direction: "left" },
+            { who: "mouse", type: "stand", direction: "up", time: 500 },
+            { type: "textMessage", text: "MOUSE: Hey, get outta there!" },
+            { who: "mouse", type: "walk", direction: "right" },
+            { who: "mouse", type: "stand", direction: "left", time: 500 },
             { who: "hero", type: "walk", direction: "down" },
-            { who: "npc2", type: "stand", direction: "down" },
+            { who: "mouse", type: "stand", direction: "down" },
             { who: "hero", type: "walk", direction: "left" },
           ],
         },
@@ -173,7 +173,7 @@ window.OverworldMaps = {
         talking: [
           // each object is a scenario
           {
-            required: ["TALKED_TO_ERIO"], // this scenario only runs if required story flags are true. can have multiple.
+            required: ["TALKED_TO_MOUSE"], // this scenario only runs if required story flags are true. can have multiple.
             events: [
               {
                 type: "textMessage",
@@ -449,28 +449,28 @@ window.OverworldMaps = {
         x: utils.withGrid(5),
         y: utils.withGrid(5),
       },
-      npc3: {
+      johnny: {
         type: "Person",
         x: utils.withGrid(9),
         y: utils.withGrid(6),
-        src: "/db/images/characters/people/npc3.png",
+        src: "/db/images/characters/people/johnny.png",
         talking: [
           {
             events: [
               {
                 type: "textMessage",
-                text: "NPC3: You made it!",
-                faceHero: "npc3",
+                text: "JOHNNY: You made it!",
+                faceHero: "johnny",
               },
             ],
           },
         ],
       },
-      npc4: {
+      lavender: {
         type: "Person",
         x: utils.withGrid(10),
         y: utils.withGrid(8),
-        src: "/db/images/characters/people/npc4.png",
+        src: "/db/images/characters/people/lavender.png",
       },
     },
     walls: {
