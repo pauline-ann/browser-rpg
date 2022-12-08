@@ -5,7 +5,6 @@ class Progress {
         this.startingHeroY = 0
         this.startingHeroDirection = "down"
         this.saveFileKey = "PizzaLegends_SaveFile1"
-        // TODO make multiple save files - change out which key data is being saved to. retrieve list of save files.
     }
 
     // save files to local storage in browser
