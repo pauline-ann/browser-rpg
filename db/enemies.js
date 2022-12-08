@@ -1,7 +1,7 @@
 window.Enemies = {
-    "erio": {
-        name: "Erio",
-        src: "/db/images/characters/people/erio.png",
+    "mouse": {
+        name: "Mouse",
+        src: "/db/images/characters/people/mouse.png",
         pizzas: {
             "a": {
                 pizzaId: "s001",

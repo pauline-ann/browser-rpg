@@ -29,7 +29,7 @@ window.OverworldMaps = {
             events: [
               {
                 type: "textMessage",
-                text: "Isn't Erio the coolest?",
+                text: "Isn't Mouse the coolest?",
                 faceHero: "regina",
               },
             ],
@@ -52,7 +52,7 @@ window.OverworldMaps = {
         type: "Person",
         x: utils.withGrid(8),
         y: utils.withGrid(5),
-        src: "/db/images/characters/people/erio.png",
+        src: "/db/images/characters/people/mouse.png",
         behaviorLoop: [
           { type: "stand", direction: "down", time: 3000 },
           { type: "stand", direction: "left", time: 2000 },
@@ -177,7 +177,7 @@ window.OverworldMaps = {
             events: [
               {
                 type: "textMessage",
-                text: "Isn't Erio the coolest?",
+                text: "Isn't Mouse the coolest?",
                 faceHero: "regina",
               },
             ],
