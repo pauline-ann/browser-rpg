@@ -1,7 +1,7 @@
 // object containing all the different maps within game
 window.OverworldMaps = {
-  DemoRoom: {
-    id: "DemoRoom",
+  Demo: {
+    id: "Demo",
     lowerSrc: "/db/images/maps/DemoLower.png", // path to image that we want to load
     upperSrc: "/db/images/maps/DemoUpper.png",
     configObjects: {
@@ -41,7 +41,7 @@ window.OverworldMaps = {
                 text: "REGINA: I'm going to crush you!", // TODO make text message populate name dynamically
                 faceHero: "regina",
               },
-              { type: "battle", enemyId: "regina" },
+              { type: "battle", enemyId: "regina", locationId: "Demo" },
               { type: "addStoryFlag", flag: "DEFEATED_REGINA" }, // receive this story flag if battle is won
               { type: "textMessage", text: "REGINA: Hey that wasn't nice..." },
             ],
@@ -138,7 +138,7 @@ window.OverworldMaps = {
           events: [
             {
               type: "changeMap",
-              map: "DemoRoom",
+              map: "Demo",
               x: utils.withGrid(7),
               y: utils.withGrid(4),
               direction: "down",
@@ -189,7 +189,7 @@ window.OverworldMaps = {
                 text: "REGINA: I'm going to crush you!",
                 faceHero: "regina",
               },
-              { type: "battle", enemyId: "regina" },
+              { type: "battle", enemyId: "regina", locationId: "Street" },
               { type: "addStoryFlag", flag: "DEFEATED_REGINA" }, // receive this story flag if battle is won
               { type: "textMessage", text: "REGINA: Hey that wasn't nice..." },
             ],

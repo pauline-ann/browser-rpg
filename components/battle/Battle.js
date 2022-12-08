@@ -1,11 +1,12 @@
 class Battle {
-    constructor({ enemy, onComplete }) {
+    constructor({ enemy, location, onComplete }) {
         this.combatants = {}
         this.activeCombatants = {
             player: null, // "player1"
             enemy: null // "enemy1"
         }
         this.enemy = enemy
+        this.location = location || ""
         this.onComplete = onComplete
         this.items = []
 
@@ -46,6 +47,7 @@ class Battle {
     createElement() {
         this.element = document.createElement("div")
         this.element.classList.add("Battle")
+        this.element.classList.add(`Battle_${this.location}`)
         this.element.innerHTML = (`
         <div class="Battle_hero">
             <img src="${'/db/images/characters/people/hero.png'}" alt="Hero" />

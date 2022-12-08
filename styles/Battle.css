@@ -4,9 +4,33 @@
     right: 0;
     top: 0;
     bottom: 0;
-    background-image: url(/db/images/maps/StreetBattle.png);
     background-size: cover;
     image-rendering: pixelated;
+}
+
+.Battle_Street,
+.Battle_North {
+    background-image: url(/db/images/maps/StreetBattle.png);
+}
+
+.Battle_Demo {
+    background-image: url(/db/images/maps/DemoBattle.png);
+}
+
+.Battle_Tony {
+    background-image: url(/db/images/maps/DiningRoomBattle.png);
+}
+
+.Battle_Kitchen {
+    background-image: url(/db/images/maps/KitchenBattle.png);
+}
+
+.Battle_Shop {
+    background-image: url(/db/images/maps/PizzaShopBattle.png);
+}
+
+.Battle_Green {
+    background-image: url(/db/images/maps/GreenKitchenBattle.png);
 }
 
 .Battle_hero,
