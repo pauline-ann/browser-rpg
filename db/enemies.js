@@ -21,9 +21,9 @@ window.Enemies = {
             battleLoss: "Sowwee."
         }
     },
-    "beth": {
-        name: "Beth",
-        src: "/db/images/characters/people/npc1.png",
+    "regina": {
+        name: "Regina",
+        src: "/db/images/characters/people/regina.png",
         pizzas: {
             "a": {
                 pizzaId: "f001",

@@ -11,11 +11,11 @@ window.OverworldMaps = {
         y: utils.withGrid(6),
         isPlayerControlled: true,
       },
-      npc1: {
+      regina: {
         type: "Person",
         x: utils.withGrid(7),
         y: utils.withGrid(9),
-        src: "/db/images/characters/people/npc1.png",
+        src: "/db/images/characters/people/regina.png",
         behaviorLoop: [
           { type: "walk", direction: "left" },
           { type: "walk", direction: "up" },
@@ -30,7 +30,7 @@ window.OverworldMaps = {
               {
                 type: "textMessage",
                 text: "Isn't Erio the coolest?",
-                faceHero: "npc1",
+                faceHero: "regina",
               },
             ],
           },
@@ -38,12 +38,12 @@ window.OverworldMaps = {
             events: [
               {
                 type: "textMessage",
-                text: "BETH: I'm going to crush you!",
-                faceHero: "npc1",
+                text: "REGINA: I'm going to crush you!", // TODO make text message populate name dynamically
+                faceHero: "regina",
               },
-              { type: "battle", enemyId: "beth" },
-              { type: "addStoryFlag", flag: "DEFEATED_BETH" }, // receive this story flag if battle is won
-              { type: "textMessage", text: "BETH: Hey that wasn't nice..." },
+              { type: "battle", enemyId: "regina" },
+              { type: "addStoryFlag", flag: "DEFEATED_REGINA" }, // receive this story flag if battle is won
+              { type: "textMessage", text: "REGINA: Hey that wasn't nice..." },
             ],
           },
         ],
@@ -159,7 +159,43 @@ window.OverworldMaps = {
         y: utils.withGrid(12),
         isPlayerControlled: true,
       },
-      // TODO add more npc
+      regina: {
+        type: "Person",
+        x: utils.withGrid(21),
+        y: utils.withGrid(11),
+        src: "/db/images/characters/people/regina.png",
+        behaviorLoop: [
+          { type: "walk", direction: "left" },
+          { type: "walk", direction: "up" },
+          { type: "walk", direction: "right" },
+          { type: "walk", direction: "down" },
+        ],
+        talking: [
+          // each object is a scenario
+          {
+            required: ["TALKED_TO_ERIO"], // this scenario only runs if required story flags are true. can have multiple.
+            events: [
+              {
+                type: "textMessage",
+                text: "Isn't Erio the coolest?",
+                faceHero: "regina",
+              },
+            ],
+          },
+          {
+            events: [
+              {
+                type: "textMessage",
+                text: "REGINA: I'm going to crush you!",
+                faceHero: "regina",
+              },
+              { type: "battle", enemyId: "regina" },
+              { type: "addStoryFlag", flag: "DEFEATED_REGINA" }, // receive this story flag if battle is won
+              { type: "textMessage", text: "REGINA: Hey that wasn't nice..." },
+            ],
+          },
+        ],
+      },
     },
     walls: {
       [utils.asGridCoord(3, 10)]: true,
@@ -746,4 +782,4 @@ window.OverworldMaps = {
       ],
     },
   },
-};
+}
