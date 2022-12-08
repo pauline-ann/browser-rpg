@@ -1,15 +1,15 @@
 window.PizzaTypes = {
-    normal: "normal",
     spicy: "spicy",
     veggie: "veggie",
-    fungi: "fungi",
-    chill: "chill"
+    fungi: "fungi"
 }
+
+// TODO add custom actions for each pizza
 
 window.Pizzas = {
     "s001": {
         name: "Slice Samurai",
-        description: "This is a description",
+        description: "The highest ranking social caste of the Pizza Period.",
         type: PizzaTypes.spicy,
         src: "/db/images/characters/pizzas/s001.png",
         icon: "/db/images/icons/spicy.png",
@@ -21,21 +21,37 @@ window.Pizzas = {
         type: PizzaTypes.spicy,
         src: "/db/images/characters/pizzas/s002.png",
         icon: "/db/images/icons/spicy.png",
-        actions: ["saucyStatus", "clumsyStatus", "damage1"] // id of battle actions
+        actions: ["saucyStatus", "clumsyStatus", "damage1"]
     },
     "v001": {
-        name: "Call Me Kale",
-        description: "This is a description",
+        name: "Spooky Kale",
+        description: "This pizza is super-natural!",
         type: PizzaTypes.veggie,
         src: "/db/images/characters/pizzas/v001.png",
         icon: "/db/images/icons/veggie.png",
         actions: ["damage1"]
     },
+    "v002": {
+        name: "Totally Tofu",
+        description: "Never soy never.",
+        type: PizzaTypes.veggie,
+        src: "/db/images/characters/pizzas/v002.png",
+        icon: "/db/images/icons/veggie.png",
+        actions: ["damage1"]
+    },
     "f001": {
-        name: "Portobello Express",
-        description: "This is a description",
+        name: "Hello Portobello",
+        description: "A shroom with a view.",
         type: PizzaTypes.fungi,
         src: "/db/images/characters/pizzas/f001.png",
+        icon: "/db/images/icons/fungi.png",
+        actions: ["damage1"]
+    },
+    "f002": {
+        name: "Shroom! Shroom!",
+        description: "Now that's a fast pizza.",
+        type: PizzaTypes.fungi,
+        src: "/db/images/characters/pizzas/f002.png",
         icon: "/db/images/icons/fungi.png",
         actions: ["damage1"]
     }
