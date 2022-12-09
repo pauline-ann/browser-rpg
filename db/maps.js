@@ -198,6 +198,32 @@ window.OverworldMaps = {
             ],
           },
           {
+            required: ["USED_PIZZA_STONE1", "USED_PIZZA_STONE2", "USED_PIZZA_STONE3"],
+            events: [
+              {
+                type: "textMessage",
+                text: "CYPHER: Good job, now you're prepared to face the evil pizza overlords outside!",
+                faceHero: "cypher",
+              },
+              {
+                type: "textMessage",
+                text: "CYPHER: Now go out there and show those pizza lords who's boss!",
+                faceHero: "cypher",
+              },
+              { type: "removeStoryFlag", flag: "QUEST_PIZZA_STONE" }
+            ],
+          },
+          {
+            required: ["QUEST_PIZZA_STONE"],
+            events: [
+              {
+                type: "textMessage",
+                text: "CYPHER: You can find the pizza stones right by the entrance.",
+                faceHero: "cypher",
+              },
+            ],
+          },
+          {
             events: [
               {
                 type: "textMessage",
@@ -207,6 +233,27 @@ window.OverworldMaps = {
             ],
           },
         ],
+      },
+      pizzaStone1: {
+        type: "PizzaStone",
+        x: utils.withGrid(7),
+        y: utils.withGrid(10),
+        storyFlag: "USED_PIZZA_STONE1",
+        pizzas: ["s001", "s002"],
+      },
+      pizzaStone2: {
+        type: "PizzaStone",
+        x: utils.withGrid(8),
+        y: utils.withGrid(10),
+        storyFlag: "USED_PIZZA_STONE2",
+        pizzas: ["v001", "v002"],
+      },
+      pizzaStone3: {
+        type: "PizzaStone",
+        x: utils.withGrid(9),
+        y: utils.withGrid(10),
+        storyFlag: "USED_PIZZA_STONE3",
+        pizzas: ["f001", "f002"],
       },
       npc8: {
         type: "Person",
@@ -299,12 +346,22 @@ window.OverworldMaps = {
             { type: "textMessage", text: "CYPHER: I've been hearing rumors that the pizza chefs working the retaurants in this town have lost control of their pizzas." },
             { type: "textMessage", text: "CYPHER: The pizzas... it's like they have a life of their own." },
             { type: "textMessage", text: "CYPHER: To protect yourself, you must equip yourself with your own pizzas. You're lucky that I have pizza stones in this store!" },
-            { type: "textMessage", text: "CYPHER: Using the pizza stones by the entrance, you can craft your own pizzas. Make sure to bake three so that you're extra prepared. Good luck out there!" },
-            { type: "removeStoryFlag", flag: "START" }
+            { type: "textMessage", text: "CYPHER: Using the pizza stones by the entrance, you can craft your own pizzas. Make sure to bake three so that you're extra prepared." },
+            { type: "textMessage", text: "CYPHER: Talk to me again once you've received each pizza." },
+            { type: "removeStoryFlag", flag: "START" },
+            { type: "addStoryFlag", flag: "QUEST_PIZZA_STONE" }
           ],
         },
       ],
       [utils.asGridCoord(5, 12)]: [
+        {
+          required: ["QUEST_PIZZA_STONE"],
+          events: [
+            { who: "hero", type: "stand", direction: "up" },
+            { type: "textMessage", text: "CYPHER: Hey, where are you going? You're forgetting your pizzas!" },
+            { who: "hero", type: "walk", direction: "up" },
+          ],
+        },
         {
           events: [
             {
