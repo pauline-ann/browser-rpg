@@ -50,10 +50,14 @@ const utils = {
         return string.charAt(0).toUpperCase() + string.slice(1)
     },
     // probability n; 0 < n < 1
+    // returns T or F
     probability(n) {
         return !!n && Math.random() <= n
     },
     generateUniqueId() {
         return Date.now() + Math.floor(Math.random() * 99999)
+    },
+    randomIntFromInterval(min, max) { // min and max included 
+        return Math.floor(Math.random() * (max - min + 1) + min)
     }
 }
