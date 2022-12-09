@@ -7,6 +7,7 @@
     background-image: url(/db/images/pizzabox.png);
     background-repeat: no-repeat;
     background-size: contain;
+    background-color: rgb(235, 215, 184);
     image-rendering: pixelated;
 }
 
@@ -27,15 +28,20 @@
 
 .TitleScreen button {
     color: #fff;
-    background-color: var(--menu-selected-background);
+    background-color: rgb(63, 145, 63);
     justify-content: center;
     padding: 0;
     margin-bottom: 5px;
+    border-radius: 10px;
+}
+
+.TitleScreen button:focus {
+    background-color: rgb(115, 170, 115);
 }
 
 .TitleScreen .DescriptionBox {
-    color: var(--menu-selected-background);
-    opacity: .9;
+    color: black;
+    opacity: 0;
     border: 0;
     text-align: center;
 }
