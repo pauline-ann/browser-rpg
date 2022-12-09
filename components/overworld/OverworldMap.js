@@ -125,7 +125,15 @@ class OverworldMap {
     const hero = this.gameObjects["hero"]
     const match = this.cutsceneSpaces[`${hero.x},${hero.y}`] // look up if hero is on cutscene space
     if (!this.isCutscenePlaying && match) {
-      this.startCutscene(match[0].events) // TODO: make index dynamic relative to story progress
+
+      const relevantScenario = match.find(scenario => {
+        return (scenario.required || []).every(storyFlags => {
+          return playerState.storyFlags[storyFlags]
+        })
+      })
+
+      // check if story flags are met before starting cutscene
+      relevantScenario && this.startCutscene(match[0].events) // TODO: make index dynamic relative to story progress
     }
   }
 }
