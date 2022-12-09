@@ -203,7 +203,7 @@ window.OverworldMaps = {
             events: [
               {
                 type: "textMessage",
-                text: "REGINA: Um.....hi?",
+                text: "I'm trying to get 10,000 steps in everyday. It's been challenging but building healthy habits is important!",
                 faceHero: "regina",
               }
             ],
@@ -232,7 +232,7 @@ window.OverworldMaps = {
             events: [
               {
                 type: "textMessage",
-                text: "JOHNNY: Is there a bathroom around here?",
+                text: "JOHNNY: Hey..... is there a bathroom around here?",
                 faceHero: "johnny",
               }
             ],
@@ -403,7 +403,17 @@ window.OverworldMaps = {
         y: utils.withGrid(4),
         behaviorLoop: [
           { type: "stand", direction: "up" }
-        ]
+        ],
+        talking: [
+          {
+            events: [
+              {
+                type: "textMessage",
+                text: "They don't know my tummy hurts and I'm being so brave about it."
+              }
+            ],
+          },
+        ],
       },
       timmy: {
         type: "Person",
@@ -445,7 +455,7 @@ window.OverworldMaps = {
             events: [
               {
                 type: "textMessage",
-                text: "TIMMY: Sorry, I'm busy!",
+                text: "TIMMY: Sorry, I'm really busy!",
                 faceHero: "timmy",
               },
             ],
@@ -465,12 +475,11 @@ window.OverworldMaps = {
             events: [
               {
                 type: "textMessage",
-                text: "MOUSE: Ahahaaaaaaa",
-                faceHero: "mouse",
-              },
+                text: "Mmmmmm, pizza. (He seems too focused on his pizza to notice you)"
+              }
             ],
           },
-        ],
+        ]
       },
       cypher: {
         type: "Person",
@@ -485,7 +494,7 @@ window.OverworldMaps = {
             events: [
               {
                 type: "textMessage",
-                text: "Cypher: Ahahaaaaaaa",
+                text: "I love pizza~ hehe",
                 faceHero: "cypher",
               },
             ],
@@ -505,7 +514,7 @@ window.OverworldMaps = {
             events: [
               {
                 type: "textMessage",
-                text: "Regina: Ahahaaaaaaa",
+                text: "Can I speak to your manager?",
                 faceHero: "regina",
               },
             ],
@@ -638,7 +647,7 @@ window.OverworldMaps = {
             events: [
               {
                 type: "textMessage",
-                text: "lavender: You made it!",
+                text: "CHEF LAVENDER: The best part about cooking? Eating what you make after.",
                 faceHero: "lavender",
               },
             ],
@@ -679,6 +688,17 @@ window.OverworldMaps = {
           { type: "walk", direction: "down" },
           { type: "walk", direction: "down" }
         ],
+        talking: [
+          {
+            events: [
+              {
+                type: "textMessage",
+                text: "CHEF ELIGOR: La la la~ Pizzaaaaaa~",
+                faceHero: "lavender",
+              },
+            ],
+          },
+        ]
       },
       kenji: {
         type: "Person",
@@ -704,6 +724,17 @@ window.OverworldMaps = {
           { type: "walk", direction: "right" },
           { type: "walk", direction: "right" }
         ],
+        talking: [
+          {
+            events: [
+              {
+                type: "textMessage",
+                text: "(Wait..... is that Ratatouille under his hat?!)",
+                faceHero: "lavender",
+              },
+            ],
+          },
+        ]
       },
     },
     walls: {
@@ -797,6 +828,17 @@ window.OverworldMaps = {
           { type: "walk", direction: "left" },
           { type: "walk", direction: "left" },
         ],
+        talking: [
+          {
+            events: [
+              {
+                type: "textMessage",
+                text: "CYPHER: What are you buying? What are you selling?",
+                faceHero: "cypher",
+              },
+            ],
+          },
+        ],
       },
       mouse: {
         type: "Person",
@@ -805,6 +847,17 @@ window.OverworldMaps = {
         src: "/db/images/characters/people/mouse.png",
         behaviorLoop: [
           { type: "stand", direction: "left" }
+        ],
+        talking: [
+          {
+            events: [
+              {
+                type: "textMessage",
+                text: "Ooooh knick knacks, my favorite!",
+                faceHero: "mouse",
+              },
+            ],
+          },
         ],
       }
     },
@@ -908,6 +961,40 @@ window.OverworldMaps = {
           { type: "walk", direction: "left" },
           { type: "walk", direction: "left" },
           { type: "walk", direction: "left" }
+        ],
+        talking: [
+          {
+            events: [
+              {
+                type: "textMessage",
+                text: "MOUSE: Is there anything to eat in this town besides pizza?",
+                faceHero: "mouse",
+              },
+            ],
+          },
+        ],
+      },
+      lavender: {
+        type: "Person",
+        x: utils.withGrid(6),
+        y: utils.withGrid(6),
+        src: "/db/images/characters/people/lavender.png",
+        behaviorLoop: [
+          { type: "stand", direction: "down", time: 3000 },
+          { type: "stand", direction: "right", time: 1000 },
+          { type: "stand", direction: "down", time: 3000 },
+          { type: "stand", direction: "left", time: 1000 },
+        ],
+        talking: [
+          {
+            events: [
+              {
+                type: "textMessage",
+                text: "Come try out our vegan pizzas! We promise you won't miss meat or your money back, guaranteed.",
+                faceHero: "lavender",
+              },
+            ],
+          },
         ],
       }
     },
@@ -1024,6 +1111,17 @@ window.OverworldMaps = {
           { type: "walk", direction: "left" },
           { type: "walk", direction: "left" }
         ],
+        talking: [
+          {
+            events: [
+              {
+                type: "textMessage",
+                text: "IRON CHEF: We're going to be the best pizza franchise in the world! Mwahahaha.....",
+                faceHero: "ironChef",
+              },
+            ],
+          },
+        ],
       },
       regina: {
         type: "Person",
@@ -1059,6 +1157,17 @@ window.OverworldMaps = {
           { type: "walk", direction: "down" },
           { type: "walk", direction: "down" }
         ],
+        talking: [
+          {
+            events: [
+              {
+                type: "textMessage",
+                text: "REGINA: I just started working here and I noticed the head chef has an evil laugh.... should I be concerned?",
+                faceHero: "regina",
+              },
+            ],
+          },
+        ],
       },
       timmy: {
         type: "Person",
@@ -1066,7 +1175,17 @@ window.OverworldMaps = {
         y: utils.withGrid(7),
         src: "/db/images/characters/people/timmy.png",
         behaviorLoop: [
-          { type: "stand", direction: "up" }
+          { type: "stand", direction: "up" },
+        ],
+        talking: [
+          {
+            events: [
+              {
+                type: "textMessage",
+                text: "Om nom nom nom nom. Oh sorry, didn't see you there"
+              },
+            ],
+          },
         ],
       },
       johnny: {
@@ -1076,6 +1195,17 @@ window.OverworldMaps = {
         src: "/db/images/characters/people/johnny.png",
         behaviorLoop: [
           { type: "stand", direction: "right" }
+        ],
+        talking: [
+          {
+            events: [
+              {
+                type: "textMessage",
+                text: "I'm waiting for my date. Kinda nervous.",
+                faceHero: "johnny",
+              },
+            ],
+          },
         ],
       },
     },
