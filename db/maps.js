@@ -72,13 +72,27 @@ window.OverworldMaps = {
           },
         ],
       },
-      pizzaStone: {
+      pizzaStone1: {
         type: "PizzaStone",
         x: utils.withGrid(2),
         y: utils.withGrid(7),
-        storyFlag: "USED_PIZZA_STONE",
-        pizzas: ["v001", "f001"], // can make it so that they have different options for crafting
+        storyFlag: "USED_PIZZA_STONE1",
+        pizzas: ["s001", "s002"],
       },
+      pizzaStone2: {
+        type: "PizzaStone",
+        x: utils.withGrid(3),
+        y: utils.withGrid(7),
+        storyFlag: "USED_PIZZA_STONE2",
+        pizzas: ["v001", "v002"],
+      },
+      pizzaStone3: {
+        type: "PizzaStone",
+        x: utils.withGrid(4),
+        y: utils.withGrid(7),
+        storyFlag: "USED_PIZZA_STONE3",
+        pizzas: ["f001", "f002"],
+      }
     },
     walls: {
       [utils.asGridCoord(7, 6)]: true,

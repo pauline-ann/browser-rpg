@@ -113,7 +113,7 @@ class OverworldEvent {
 
     craftingMenu(resolve) {
         const menu = new CraftingMenu({
-            pizzas: this.map.gameObjects.pizzaStone.pizzas,
+            pizzas: this.event.pizzas,
             onComplete: () => {
                 resolve()
             }
