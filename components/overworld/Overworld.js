@@ -142,11 +142,5 @@ class Overworld {
 
     // kick off the game!
     this.startGameLoop()
-
-    // this.map.startCutscene([
-    //   { type: "battle", enemyId: "regina" }
-    //   // {type: "changeMap", map: "DemoRoom"}
-    //   // {type: "textMessage", text: "This is my very first message!"}
-    // ])
   }
 }
