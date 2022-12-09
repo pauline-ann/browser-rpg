@@ -56,7 +56,6 @@ class SubmissionMenu {
                         this.keyboardMenu.setOptions(this.getPages().items)
                     }
                 },
-                // TODO disable swap button if no more other combatants
                 {
                     label: "Swap",
                     description: "Change to another pizza",
@@ -118,7 +117,6 @@ class SubmissionMenu {
         })
     }
 
-    // TODO item submit
     menuSubmit(action, instanceId = null) {
         const target = action.targetType === "friendly" ? this.caster : this.enemy
 
@@ -131,8 +129,10 @@ class SubmissionMenu {
     }
 
     decide() {
-        // TODO enemies should randomly decide what to do
-        this.menuSubmit(Actions[this.caster.actions[0]])
+        // enemies randomly decide what to do
+        const maxIndex = this.caster.actions.length - 1
+        const randomIndex = utils.randomIntFromInterval(0, maxIndex)
+        this.menuSubmit(Actions[this.caster.actions[randomIndex]])
     }
 
     showMenu(container) {
