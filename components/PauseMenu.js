@@ -24,6 +24,13 @@ class PauseMenu {
             return [
                 ...lineupPizzas,
                 {
+                    label: "Controls",
+                    description: "Press the arrow keys or WASD keys to walk around or navigate the menu. Press ENTER to confirm or interact with the environment. Press ESC to open and close the menu.",
+                    handler: () => {
+                        this.close()
+                    }
+                },
+                {
                     label: "Save",
                     description: "Save your progress",
                     handler: () => {
