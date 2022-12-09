@@ -289,6 +289,7 @@ window.OverworldMaps = {
     cutsceneSpaces: {
       [utils.asGridCoord(6, 6)]: [
         {
+          required: ["START"],
           events: [
             { who: "cypher", type: "stand", direction: "right" },
             { who: "hero", type: "stand", direction: "left" },
@@ -299,6 +300,7 @@ window.OverworldMaps = {
             { type: "textMessage", text: "CYPHER: The pizzas... it's like they have a life of their own." },
             { type: "textMessage", text: "CYPHER: To protect yourself, you must equip yourself with your own pizzas. You're lucky that I have pizza stones in this store!" },
             { type: "textMessage", text: "CYPHER: Using the pizza stones by the entrance, you can craft your own pizzas. Make sure to bake three so that you're extra prepared. Good luck out there!" },
+            { type: "removeStoryFlag", flag: "START" }
           ],
         },
       ],
@@ -312,6 +314,7 @@ window.OverworldMaps = {
               y: utils.withGrid(9),
               direction: "down",
             },
+            { type: "addStoryFlag", flag: "EMBARKED_ON_JOURNEY" }
           ],
         },
       ]

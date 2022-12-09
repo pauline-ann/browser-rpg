@@ -9,7 +9,7 @@ class PlayerState {
         ]
         // use these flags to test game throughout different points of story
         // test different scenarios
-        this.storyFlags = {}
+        this.storyFlags = { "START": true }
     }
 
     // pizzaId is id from pizzadex
