@@ -106,8 +106,15 @@ class OverworldEvent {
         menu.init(document.querySelector(".game-container"))
     }
 
+    // add story flag to player state
     addStoryFlag(resolve) {
         window.playerState.storyFlags[this.event.flag] = true
+        resolve()
+    }
+
+    // remove story flag from player state
+    removeStoryFlag(resolve) {
+        window.playerState.storyFlags[this.event.flag] = false
         resolve()
     }
 
