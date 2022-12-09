@@ -99,7 +99,6 @@
     align-items: center;
     justify-content: center;
     background: #f8c594;
-    /* TODO use variables */
     border: 1px solid #a48465;
     margin: 0;
 }

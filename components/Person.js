@@ -20,8 +20,6 @@ class Person extends GameObject {
         if (this.movingProgressRemaining > 0) {
             this.updatePosition()
         } else {
-            // TODO: add more cases for moving position
-
             // case: awaiting player to provide input
             if (!state.map.isCutscenePlaying && this.isPlayerControlled && state.arrow) { // detect when arrow is being pressed
                 this.startBehavior(state, {

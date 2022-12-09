@@ -63,7 +63,7 @@ class Battle {
         container.appendChild(this.element)
 
         this.playerTeam = new Team("player", "Hero")
-        this.enemyTeam = new Team("enemy", "Bully") // TODO make dynamic
+        this.enemyTeam = new Team("enemy", "Bully")
 
         Object.keys(this.combatants).forEach(key => {
             let combatant = this.combatants[key]

@@ -98,7 +98,6 @@ class Combatant {
     return originalEvents
   }
 
-  // TODO simplify onCaster/action.target logic... redundant
   getPostEvents() {
     if (this.status?.type === "saucy") {
       return [

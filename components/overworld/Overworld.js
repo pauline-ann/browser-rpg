@@ -9,7 +9,6 @@ class Overworld {
   }
 
   startGameLoop() {
-    // TODO: Delta Time - keep track of time passed since last frame and do some math
     const step = () => {
       // clear canvas
       this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)

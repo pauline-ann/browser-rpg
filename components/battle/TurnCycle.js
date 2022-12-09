@@ -22,7 +22,7 @@ class TurnCycle {
         // get enemy
         const enemyTeam = caster.team === "player" ? "enemy" : "player"
         const enemyId = this.battle.activeCombatants[enemyTeam]
-        const enemy = this.battle.combatants[enemyId] // TODO confusing - there is enemy "pizza" and enemy "person"
+        const enemy = this.battle.combatants[enemyId]
 
         const submission = await this.onNewEvent({
             type: "submissionMenu",
@@ -79,8 +79,6 @@ class TurnCycle {
 
                 // reward with xp
                 // we don't care about enemy getting xp
-                // TODO give XP AFTER the battle
-                // TODO notify player about level up
                 await this.onNewEvent({
                     type: "textMessage",
                     text: `Gained ${xp} XP!`

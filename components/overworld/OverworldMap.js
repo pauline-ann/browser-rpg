@@ -98,7 +98,7 @@ class OverworldMap {
   }
 
   checkForActionCutscene() {
-    const hero = this.gameObjects["hero"] // TODO: make dynamic
+    const hero = this.gameObjects["hero"] // make this dynamic if there will be other playable characters
     const nextCoords = utils.nextPosition(hero.x, hero.y, hero.direction)
 
     const match = Object.values(this.gameObjects).find(object => {

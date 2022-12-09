@@ -74,7 +74,6 @@ class KeyboardMenu {
         descriptionContainer.appendChild(this.descriptionElement)
         container.appendChild(this.element)
 
-        // TODO clean up spaghetti code
         this.up = new KeyPressListener("ArrowUp", () => {
             const current = Number(this.prevFocus.getAttribute("data-button"))
             const prevButton = Array.from(this.element.querySelectorAll("button[data-button]")).reverse().find(el => {
@@ -83,7 +82,6 @@ class KeyboardMenu {
             prevButton?.focus()
         })
 
-        // TODO here too
         this.down = new KeyPressListener("ArrowDown", () => {
             const current = Number(this.prevFocus.getAttribute("data-button"))
             const nextButton = Array.from(this.element.querySelectorAll("button[data-button]")).find(el => {

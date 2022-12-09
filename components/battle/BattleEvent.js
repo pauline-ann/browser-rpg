@@ -132,7 +132,7 @@ class BattleEvent {
                 // check if combatant levels up
                 if (combatant.xp === combatant.maxXp) {
                     combatant.xp = 0
-                    combatant.maxXp = 100 // TODO can make this dynamic and store maxXP in map or table
+                    combatant.maxXp = 100 // can make this dynamic and store maxXP in map or table
                     combatant.level += 1
                 }
 

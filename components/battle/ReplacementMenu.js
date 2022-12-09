@@ -26,7 +26,6 @@ class ReplacementMenu {
         }))
     }
 
-    // TODO if only one combatant left in team, automatically choose that one for the player
     init(container) {
         if (this.replacements[0].isPlayerControlled) {
             this.showMenu(container)
