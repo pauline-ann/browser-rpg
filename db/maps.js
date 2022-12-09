@@ -11,7 +11,7 @@ window.OverworldMaps = {
         y: utils.withGrid(6),
         isPlayerControlled: true,
       },
-      regina: {
+      npc1: {
         type: "Person",
         x: utils.withGrid(7),
         y: utils.withGrid(9),
@@ -29,8 +29,8 @@ window.OverworldMaps = {
             events: [
               {
                 type: "textMessage",
-                text: "Isn't Mouse the coolest?",
-                faceHero: "regina",
+                text: "Isn't that dude the coolest?",
+                faceHero: "npc1",
               },
             ],
           },
@@ -38,17 +38,17 @@ window.OverworldMaps = {
             events: [
               {
                 type: "textMessage",
-                text: "REGINA: I'm going to crush you!",
-                faceHero: "regina",
+                text: "I'm going to crush you!",
+                faceHero: "npc1",
               },
-              { type: "battle", enemyId: "regina", locationId: "Demo" },
+              { type: "battle", enemyId: "npc1", locationId: "Demo" },
               { type: "addStoryFlag", flag: "DEFEATED_REGINA" }, // receive this story flag if battle is won
-              { type: "textMessage", text: "REGINA: Hey that wasn't nice..." },
+              { type: "textMessage", text: "Hey that wasn't nice..." },
             ],
           },
         ],
       },
-      mouse: {
+      npc2: {
         type: "Person",
         x: utils.withGrid(8),
         y: utils.withGrid(5),
@@ -64,8 +64,8 @@ window.OverworldMaps = {
             events: [
               {
                 type: "textMessage",
-                text: "MOUSE: Ahahaaaaaaa",
-                faceHero: "mouse",
+                text: "Ahahaaaaaaa",
+                faceHero: "npc2",
               },
               { type: "addStoryFlag", flag: "TALKED_TO_MOUSE" },
             ],
@@ -122,13 +122,13 @@ window.OverworldMaps = {
       [utils.asGridCoord(7, 4)]: [
         {
           events: [
-            { who: "mouse", type: "walk", direction: "left" },
-            { who: "mouse", type: "stand", direction: "up", time: 500 },
-            { type: "textMessage", text: "MOUSE: Hey, get outta there!" },
-            { who: "mouse", type: "walk", direction: "right" },
-            { who: "mouse", type: "stand", direction: "left", time: 500 },
+            { who: "npc2", type: "walk", direction: "left" },
+            { who: "npc2", type: "stand", direction: "up", time: 500 },
+            { type: "textMessage", text: "Hey, get outta there!" },
+            { who: "npc2", type: "walk", direction: "right" },
+            { who: "npc2", type: "stand", direction: "left", time: 500 },
             { who: "hero", type: "walk", direction: "down" },
-            { who: "mouse", type: "stand", direction: "down" },
+            { who: "npc2", type: "stand", direction: "down" },
             { who: "hero", type: "walk", direction: "left" },
           ],
         },
@@ -159,7 +159,7 @@ window.OverworldMaps = {
         y: utils.withGrid(12),
         isPlayerControlled: true,
       },
-      regina: {
+      npc3: {
         type: "Person",
         x: utils.withGrid(21),
         y: utils.withGrid(8),
@@ -204,7 +204,7 @@ window.OverworldMaps = {
               {
                 type: "textMessage",
                 text: "I'm trying to get 10,000 steps in everyday. It's been challenging but building healthy habits is important!",
-                faceHero: "regina",
+                faceHero: "npc3",
               }
             ],
           },
@@ -396,7 +396,7 @@ window.OverworldMaps = {
         x: utils.withGrid(7),
         y: utils.withGrid(5),
       },
-      chef: {
+      npc4: {
         type: "Person",
         src: "/db/images/characters/people/hero.png",
         x: utils.withGrid(2),
@@ -462,7 +462,7 @@ window.OverworldMaps = {
           },
         ],
       },
-      mouse: {
+      npc5: {
         type: "Person",
         x: utils.withGrid(2),
         y: utils.withGrid(7),
@@ -475,13 +475,13 @@ window.OverworldMaps = {
             events: [
               {
                 type: "textMessage",
-                text: "Mmmmmm, pizza. (He seems too focused on his pizza to notice you)"
+                text: "Mmmmmm, pizza. (He seems too focused on his pizza to notice you.)"
               }
             ],
           },
         ]
       },
-      cypher: {
+      npc6: {
         type: "Person",
         x: utils.withGrid(9),
         y: utils.withGrid(10),
@@ -495,13 +495,13 @@ window.OverworldMaps = {
               {
                 type: "textMessage",
                 text: "I love pizza~ hehe",
-                faceHero: "cypher",
+                faceHero: "npc6",
               },
             ],
           },
         ],
       },
-      regina: {
+      npc7: {
         type: "Person",
         x: utils.withGrid(10),
         y: utils.withGrid(5),
@@ -515,7 +515,7 @@ window.OverworldMaps = {
               {
                 type: "textMessage",
                 text: "Can I speak to your manager?",
-                faceHero: "regina",
+                faceHero: "npc7",
               },
             ],
           },
@@ -840,7 +840,7 @@ window.OverworldMaps = {
           },
         ],
       },
-      mouse: {
+      npc8: {
         type: "Person",
         x: utils.withGrid(9),
         y: utils.withGrid(8),
@@ -854,7 +854,7 @@ window.OverworldMaps = {
               {
                 type: "textMessage",
                 text: "Ooooh knick knacks, my favorite!",
-                faceHero: "mouse",
+                faceHero: "npc8",
               },
             ],
           },
@@ -974,7 +974,7 @@ window.OverworldMaps = {
           },
         ],
       },
-      lavender: {
+      npc9: {
         type: "Person",
         x: utils.withGrid(6),
         y: utils.withGrid(6),
@@ -991,7 +991,7 @@ window.OverworldMaps = {
               {
                 type: "textMessage",
                 text: "Come try out our vegan pizzas! We promise you won't miss meat or your money back, guaranteed.",
-                faceHero: "lavender",
+                faceHero: "npc9",
               },
             ],
           },
@@ -1169,7 +1169,7 @@ window.OverworldMaps = {
           },
         ],
       },
-      timmy: {
+      npc10: {
         type: "Person",
         x: utils.withGrid(3),
         y: utils.withGrid(7),
@@ -1188,7 +1188,7 @@ window.OverworldMaps = {
           },
         ],
       },
-      johnny: {
+      npc11: {
         type: "Person",
         x: utils.withGrid(7),
         y: utils.withGrid(10),
@@ -1202,7 +1202,7 @@ window.OverworldMaps = {
               {
                 type: "textMessage",
                 text: "I'm waiting for my date. Kinda nervous.",
-                faceHero: "johnny",
+                faceHero: "npc11",
               },
             ],
           },
