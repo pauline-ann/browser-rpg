@@ -1,27 +1,5 @@
 window.Enemies = {
-    "mouse": {
-        name: "Mouse",
-        src: "/db/images/characters/people/mouse.png",
-        pizzas: {
-            "a": {
-                pizzaId: "s001",
-                maxHp: 30,
-                level: 1
-                // attackBonus: 20000 etc.
-                // can configure behavior here
-            },
-            "b": {
-                pizzaId: "s002",
-                maxHp: 30,
-                level: 1
-            }
-        },
-        textMessages: {
-            battleWin: "What??! How?",
-            battleLoss: "Sowwee."
-        }
-    },
-    "regina": {
+    "npc1": {
         name: "Regina",
         src: "/db/images/characters/people/regina.png",
         pizzas: {
