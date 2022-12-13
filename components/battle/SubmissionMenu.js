@@ -44,10 +44,9 @@ class SubmissionMenu {
             root: [
                 {
                     label: "Attack",
-                    description: "Basic attack",
+                    description: Actions["damage1"].description,
                     handler: () => {
-                        const action = Actions["damage1"]
-                        this.menuSubmit(action)
+                        this.menuSubmit(Actions["damage1"])
                     }
                 },
                 {
@@ -74,6 +73,7 @@ class SubmissionMenu {
             ],
             toppings: [
                 ...this.caster.actions.map(key => {
+                    console.log(key)
                     const action = Actions[key]
                     return {
                         label: action.name,
@@ -138,7 +138,6 @@ class SubmissionMenu {
 
     decide() {
         // enemies randomly decide what to do
-        this.caster.actions.push("damage1") // add basic attack to enemy actions
         const maxIndex = this.caster.actions.length - 1
         const randomIndex = utils.randomIntFromInterval(0, maxIndex)
         this.menuSubmit(Actions[this.caster.actions[randomIndex]])

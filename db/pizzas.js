@@ -11,7 +11,7 @@ window.Pizzas = {
         type: PizzaTypes.spicy,
         src: "/db/images/characters/pizzas/s001.png",
         icon: "/db/images/icons/spicy.png",
-        actions: ["saucyStatus"] // id of battle actions
+        actions: ["saucyStatus", "damage1"] // id of battle actions
     },
     "s002": {
         name: "Bacon Brigade",
@@ -19,7 +19,7 @@ window.Pizzas = {
         type: PizzaTypes.spicy,
         src: "/db/images/characters/pizzas/s002.png",
         icon: "/db/images/icons/spicy.png",
-        actions: ["saucyStatus"]
+        actions: ["saucyStatus", "damage1"]
     },
     "v001": {
         name: "Spooky Kale",
@@ -27,7 +27,7 @@ window.Pizzas = {
         type: PizzaTypes.veggie,
         src: "/db/images/characters/pizzas/v001.png",
         icon: "/db/images/icons/veggie.png",
-        actions: ["clumsyStatus"]
+        actions: ["clumsyStatus", "damage1"]
     },
     "v002": {
         name: "Totally Tofu",
@@ -35,7 +35,7 @@ window.Pizzas = {
         type: PizzaTypes.veggie,
         src: "/db/images/characters/pizzas/v002.png",
         icon: "/db/images/icons/veggie.png",
-        actions: ["clumsyStatus"]
+        actions: ["clumsyStatus", "damage1"]
     },
     "f001": {
         name: "Hello Portobello",
@@ -43,7 +43,7 @@ window.Pizzas = {
         type: PizzaTypes.fungi,
         src: "/db/images/characters/pizzas/f001.png",
         icon: "/db/images/icons/fungi.png",
-        actions: ["saucyStatus"]
+        actions: ["saucyStatus", "damage1"]
     },
     "f002": {
         name: "Shroom! Shroom!",
@@ -51,6 +51,6 @@ window.Pizzas = {
         type: PizzaTypes.fungi,
         src: "/db/images/characters/pizzas/f002.png",
         icon: "/db/images/icons/fungi.png",
-        actions: ["clumsyStatus"]
+        actions: ["clumsyStatus", "damage1"]
     }
 }
