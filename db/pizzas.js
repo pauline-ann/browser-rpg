@@ -27,7 +27,7 @@ window.Pizzas = {
         type: PizzaTypes.veggie,
         src: "/db/images/characters/pizzas/v001.png",
         icon: "/db/images/icons/veggie.png",
-        actions: "clumsyStatus"]
+        actions: ["clumsyStatus"]
     },
     "v002": {
         name: "Totally Tofu",
