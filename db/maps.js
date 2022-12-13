@@ -894,15 +894,32 @@ window.OverworldMaps = {
         ],
         talking: [
           {
+            required: ["DEFEATED_LAVENDER"],
             events: [
               {
                 type: "textMessage",
-                text: "CHEF LAVENDER: The best part about cooking? Eating what you make after.",
+                text: "LAVENDER: The best part about cooking is eating what you made hehe.",
                 faceHero: "lavender",
               },
             ],
           },
-        ],
+          {
+            events: [
+              {
+                type: "textMessage",
+                text: "LAVENDER: I'm sorry I have to do this... the Iron Chef made me do it.",
+                faceHero: "lavender",
+              },
+              { type: "battle", enemyId: "lavender", locationId: "Kitchen" },
+              {
+                type: "textMessage",
+                text: "LAVENDER: Thank you for defeating me. Please defeat the rest too and save our town from this pizza tyranny!",
+                faceHero: "lavender",
+              },
+              { type: "addStoryFlag", flag: "DEFEATED_LAVENDER" },
+            ]
+          },
+        ]
       },
       eligor: {
         type: "Person",
@@ -940,14 +957,30 @@ window.OverworldMaps = {
         ],
         talking: [
           {
+            required: ["DEFEATED_ELIGOR"],
             events: [
               {
                 type: "textMessage",
-                text: "CHEF ELIGOR: La la la~ Pizzaaaaaa~",
-                faceHero: "lavender",
+                text: "CHEF ELIGOR: La la la~ Pizzaaaaaa~"
               },
             ],
           },
+          {
+            events: [
+              {
+                type: "textMessage",
+                text: "ELIGOR: Ugh, fine.",
+                faceHero: "eligor",
+              },
+              { type: "battle", enemyId: "eligor", locationId: "Kitchen" },
+              {
+                type: "textMessage",
+                text: "ELIGOR: Just another day at work.",
+                faceHero: "eligor",
+              },
+              { type: "addStoryFlag", flag: "DEFEATED_ELIGOR" },
+            ]
+          }
         ]
       },
       kenji: {
@@ -976,14 +1009,36 @@ window.OverworldMaps = {
         ],
         talking: [
           {
+            required: ["DEFEATED_KENJI"],
             events: [
               {
                 type: "textMessage",
                 text: "(Wait..... is that Ratatouille under his hat?!)",
-                faceHero: "lavender",
+                faceHero: "kenji",
               },
             ],
           },
+          {
+            events: [
+              {
+                type: "textMessage",
+                text: "KENJI: Ever since the Iron Chef came into town, our pizzas started acting strange.",
+                faceHero: "kenji",
+              },
+              {
+                type: "textMessage",
+                text: "KENJI: Defeat my pizzas and save this town!",
+                faceHero: "kenji",
+              },
+              { type: "battle", enemyId: "kenji", locationId: "Kitchen" },
+              {
+                type: "textMessage",
+                text: "KENJI: You are the chosen one.",
+                faceHero: "kenji",
+              },
+              { type: "addStoryFlag", flag: "DEFEATED_KENJI" },
+            ]
+          }
         ]
       },
     },
@@ -1224,15 +1279,33 @@ window.OverworldMaps = {
         ],
         talking: [
           {
+            required: ["DEFEATED_IRON_CHEF"],
+            events: [
+              {
+                type: "textMessage",
+                text: "IRON CHEF: ............ >:(",
+                faceHero: "ironChef",
+              },
+            ],
+          },
+
+          {
             events: [
               {
                 type: "textMessage",
                 text: "IRON CHEF: We're going to be the best pizza franchise in the world! Mwahahaha.....",
                 faceHero: "ironChef",
               },
-            ],
+              { type: "battle", enemyId: "ironChef", locationId: "Green" },
+              {
+                type: "textMessage",
+                text: "IRON CHEF: WHAT? How dare you keep me from pizza domination!",
+                faceHero: "ironChef",
+              },
+              { type: "addStoryFlag", flag: "DEFEATED_IRON_CHEF" },
+            ]
           },
-        ],
+        ]
       },
       regina: {
         type: "Person",
