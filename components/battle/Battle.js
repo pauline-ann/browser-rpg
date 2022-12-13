@@ -40,8 +40,10 @@ class Battle {
             isPlayerControlled: team === "player"
         }, this)
 
-        // populate first active pizza
-        this.activeCombatants[team] = this.activeCombatants[team] || id
+        if (this.combatants[id].hp > 0) {
+            // populate first active pizza if pizza is alive
+            this.activeCombatants[team] = this.activeCombatants[team] || id
+        }
     }
 
     createElement() {
