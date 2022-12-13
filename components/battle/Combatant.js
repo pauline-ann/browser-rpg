@@ -22,7 +22,7 @@ class Combatant {
   }
 
   get xpGiven() {
-    return this.level * 20
+    return this.level * 40
   }
 
   createElement() {

@@ -131,9 +131,14 @@ class BattleEvent {
 
                 // check if combatant levels up
                 if (combatant.xp === combatant.maxXp) {
-                    combatant.xp = 0
-                    combatant.maxXp = 100 // can make this dynamic and store maxXP in map or table
-                    combatant.level += 1
+                    const prevMaxXp = combatant.maxXp
+                    const prevMaxHp = combatant.maxHp
+
+                    combatant.maxXp = prevMaxXp + (prevMaxXp * .25) // increase max XP based off previous level's max XP
+                    combatant.maxHp = prevMaxHp + (prevMaxHp * .25) // increase max HP based off previous level's max HP
+                    combatant.hp = combatant.maxHp // refill health on level up
+                    combatant.xp = 0 // reset xp
+                    combatant.level += 1 // increase level
                 }
 
                 combatant.update()
