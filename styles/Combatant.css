@@ -20,7 +20,7 @@
 
 .Combatant[data-team="player"] {
     left: 112px;
-    bottom: 14px;
+    bottom: 26px;
 }
 
 .Combatant[data-team="enemy"] {
@@ -131,7 +131,7 @@
 }
 
 .Pizza[data-team="player"] {
-    bottom: 67px;
+    bottom: 75px;
     left: 104px;
 }
 
