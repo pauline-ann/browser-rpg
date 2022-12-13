@@ -9,6 +9,7 @@ class ReplacementMenu {
     }
 
     menuSubmit(replacement) {
+        this.keyboardMenu.end()
         this.onComplete(replacement)
     }
 
