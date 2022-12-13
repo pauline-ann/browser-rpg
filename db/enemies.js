@@ -2,7 +2,7 @@ window.Enemies = {
     "cypher": {
         name: "Cypher",
         src: "/db/images/characters/people/cypher.png",
-        pizzas: {// TODO pizzas
+        pizzas: {
             "a": {
                 pizzaId: "f001",
                 maxHp: 30,
@@ -18,11 +18,21 @@ window.Enemies = {
     "eligor": {
         name: "Eligor",
         src: "/db/images/characters/people/eligor.png",
-        pizzas: {// TODO pizzas
+        pizzas: {
             "a": {
                 pizzaId: "f001",
-                maxHp: 30,
-                level: 1
+                maxHp: 60,
+                level: 3
+            },
+            "b": {
+                pizzaId: "v002",
+                maxHp: 60,
+                level: 3
+            },
+            "c": {
+                pizzaId: "s001",
+                maxHp: 60,
+                level: 3
             }
         },
         textMessages: {
@@ -34,11 +44,21 @@ window.Enemies = {
     "kenji": {
         name: "Kenji",
         src: "/db/images/characters/people/kenji.png",
-        pizzas: {// TODO pizzas
+        pizzas: {
             "a": {
-                pizzaId: "f001",
-                maxHp: 30,
-                level: 1
+                pizzaId: "v001",
+                maxHp: 60,
+                level: 3
+            },
+            "b": {
+                pizzaId: "s002",
+                maxHp: 60,
+                level: 3
+            },
+            "c": {
+                pizzaId: "f002",
+                maxHp: 60,
+                level: 3
             }
         },
         textMessages: {
@@ -50,11 +70,21 @@ window.Enemies = {
     "lavender": {
         name: "Lavender",
         src: "/db/images/characters/people/lavender.png",
-        pizzas: {// TODO pizzas
+        pizzas: {
             "a": {
-                pizzaId: "f001",
-                maxHp: 30,
-                level: 1
+                pizzaId: "s001",
+                maxHp: 60,
+                level: 3
+            },
+            "b": {
+                pizzaId: "v002",
+                maxHp: 60,
+                level: 3
+            },
+            "c": {
+                pizzaId: "f002",
+                maxHp: 60,
+                level: 3
             }
         },
         textMessages: {
@@ -66,11 +96,21 @@ window.Enemies = {
     "ironChef": {
         name: "Iron Chef",
         src: "/db/images/characters/people/ironChef.png",
-        pizzas: {// TODO pizzas
+        pizzas: {
             "a": {
                 pizzaId: "f001",
-                maxHp: 30,
-                level: 1
+                maxHp: 60,
+                level: 3
+            },
+            "b": {
+                pizzaId: "s002",
+                maxHp: 60,
+                level: 3
+            },
+            "c": {
+                pizzaId: "v001",
+                maxHp: 60,
+                level: 3
             }
         },
         textMessages: {
