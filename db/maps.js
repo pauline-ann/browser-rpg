@@ -460,6 +460,26 @@ window.OverworldMaps = {
           },
         ],
       },
+      npc11: {
+        type: "Person",
+        x: utils.withGrid(24),
+        y: utils.withGrid(9),
+        src: "/db/images/characters/people/timmy.png",
+        behaviorLoop: [
+          { type: "stand", direction: "down" }
+        ],
+        talking: [
+          {
+            events: [
+              {
+                type: "textMessage",
+                text: "Are you the hero that is fighting pizza tyranny? Please don't give up, we need you!",
+                faceHero: "npc11",
+              }
+            ],
+          },
+        ],
+      },
       johnny: {
         type: "Person",
         x: utils.withGrid(7),
@@ -629,11 +649,11 @@ window.OverworldMaps = {
               x: utils.withGrid(7),
               y: utils.withGrid(16),
               direction: "up",
-            },
-          ],
-        },
-      ],
-    },
+            }
+          ]
+        }
+      ]
+    }
   },
   Tony: {
     id: "Tony",
@@ -1243,6 +1263,16 @@ window.OverworldMaps = {
           ],
         },
       ],
+      [utils.asGridCoord(7, 6)]: [
+        {
+          required: ["DEFEATED_IRON_CHEF"],
+          events: [
+            { type: "textMessage", text: "Congrats! You saved the town from pizza tyranny! Thanks for playing!" },
+            { type: "removeStoryFlag", flag: "DEFEATED_IRON_CHEF" },
+            { type: "addStoryFlag", flag: "DEFEATED_GAME" }
+          ]
+        }
+      ]
     },
   },
   Green: {
@@ -1288,8 +1318,8 @@ window.OverworldMaps = {
               },
             ],
           },
-
           {
+            required: ["DEFEATED_ELIGOR", "DEFEATED_KENJI", "DEFEATED_LAVENDER"],
             events: [
               {
                 type: "textMessage",
@@ -1305,6 +1335,15 @@ window.OverworldMaps = {
               { type: "addStoryFlag", flag: "DEFEATED_IRON_CHEF" },
             ]
           },
+          {
+            events: [
+              {
+                type: "textMessage",
+                text: "IRON CHEF: Hmph. Try defeating the other chefs in this town before you dare challenge me.",
+                faceHero: "ironChef"
+              }
+            ]
+          }
         ]
       },
       regina: {
@@ -1366,7 +1405,7 @@ window.OverworldMaps = {
             events: [
               {
                 type: "textMessage",
-                text: "Om nom nom nom nom. Oh sorry, didn't see you there"
+                text: "Om nom nom nom nom. Oh sorry, didn't see you there."
               },
             ],
           },
