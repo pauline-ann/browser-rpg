@@ -4,8 +4,6 @@ window.PizzaTypes = {
     fungi: "fungi"
 }
 
-// TODO add custom actions for each pizza
-
 window.Pizzas = {
     "s001": {
         name: "Slice Samurai",
@@ -13,7 +11,7 @@ window.Pizzas = {
         type: PizzaTypes.spicy,
         src: "/db/images/characters/pizzas/s001.png",
         icon: "/db/images/icons/spicy.png",
-        actions: ["saucyStatus", "clumsyStatus", "damage1"] // id of battle actions
+        actions: ["saucyStatus"] // id of battle actions
     },
     "s002": {
         name: "Bacon Brigade",
@@ -21,7 +19,7 @@ window.Pizzas = {
         type: PizzaTypes.spicy,
         src: "/db/images/characters/pizzas/s002.png",
         icon: "/db/images/icons/spicy.png",
-        actions: ["saucyStatus", "clumsyStatus", "damage1"]
+        actions: ["saucyStatus"]
     },
     "v001": {
         name: "Spooky Kale",
@@ -29,7 +27,7 @@ window.Pizzas = {
         type: PizzaTypes.veggie,
         src: "/db/images/characters/pizzas/v001.png",
         icon: "/db/images/icons/veggie.png",
-        actions: ["damage1"]
+        actions: "clumsyStatus"]
     },
     "v002": {
         name: "Totally Tofu",
@@ -37,7 +35,7 @@ window.Pizzas = {
         type: PizzaTypes.veggie,
         src: "/db/images/characters/pizzas/v002.png",
         icon: "/db/images/icons/veggie.png",
-        actions: ["damage1"]
+        actions: ["clumsyStatus"]
     },
     "f001": {
         name: "Hello Portobello",
@@ -45,7 +43,7 @@ window.Pizzas = {
         type: PizzaTypes.fungi,
         src: "/db/images/characters/pizzas/f001.png",
         icon: "/db/images/icons/fungi.png",
-        actions: ["damage1"]
+        actions: ["saucyStatus"]
     },
     "f002": {
         name: "Shroom! Shroom!",
@@ -53,6 +51,6 @@ window.Pizzas = {
         type: PizzaTypes.fungi,
         src: "/db/images/characters/pizzas/f002.png",
         icon: "/db/images/icons/fungi.png",
-        actions: ["damage1"]
+        actions: ["clumsyStatus"]
     }
 }
