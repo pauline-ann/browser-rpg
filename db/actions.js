@@ -1,6 +1,7 @@
 window.Actions = {
     damage1: {
         name: "Whomp!",
+        description: "Perform a basic attack",
         success: [
             { type: "textMessage", text: "{CASTER} uses {ACTION}!" },
             { type: "animation", animation: "spin" },
@@ -9,6 +10,7 @@ window.Actions = {
     },
     saucyStatus: {
         name: "Tomato Squeeze",
+        description: "Make yourself extra saucy - heal 5HP for 3 turns.",
         targetType: "friendly",
         success: [
             { type: "textMessage", text: "{CASTER} uses {ACTION}!" },
@@ -18,6 +20,7 @@ window.Actions = {
     },
     clumsyStatus: {
         name: "Olive Oil",
+        description: "Make your enemy too slippery to attack - your enemy has a chance of missing for 3 turns.",
         targetType: "unfriendly",
         success: [
             { type: "textMessage", text: "{CASTER} uses {ACTION}!" },
