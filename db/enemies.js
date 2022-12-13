@@ -20,16 +20,11 @@ window.Enemies = {
         src: "/db/images/characters/people/eligor.png",
         pizzas: {
             "a": {
-                pizzaId: "f001",
-                maxHp: 60,
-                level: 3
-            },
-            "b": {
                 pizzaId: "v002",
                 maxHp: 60,
                 level: 3
             },
-            "c": {
+            "b": {
                 pizzaId: "s001",
                 maxHp: 60,
                 level: 3
@@ -54,11 +49,6 @@ window.Enemies = {
                 pizzaId: "s002",
                 maxHp: 60,
                 level: 3
-            },
-            "c": {
-                pizzaId: "f002",
-                maxHp: 60,
-                level: 3
             }
         },
         textMessages: {
@@ -78,11 +68,6 @@ window.Enemies = {
             },
             "b": {
                 pizzaId: "v002",
-                maxHp: 60,
-                level: 3
-            },
-            "c": {
-                pizzaId: "f002",
                 maxHp: 60,
                 level: 3
             }
