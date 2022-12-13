@@ -9,7 +9,11 @@ class ReplacementMenu {
     }
 
     menuSubmit(replacement) {
-        this.keyboardMenu.end()
+        // close menu if player submitted replacement
+        if (this.replacements[0].isPlayerControlled) {
+            this.keyboardMenu.end()
+        }
+
         this.onComplete(replacement)
     }
 
