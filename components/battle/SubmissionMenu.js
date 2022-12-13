@@ -73,7 +73,6 @@ class SubmissionMenu {
             ],
             toppings: [
                 ...this.caster.actions.map(key => {
-                    console.log(key)
                     const action = Actions[key]
                     return {
                         label: action.name,
