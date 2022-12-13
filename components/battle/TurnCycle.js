@@ -8,6 +8,7 @@ class TurnCycle {
         this.onNewEvent = onNewEvent
         this.onBattleEnd = onBattleEnd
         this.currentTeam = "player" // or "enemy"
+        this.isBattleStart = true
     }
 
     // pump out promises and wait for promises to resolve
@@ -23,6 +24,17 @@ class TurnCycle {
         const enemyTeam = caster.team === "player" ? "enemy" : "player"
         const enemyId = this.battle.activeCombatants[enemyTeam]
         const enemy = this.battle.combatants[enemyId]
+
+        if (this.isBattleStart && challenger.textMessages.preBattle) {
+
+            // display pre-battle dialogue
+            await this.onNewEvent({
+                type: "textMessage",
+                text: `${challenger.name.toUpperCase()}: ${challenger.textMessages.preBattle}`
+            })
+
+            this.isBattleStart = false
+        }
 
         const submission = await this.onNewEvent({
             type: "submissionMenu",
