@@ -202,7 +202,12 @@ window.OverworldMaps = {
             events: [
               {
                 type: "textMessage",
-                text: "CYPHER: Good job, now you're prepared to face the evil pizza overlords outside!",
+                text: "CYPHER: Good job baking those pizzas. Now you'll be able to protect yourself from the pizza overlords.",
+                faceHero: "cypher",
+              },
+              {
+                type: "textMessage",
+                text: "CYPHER: If you defeat them all, you'll save our town from being conquered by these pizza maniacs!",
                 faceHero: "cypher",
               },
               {
@@ -210,7 +215,10 @@ window.OverworldMaps = {
                 text: "CYPHER: Now go out there and show those pizza lords who's boss!",
                 faceHero: "cypher",
               },
-              { type: "removeStoryFlag", flag: "QUEST_PIZZA_STONE" }
+              { type: "removeStoryFlag", flag: "QUEST_PIZZA_STONE" },
+              { type: "removeStoryFlag", flag: "USED_PIZZA_STONE1" },
+              { type: "removeStoryFlag", flag: "USED_PIZZA_STONE2" },
+              { type: "removeStoryFlag", flag: "USED_PIZZA_STONE3" }
             ],
           },
           {
@@ -343,9 +351,9 @@ window.OverworldMaps = {
             { type: "textMessage", text: "CYPHER: Wait, before you leave - you must learn of the dangers that lurk outside." },
             { who: "hero", type: "walk", direction: "up" },
             { who: "hero", type: "stand", direction: "left" },
-            { type: "textMessage", text: "CYPHER: I've been hearing rumors that the pizza chefs working the retaurants in this town have lost control of their pizzas." },
-            { type: "textMessage", text: "CYPHER: The pizzas... it's like they have a life of their own." },
-            { type: "textMessage", text: "CYPHER: To protect yourself, you must equip yourself with your own pizzas. You're lucky that I have pizza stones in this store!" },
+            { type: "textMessage", text: "CYPHER: The pizza chefs running the restaurants in this town are trying to take over." },
+            { type: "textMessage", text: "CYPHER: Their pizzas..... they have a life of their own." },
+            { type: "textMessage", text: "CYPHER: To protect yourself, you must equip yourself with your own pizzas. You're lucky that I have pizza stones for you to use in this store!" },
             { type: "textMessage", text: "CYPHER: Using the pizza stones by the entrance, you can craft your own pizzas. Make sure to bake three so that you're extra prepared." },
             { type: "textMessage", text: "CYPHER: Talk to me again once you've received each pizza." },
             { type: "removeStoryFlag", flag: "START" },
@@ -358,7 +366,7 @@ window.OverworldMaps = {
           required: ["QUEST_PIZZA_STONE"],
           events: [
             { who: "hero", type: "stand", direction: "up" },
-            { type: "textMessage", text: "CYPHER: Hey, where are you going? You're forgetting your pizzas!" },
+            { type: "textMessage", text: "CYPHER: Hey, where are you going? You won't be safe out there without your pizzas!" },
             { who: "hero", type: "walk", direction: "up" },
           ],
         },
