@@ -202,9 +202,10 @@ window.OverworldMaps = {
             events: [
               {
                 type: "textMessage",
-                text: "CYPHER: Good job baking those pizzas. Now you'll be able to protect yourself from the pizza overlords.",
+                text: "CYPHER: Smells delicious! Great job baking those pizzas. Now you'll be able to protect yourself from the pizza overlords.",
                 faceHero: "cypher",
               },
+              { type: "removeStoryFlag", flag: "QUEST_PIZZA_STONE" },
               {
                 type: "textMessage",
                 text: "CYPHER: If you defeat them all, you'll save our town from being conquered by these pizza maniacs!",
@@ -212,13 +213,25 @@ window.OverworldMaps = {
               },
               {
                 type: "textMessage",
-                text: "CYPHER: Now go out there and show those pizza lords who's boss!",
+                text: "CYPHER: Before you leave, I must teach you how to use your pizzas in battle.",
                 faceHero: "cypher",
               },
-              { type: "removeStoryFlag", flag: "QUEST_PIZZA_STONE" },
-              { type: "removeStoryFlag", flag: "USED_PIZZA_STONE1" },
-              { type: "removeStoryFlag", flag: "USED_PIZZA_STONE2" },
-              { type: "removeStoryFlag", flag: "USED_PIZZA_STONE3" }
+              {
+                type: "textMessage",
+                text: "CYPHER: Let's do this!",
+                faceHero: "cypher",
+              },
+              { type: "battle", enemyId: "cypher", locationId: "Shop" },
+              {
+                type: "textMessage",
+                text: "CYPHER: You're ready, pizza hero.",
+                faceHero: "cypher",
+              },
+              {
+                type: "textMessage",
+                text: "CYPHER: Now go out there and show those pizza lords who's boss! You're our only hope in saving our town from pizza tyranny.",
+                faceHero: "cypher",
+              },
             ],
           },
           {
