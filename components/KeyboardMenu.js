@@ -5,6 +5,7 @@ class KeyboardMenu {
         this.down = null
         this.prevFocus = null
         this.descriptionBox = config.descriptionBox || null
+        this.autoFocus = true
     }
 
     setOptions(options) {
@@ -41,9 +42,11 @@ class KeyboardMenu {
         })
 
         // auto focus first button that isn't disabled
-        setTimeout(() => {
-            this.element.querySelector("button[data-button]:not([disabled])").focus()
-        }, 10)
+        if (this.autoFocus) {
+            setTimeout(() => {
+                this.element.querySelector("button[data-button]:not([disabled])").focus()
+            }, 10)
+        }
     }
 
     createElement() {
@@ -68,6 +71,14 @@ class KeyboardMenu {
         this.down.unbind()
     }
 
+    focusFirstButton() {
+        if (!this.autoFocus) {
+            this.element.querySelector("button[data-button]:not([disabled])").focus()
+            this.autoFocus = true
+            return
+        }
+    }
+
     init(container) {
         this.createElement()
         const descriptionContainer = this.descriptionBox ?? container
@@ -75,6 +86,8 @@ class KeyboardMenu {
         container.appendChild(this.element)
 
         this.up = new KeyPressListener("ArrowUp", () => {
+            this.focusFirstButton() // focus on first button if not auto focused
+
             const current = Number(this.prevFocus.getAttribute("data-button"))
             const prevButton = Array.from(this.element.querySelectorAll("button[data-button]")).reverse().find(el => {
                 return el.dataset.button < current && !el.disabled
@@ -83,6 +96,8 @@ class KeyboardMenu {
         })
 
         this.down = new KeyPressListener("ArrowDown", () => {
+            this.focusFirstButton()
+
             const current = Number(this.prevFocus.getAttribute("data-button"))
             const nextButton = Array.from(this.element.querySelectorAll("button[data-button]")).find(el => {
                 return el.dataset.button > current && !el.disabled

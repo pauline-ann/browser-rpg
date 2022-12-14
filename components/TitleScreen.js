@@ -47,6 +47,7 @@ class TitleScreen {
                 this.createElement()
                 container.appendChild(this.element)
                 this.keyboardMenu = new KeyboardMenu()
+                this.keyboardMenu.autoFocus = false
                 this.keyboardMenu.init(this.element)
                 this.keyboardMenu.setOptions(this.getOptions(resolve))
 
