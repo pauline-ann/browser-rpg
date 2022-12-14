@@ -490,6 +490,16 @@ window.OverworldMaps = {
         ],
         talking: [
           {
+            required: ["DEFEATED_GAME"],
+            events: [
+              {
+                type: "textMessage",
+                text: "You beat all those chefs?! You're bad ass!",
+                faceHero: "npc11",
+              }
+            ],
+          },
+          {
             events: [
               {
                 type: "textMessage",
@@ -497,7 +507,7 @@ window.OverworldMaps = {
                 faceHero: "npc11",
               }
             ],
-          },
+          }
         ],
       },
       johnny: {
