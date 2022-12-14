@@ -80,6 +80,13 @@ class OverworldEvent {
         })
     }
 
+    // play sfx
+    playSfx(resolve) {
+        window.Sfx[this.event.soundName].play()
+        resolve()
+    }
+
+    // change background music
     changeMusic(resolve) {
 
         // stop all music playing
