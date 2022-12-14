@@ -80,6 +80,17 @@ class OverworldEvent {
         })
     }
 
+    changeMusic(resolve) {
+
+        // stop all music playing
+        window.Music.overworld.stop()
+
+        // change music to given song
+        window.Music[this.event.soundName].play()
+
+        resolve()
+    }
+
     // battle encounter event
     battle(resolve) {
         const battle = new Battle({

@@ -188,6 +188,16 @@ window.OverworldMaps = {
         ],
         talking: [
           {
+            required: ["DEFEATED_GAME"],
+            events: [
+              {
+                type: "textMessage",
+                text: "CYPHER: You beat all the chefs? You saved our town! Thank you, hero.",
+                faceHero: "cypher",
+              },
+            ],
+          },
+          {
             required: ["EMBARKED_ON_JOURNEY"],
             events: [
               {
@@ -1279,7 +1289,8 @@ window.OverworldMaps = {
           events: [
             { type: "textMessage", text: "Congrats! You saved the town from pizza tyranny! Thanks for playing!" },
             { type: "removeStoryFlag", flag: "DEFEATED_IRON_CHEF" },
-            { type: "addStoryFlag", flag: "DEFEATED_GAME" }
+            { type: "addStoryFlag", flag: "DEFEATED_GAME" },
+            { type: "changeMusic", soundName: "gameFinished" }
           ]
         }
       ]
