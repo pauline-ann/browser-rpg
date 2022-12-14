@@ -27,8 +27,9 @@ class PauseMenu {
                     label: "Save",
                     description: "Save your progress",
                     handler: () => {
-                        this.progress.save()
+                        window.Sfx.recover.play()
                         this.close()
+                        this.progress.save()
                     }
                 },
                 {
