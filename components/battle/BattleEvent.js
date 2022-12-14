@@ -160,6 +160,8 @@ class BattleEvent {
                     combatant.level += 1 // increase level
                 }
 
+                window.Sfx.levelUp.play()
+
                 combatant.update()
                 requestAnimationFrame(step)
                 return
