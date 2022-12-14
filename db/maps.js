@@ -198,7 +198,7 @@ window.OverworldMaps = {
             ],
           },
           {
-            required: ["USED_PIZZA_STONE1", "USED_PIZZA_STONE2", "USED_PIZZA_STONE3"],
+            required: ["QUEST_PIZZA_STONE", "USED_PIZZA_STONE1", "USED_PIZZA_STONE2", "USED_PIZZA_STONE3"],
             events: [
               {
                 type: "textMessage",
@@ -232,6 +232,16 @@ window.OverworldMaps = {
                 text: "CYPHER: Now go out there and show those pizza lords who's boss! You're our only hope in saving our town from pizza tyranny.",
                 faceHero: "cypher",
               },
+            ],
+          },
+          {
+            required: ["USED_PIZZA_STONE1", "USED_PIZZA_STONE2", "USED_PIZZA_STONE3"],
+            events: [
+              {
+                type: "textMessage",
+                text: "CYPHER: Be safe out there!",
+                faceHero: "cypher"
+              }
             ],
           },
           {
