@@ -34,6 +34,9 @@ class BattleEvent {
 
             // start blinking
             target.pizzaElement.classList.add("battle-damage-blink")
+
+            // play damage sfx
+            target.sound.damage()
         }
 
         if (recover) {
@@ -44,18 +47,34 @@ class BattleEvent {
             who.update({
                 hp: newHp
             })
+
+            // play recover sfx
+            caster.sound.recover()
         }
 
         if (status) {
             who.update({
                 status: { ...status }
             })
+
+            if (status.type === "clumsy") {
+                // play damage sfx
+                target.sound.damage()
+            }
+            if (status.type === "saucy") {
+                // play recover sfx
+                caster.sound.recover()
+
+            }
         }
 
         if (status === null) {
             who.update({
                 status: null
             })
+
+            // play recover sfx
+            caster.sound.recover()
         }
 
         // wait a little bit

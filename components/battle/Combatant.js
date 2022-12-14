@@ -5,6 +5,14 @@ class Combatant {
     })
     this.hp = this.hp ?? this.maxHp // default to max HP if HP is undefined
     this.battle = battle
+    this.sound = {
+      damage: () => {
+        window.Sfx.damage.play()
+      },
+      recover: () => {
+        window.Sfx.recover.play()
+      }
+    }
   }
 
   get hpPercent() {
