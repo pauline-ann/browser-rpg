@@ -12,6 +12,7 @@ class TitleScreen {
                 description: "Start a new pizza adventure!",
                 handler: () => {
                     this.close()
+                    window.Music.overworld.play()
                     resolve()
                 }
             },
@@ -20,6 +21,7 @@ class TitleScreen {
                 description: "Load a previous save file.",
                 handler: () => {
                     this.close()
+                    window.Music.overworld.play()
                     resolve(saveFile)
                 }
             } : null
