@@ -80,6 +80,10 @@ class TurnCycle {
         // check if target is still alive
         const isTargetDead = submission.target.hp <= 0
         if (isTargetDead) {
+
+            // play faint sfx
+            window.Sfx.faint.play()
+
             await this.onNewEvent({
                 type: "textMessage", text: `${submission.target.name} fainted!`
             })

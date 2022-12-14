@@ -30,6 +30,11 @@ window.Sfx = {
         ],
         volume: 0.2
     }),
+    faint: new Howl({
+        src: [
+            './db/music/Pixel Death.mp3',
+        ]
+    }),
 }
 
 window.Music = {
