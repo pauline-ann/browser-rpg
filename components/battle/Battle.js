@@ -118,9 +118,17 @@ class Battle {
                 }
 
                 this.element.remove() // remove battle elements
+
+                // go back to Overworld
                 this.onComplete(winner === "player") // go back to Overworld
+                window.Sfx.victory.stop()
+                window.Music.overworld.play()
             }
         })
+
+        // start battle music
+        window.Music.overworld.pause()
+        window.Music.battle.play()
 
         this.turnCycle.init()
     }
