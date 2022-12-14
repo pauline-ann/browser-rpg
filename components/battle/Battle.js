@@ -92,9 +92,18 @@ class Battle {
                 })
             },
             onBattleEnd: winner => {
+                const playerWon = winner === "player"
+
+                // stop battle music
+                if (!playerWon) {
+                    window.Sfx.loss.stop()
+                }
+
                 // update Player State with new values
                 // there are pros to reading data directly from battle instead of going off Player State
-                if (winner === "player") {
+                if (playerWon) {
+                    window.Sfx.victory.stop()
+
                     const playerState = window.playerState
 
                     Object.keys(playerState.pizzas).forEach(pizzaId => {
@@ -120,8 +129,7 @@ class Battle {
                 this.element.remove() // remove battle elements
 
                 // go back to Overworld
-                this.onComplete(winner === "player") // go back to Overworld
-                window.Sfx.victory.stop()
+                this.onComplete(playerWon) // go back to Overworld
                 window.Music.overworld.play()
             }
         })

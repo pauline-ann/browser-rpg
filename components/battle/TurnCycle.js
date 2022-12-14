@@ -109,13 +109,18 @@ class TurnCycle {
 
         // end battle
         if (winner) {
+            const playerWon = winner === "player"
+
             // stop battle music
             window.Music.battle.stop()
 
-            // play victory music
-            window.Sfx.victory.play()
+            if (playerWon) {
+                window.Sfx.victory.play()
+            } else {
+                window.Sfx.loss.play()
+            }
 
-            const enemyText = winner === "player" ? `${challenger.textMessages.battleWin}` : `${challenger.textMessages.battleLoss}`
+            const enemyText = playerWon ? `${challenger.textMessages.battleWin}` : `${challenger.textMessages.battleLoss}`
             await this.onNewEvent({
                 type: "textMessage",
                 text: `${challenger.name.toUpperCase()}: ${enemyText}`
