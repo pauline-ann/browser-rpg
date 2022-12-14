@@ -24,19 +24,29 @@ class PauseMenu {
             return [
                 ...lineupPizzas,
                 {
+                    label: "Toggle Background Music",
+                    description: "Toggle background music ON/OFF.",
+                    handler: () => {
+                        const bgMusicIsPlaying = window.Music.overworld.playing()
+
+                        if (bgMusicIsPlaying) {
+                            window.Music.overworld.pause()
+                        } else {
+                            window.Music.overworld.play()
+                        }
+                    }
+                },
+                {
+                    label: "Controls",
+                    description: "Press the arrow keys or WASD keys to walk around or navigate the menu. Press ENTER to confirm or interact with the environment. Press ESC to open and close the menu."
+                },
+                {
                     label: "Save",
                     description: "Save your progress",
                     handler: () => {
                         window.Sfx.recover.play()
                         this.close()
                         this.progress.save()
-                    }
-                },
-                {
-                    label: "Controls",
-                    description: "Press the arrow keys or WASD keys to walk around or navigate the menu. Press ENTER to confirm or interact with the environment. Press ESC to open and close the menu.",
-                    handler: () => {
-                        this.close()
                     }
                 }
             ]
