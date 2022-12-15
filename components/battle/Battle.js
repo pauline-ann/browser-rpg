@@ -129,8 +129,8 @@ class Battle {
                 this.element.remove() // remove battle elements
 
                 // go back to Overworld
-                this.onComplete(playerWon) // go back to Overworld
                 window.Music.overworld.play()
+                this.onComplete(playerWon) // go back to Overworld
             }
         })
 

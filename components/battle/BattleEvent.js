@@ -141,11 +141,11 @@ class BattleEvent {
     }
 
     giveXp(resolve) {
-        let amount = this.event.xp
-        const { combatant } = this.event
+        let xpReceived = this.event.xp // xp given by enemy defeated
+        const { combatant } = this.event // combatant receiving xp
         const step = () => {
-            if (amount > 0) {
-                amount -= 1
+            if (xpReceived > 0) {
+                xpReceived -= 1
                 combatant.xp += 1
 
                 // check if combatant levels up
@@ -156,11 +156,11 @@ class BattleEvent {
                     combatant.maxXp = prevMaxXp + (prevMaxXp * .25) // increase max XP based off previous level's max XP
                     combatant.maxHp = prevMaxHp + (prevMaxHp * .25) // increase max HP based off previous level's max HP
                     combatant.hp = combatant.maxHp // refill health on level up
-                    combatant.xp = 0 // reset xp
+                    combatant.xp = xpReceived // left over xp
                     combatant.level += 1 // increase level
-                }
 
-                window.Sfx.levelUp.play()
+                    window.Sfx.levelUp.play()
+                }
 
                 combatant.update()
                 requestAnimationFrame(step)
