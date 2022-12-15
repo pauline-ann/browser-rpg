@@ -149,7 +149,7 @@ class BattleEvent {
                 combatant.xp += 1
 
                 // check if combatant levels up
-                if (combatant.xp === combatant.maxXp) {
+                if (combatant.xp >= combatant.maxXp) {
                     const prevMaxXp = combatant.maxXp
                     const prevMaxHp = combatant.maxHp
 
