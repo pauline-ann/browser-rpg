@@ -133,7 +133,7 @@ class OverworldMap {
       })
 
       // check if story flags are met before starting cutscene
-      relevantScenario && this.startCutscene(relevantScenario.events) // TODO: make index dynamic relative to story progress
+      relevantScenario && this.startCutscene(relevantScenario.events)
     }
   }
 }
