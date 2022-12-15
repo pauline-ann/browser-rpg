@@ -202,7 +202,15 @@ window.OverworldMaps = {
             events: [
               {
                 type: "textMessage",
-                text: "CYPHER: So, have you defeated all of the chefs yet?",
+                text: "CYPHER: Your pizzas look like they need some extra toppings!",
+                faceHero: "cypher",
+              },
+              {
+                type: "restPizzas"
+              },
+              {
+                type: "textMessage",
+                text: "CYPHER: There you go, good as new!!",
                 faceHero: "cypher",
               },
             ],
@@ -240,6 +248,11 @@ window.OverworldMaps = {
               {
                 type: "textMessage",
                 text: "CYPHER: Now go out there and show those pizza lords who's boss! You're our only hope in saving our town from pizza tyranny.",
+                faceHero: "cypher",
+              },
+              {
+                type: "textMessage",
+                text: "CYPHER: If you run into trouble and your pizzas need a rest, come talk to me and I can bring your pizzas back to good health!",
                 faceHero: "cypher",
               },
             ],

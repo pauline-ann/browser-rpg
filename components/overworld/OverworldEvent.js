@@ -146,6 +146,22 @@ class OverworldEvent {
         menu.init(document.querySelector(".game-container"))
     }
 
+    restPizzas(resolve) {
+        // update pizza health in player state
+        const playerState = window.playerState
+        Object.keys(playerState.pizzas).forEach(pizzaId => {
+            const playerStatePizza = playerState.pizzas[pizzaId]
+            playerStatePizza.hp = playerStatePizza.maxHp // bring back to full health
+        })
+
+        // send signal to update
+        utils.emitEvent("PlayerStateUpdated")
+
+        // play recover sfx
+        window.Sfx.recover.play()
+        resolve()
+    }
+
     init() {
         return new Promise(resolve => {
             this[this.event.type](resolve)
