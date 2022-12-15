@@ -135,9 +135,17 @@ class SubmissionMenu {
         })
     }
 
+    // AI battle decision
     decide() {
-        // enemies randomly decide what to do
         const maxIndex = this.caster.actions.length - 1
+
+        // if caster has a status already, then simply attack
+        if (this.caster.status) {
+            this.menuSubmit(Actions[this.caster.actions[maxIndex]])
+            return
+        }
+
+        // choose a random action
         const randomIndex = utils.randomIntFromInterval(0, maxIndex)
         this.menuSubmit(Actions[this.caster.actions[randomIndex]])
     }
