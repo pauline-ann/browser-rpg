@@ -28,7 +28,7 @@ window.Sfx = {
         src: [
             './db/music/Level Up.mp3',
         ],
-        volume: 0.2
+        volume: 0.5
     }),
     "faint": new Howl({
         src: [
