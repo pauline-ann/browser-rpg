@@ -10,7 +10,7 @@ window.Enemies = {
             }
         },
         textMessages: {
-            preBattle: "The goal of the battle is to defeat all of your opponent's pizzas. You have a mix of moves and items that range between harming the enemy and protecting your own pizzas. Strategize to defeat your opponent. Good luck!",
+            preBattle: "The goal of the battle is to defeat all of your opponent's pizzas. You have moves and items that can either harm the enemy or protect your own pizzas. You may also swap between your pizzas mid battle. Try to defeat me. Good luck!",
             battleWin: "Wow... impressive.",
             battleLoss: "You need more time to prepare."
         }
