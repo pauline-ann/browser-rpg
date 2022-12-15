@@ -193,7 +193,15 @@ window.OverworldMaps = {
               {
                 type: "textMessage",
                 text: "CYPHER: You beat all the chefs? You saved our town! Thank you, hero.",
-                faceHero: "cypher",
+                faceHero: "cypher"
+              },
+              {
+                type: "restPizzas"
+              },
+              {
+                type: "textMessage",
+                text: "CYPHER: There, your pizzas are good as new. It's the least I can do for everything you've done!",
+                faceHero: "cypher"
               },
             ],
           },
