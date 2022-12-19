@@ -1,5 +1,26 @@
 {
+  "name": "browser-rpg",
+  "version": "1.0.0",
+  "description": "A pizza themed RPG that is built for the browser.",
+  "main": "index.html",
   "dependencies": {
-    "howler": "^2.2.3"
+    "howler": "^2.2.3",
+    "serve": "^14.1.2"
+  },
+  "scripts": {
+    "start": "serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pauline-ann/browser-rpg.git"
+  },
+  "author": "Pauline",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pauline-ann/browser-rpg/issues"
+  },
+  "homepage": "https://github.com/pauline-ann/browser-rpg#readme",
+  "devDependencies": {
+    "node-sass": "^8.0.0"
   }
 }
