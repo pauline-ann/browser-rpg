@@ -3,8 +3,6 @@
 
 Pizza Legends is built entirely with HTML, CSS, and vanilla JavaScript.
 
-🎮 [Click here to play!](https://browser-rpg.herokuapp.com/)
-
 ### Features
 
 - Explore a town that's being threatened by pizza overlords whose pizzas that have come to life.
